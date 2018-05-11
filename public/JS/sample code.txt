@@ -1,0 +1,179 @@
+ <?php
+             /*
+              foreach($ThisStudentTerm as $EachStudentTerm)
+                  {
+                      $ThisStudent = Students::with('UserBelong')
+                              ->where('studentid', '=', $EachStudentTerm['student_belong']['studentid'] )
+                              ->get()->first()->toArray();
+                        //var_dump($ThisStudent);
+                        $Mystudentid = $EachStudentTerm['student_belong']['studentid'];
+                      $BigSearchArray['AllThisSTudent'][$Mystudentid] =  $ThisStudent;
+
+                    echo "<tr class='w3-hover-khaki'> " .
+                         "<td><b>" . $Count++ ."</b></td>" .
+                         "<td style='text-align:center'>". $ThisStudent['user_belong']['surname'] ." ".
+                                 $ThisStudent['user_belong']['middlename']." ".
+                                 $ThisStudent['user_belong']['firstname']
+                               .
+                          "</td>".
+                          "<td style='text-align:center'>".  $ThisStudent['school_admission_number'] ." </td>".
+                  
+                         '<!--<td>
+                           <div class="YearDiv">
+                              <span class="YearLabel"> Year </span>
+                              <select name = "Year" class="YearSelect w3-text-black" >
+                                  <option> -- Year -- </option>
+                                  <option value="2015"> 2015/2016 </option>
+                                  <option value="2016" > 2016/2017 </option>
+                              </select>
+                            </div> 
+                          </td> -->' .
+                         '<td style="text-align:center">
+                             <div class="ClassDiv">
+                                <span class="ClassLabel"> Class </span> <br/ >
+                                <select name = "Class" class="ClassSelect w3-text-black" >
+                                    <option> -- Class -- </option>
+                                    <option value="SS1">SS1</option>
+                                    <option value="SS2">SS2</option>
+                                    <option value="SS3">SS3</option>
+                                </select>
+                             </div>
+                          </td>' .
+                          '<td style="text-align:center">
+
+             <div class="SubClassDiv">
+            <span class="SubClassLabel"> SubClass </span><br/ >
+            <select name = "SubClass" class="SubClassSelect w3-text-black" >
+                 <option> -- Subclass -- </option>
+                 <option value="a">A</option>
+                 <option value="b">B</option>
+                 <option value="c">C</option>
+                 <option value="d">D</option>
+                 <option value="e">E</option>
+                 <option value="f">F</option>
+                 <option value="g">G</option>
+                 <option value="h">H</option>
+                 <option value="i">I</option>
+                 <option value="j">J</option>
+                 <option value="k">K</option>
+            </select> 
+        </div> </td>'.
+        '<td>
+              <input type="hidden" name="ChangeClassYearStudentID" class="StudentID" value = "' .$Mystudentid . '" />
+              <input type="button" class="ChangeClassYear w3-btn w3-text-white" value = "Change Class" />
+         </td>';
+         if( $ChoosenTerm['Year'] == "2015" and $ChoosenTerm['Class'] != "SS3")
+         {
+                    foreach($NextTerm as $select) 
+                      {
+                        $ComputedStudentTerm = StudentTerm::where('studentid' ,'=', $Mystudentid)->where('thistermid', '=', $select['id'])
+                                                          ->with("ThistermBelong")->get()->toArray();
+                         $PromotedStudentTerm[$Mystudentid][] = !empty($ComputedStudentTerm) ? 
+                                                                strtoupper( $ComputedStudentTerm[0]["thisterm_belong"]['classname'] . 
+                                                                            " " . $ComputedStudentTerm[0]["class_subdivision"] . " ".
+                                                                            $ComputedStudentTerm[0]["thisterm_belong"]['year'] 
+                                                                          ) : false;
+                      }
+                         $PromotedNewClass[$Mystudentid] = " ";
+                         $NewArrayStudentTerm = array_filter($PromotedStudentTerm[$Mystudentid] ); 
+                         $WhichString = (count( $NewArrayStudentTerm) >= 1 )  ? $YesString : $NoString;
+                         foreach($NewArrayStudentTerm as $NAST){ $PromotedNewClass[$Mystudentid] = $NAST ." ";  }
+                         
+          echo  '<td>
+                <input type="hidden" name="PromotionStudentId" class="StudentID" value = "' . $Mystudentid . '" />'. 
+                /*var_dump($PromotedStudentTerm[$Mystudentid]) . '
+              /*  <input type="button" class="PromoteStudent w3-btn w3-green w3-text-white" value = "Promote Student" />
+                </td>'.
+               "<td class='w3-center'>".$WhichString ."</td>";
+               if( $PromotedNewClass[$Mystudentid] != " ")
+               {
+                  list($PromotedNewClassName, $PromotedNewSubClass, $PromotedNewYear) = explode(" ",  $PromotedNewClass[$Mystudentid]);              
+                  echo "<td class='w3-center'><b><a class='w3-btn w3-orange w3-text-white w3-hover-light-green w3-hover-text-white' href=" . URL::route('student-term-list-page',array('Year' => $PromotedNewYear, 'Class' => $PromotedNewClassName, 
+                                               'SubClass' => $PromotedNewSubClass )). ">" . $PromotedNewClass[$Mystudentid] ."</a></b></td>";
+               }
+               else
+               {
+                  echo "<td class='w3-center'><b>" . $PromotedNewClass[$Mystudentid] ."</b></td>";
+               }
+               
+         }
+
+           if( $ChoosenTerm['Class'] == "SS3" and  $ChoosenTerm['Year'] != 2016)
+           {
+               
+                        $CheckGraduate = GraduateTable::where('studentid' ,'=', $Mystudentid)->get()->toArray();
+                        //var_dump($CheckGraduate);
+                        //$PromotedStudentTerm[$Mystudentid][] = !empty($ComputedStudentTerm) ? $ComputedStudentTerm[0]['id'] : false;
+                     
+                        // $NewArrayStudentTerm = array_filter($PromotedStudentTerm[$Mystudentid] ); 
+                         $GraduateString = ( !empty($CheckGraduate) )  ? $YesString : $NoString;
+                         $DisableMe = ( !empty($CheckGraduate) )  ? "disabled" : " " ;
+              
+                echo ' <td>
+                       <input type="hidden" name="GraduationStudentId" class="StudentID" value = "' . $Mystudentid . '" />'. 
+                      '<input type="button" class="GraduateStudent w3-btn w3-orange w3-text-white" value = "Graduate Student"' . $DisableMe .'/> </td>'.
+                      '<td>'. $GraduateString .'</td>';
+
+            }
+         echo "</tr>";
+                }//end for loop 
+                 echo "</table>";
+                  $BigSearchArray['ChooseTerm'] =  $ChoosenTerm;
+                //var_dump($BigSearchArray['AllThisSTudent']);die();
+             Session::put('BigSearchArray', $BigSearchArray ) ;
+        ?> 
+      
+
+  <input type="hidden" class="PromotionURL" name="ProPromotionURLmotionURL" value= "{{URL::route('promote-this-student')}}" />
+  <input type="hidden" class="GraduationURL" name="GraduationURL" value= "{{URL::route('graduate-this-student')}}" />
+  <input type="hidden" class="ChangeClassURL" name="ChangeClassURL" value= "{{URL::route('change-student-class')}}" />
+  <input type="hidden" class="CurrentYear" name="CurrentYear" value= "{{$ChoosenTerm['Year']}}" />
+  <input type="hidden" class="OldClass" name="OldClass" value= "{{$ChoosenTerm['Class']}}" />
+  <span class="ReportStudentClass"></span>
+ <!--
+   <a href="{{URL::action('get-student-list-pdf')}}"  class="btn btn-primary"> Download report sheet  </a><br />
+         <table border= 1  class="" >
+                <tr>
+                  <td colspan="5" bgcolor="grey" style="padding:0; margin:0;">
+                         <p style="text-align:center;color:white;"> 
+                         <b> List of students in  {{ $ChoosenTerm['Class']." "
+                             .strtoupper($ChoosenTerm['SubClass'])." ". $ChoosenTerm['Year'] }}   </b> 
+                         </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="text-align:center,font-weight:bold;" > S/N </td>
+                   <td style="text-align:center;"> Name of Student</td>
+                  <td style="text-align:center;"> Admission Number</td>
+                  <td style="text-align:center;"> Login Email </td>
+                  <td style="text-align:center;"> Login Password </td>
+                </tr>
+               
+                <?php
+                $serial = 1;
+            echo "<p class='StudentListInfo'> Total number of students: <b>". count($ThisStudentTerm)."</b></p><br />";
+            //var_dump($ThisStudentTerm);
+            echo "<br />";
+            foreach($ThisStudentTerm as $EachStudentTerm)
+                {
+                    $ThisStudent = Students::with('UserBelong')
+                            ->where('studentid', '=', $EachStudentTerm['student_belong']['studentid'] )
+                            ->get()->first()->toArray();
+                      //var_dump($ThisStudent);
+                    echo "<tr> <td  style='text-align:center;'>" . $serial++ . "</td>
+                          <td  style='text-align:center;'><b>".  ucfirst($ThisStudent['user_belong']['surname'])." ".ucfirst($ThisStudent['user_belong']['middlename'])." ".
+                                     ucfirst($ThisStudent['user_belong']['firstname']).
+                         "</b></td>
+                         <td  style='text-align:center;'>" .  $ThisStudent['school_admission_number'] ."</td>
+                        <td  style='text-align:center;' >" .  $ThisStudent['user_belong']["useremail"] ."</td>
+                        <td style='text-align:center;'> <b> " .  $ThisStudent['password']. "</b></td>
+                        </tr>";
+                }//end for loop  
+        ?> */
+
+               
+                
+             
+              </table>
+              -->

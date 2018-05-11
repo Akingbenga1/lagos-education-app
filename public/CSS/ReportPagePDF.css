@@ -1,0 +1,421 @@
+*
+{
+  margin: 0px;
+  padding: 0px;
+  font-size: 10pt;
+}
+table.ThirdTermAcademicTable
+{
+  /*+placement: -1px -92px;*/
+  position: relative;
+  left: -1px;
+  top: -92px;
+  width: 955px;
+}
+.StudentDataTable
+{
+  /*+placement: 2px 12px;*/
+  position: relative;
+  left: 2px;
+  top: 12px;
+}
+.YearLabel
+{
+  font-weight: bold;
+  color: #7F6E6E;
+}
+h3
+{
+  border-bottom: 2px solid #E07575;
+}
+.YearError
+{
+  background-color: #E1DDDD;
+  padding-top: 11px;
+  padding-bottom: 7px;
+  padding-left: 8px;
+}
+.TermError
+{
+  background-color: #DAF0C2;
+  padding-left: 4px;
+  padding-top: 11px;
+  padding-bottom: 7px;
+  /*+placement: -1px -31px;*/
+  position: relative;
+  left: -1px;
+  top: -31px;
+}
+.ClassError
+{
+  /*+placement: 302px -69px;*/
+  position: relative;
+  left: 302px;
+  top: -69px;
+  background-color: #DFB7B7;
+  padding-top: 12px;
+  padding-bottom: 6px;
+  padding-left: 4px;
+}
+.YearSelect
+{
+  background-color: #C5C0C0;
+  width: 280px;
+  /*+placement: -35px 34px;*/
+  position: relative;
+  left: -35px;
+  top: 34px;
+  height: 40px;
+}
+.TermSelect
+{
+  /*+placement: 277px -5px !important;*/
+  position: relative !important;
+  left: 277px !important;
+  top: -5px !important;
+  background-color: #B6E683 !important;
+  width: 280px;
+  height: 40px;
+}
+.TermLabel
+{
+  /*+placement: 316px -41px;*/
+  position: relative;
+  left: 316px;
+  top: -41px;
+  font-weight: bold;
+  color: #63BB06;
+}
+body
+{
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+}
+.ClassSelect
+{
+  /*+placement: 582px -51px;*/
+  position: relative;
+  left: 582px;
+  top: -51px;
+  background-color: #D4AEAE;
+  width: 310px;
+  height: 40px;
+}
+.StudentLabel
+{
+  /*+placement: -8px -15px;*/
+  position: relative;
+  left: -8px;
+  top: -15px;
+}
+.StudentNumberLabel
+{
+  /*+placement: -5px -39px;*/
+  position: relative;
+  left: -5px;
+  top: -39px;
+}
+.ReportButton
+{
+  /*+placement: 63px -39px !important;*/
+  position: relative !important;
+  left: 63px !important;
+  top: -39px !important;
+  /*+border-radius: 0;*/
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -khtml-border-radius: 0;
+  border-radius: 0;
+  background-color: #EE3135;
+  border: 1px solid #EFEFEF;
+  color: #EFEBEB;
+}
+.StudentError
+{
+  /*+placement: 622px -5px;*/
+  position: relative;
+  left: 622px;
+  top: -5px;
+  padding-top: 14px;
+  background-color: #D6C8C8;
+  padding-bottom: 16px;
+  padding-right: 65px;
+  padding-left: 38px;
+}
+.LogintError
+{
+  padding-top: 14px;
+  background-color: #ECBABA;
+  padding-bottom: 16px;
+  padding-right: 65px;
+  padding-left: 9px;
+  /*+placement: 2px 7px;*/
+  position: relative;
+  left: 2px;
+  top: 7px;
+  border: 1px dashed #E96868;
+}
+.AcademicHeading th
+{
+  background-color: #E0DEDE;
+  color: #5D5454;
+  padding-left: 7px;
+}
+.StudentInput
+{
+  /*+placement: 1px -38px;*/
+  position: relative;
+  left: 1px;
+  top: -38px;
+}
+.ClassLabel
+{
+  /*+placement: 625px -85px;*/
+  position: relative;
+  left: 625px;
+  top: -85px;
+  font-weight: bold;
+  color: #ED7070;
+}
+.EmailLabel
+{
+  font-weight: bold;
+  font-size: 15px;
+  color: #C34242;
+}
+.PasswordLabel
+{
+  font-weight: bold;
+  font-size: 15px;
+  color: #C34242;
+}
+.LoginEmail
+{
+  /*+placement: 29px -1px;*/
+  position: relative;
+  left: 29px;
+  top: -1px;
+}
+.SignIn
+{
+  /*+placement: 175px 14px;*/
+  position: relative;
+  left: 175px;
+  top: 14px;
+  /*+border-radius: 0;*/
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -khtml-border-radius: 0;
+  border-radius: 0;
+  background-color: #EE3135;
+  border: 0px solid #FFFFFF;
+  padding-top: 8px;
+  padding-left: 10px;
+  padding-bottom: 8px;
+  padding-right: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.3em;
+  color: #FFFFFF;
+}
+.ForgotLabel
+{
+  /*+placement: 113px 24px;*/
+  position: relative;
+  left: 113px;
+  top: 24px;
+  color: #D37272;
+}
+.AcademicCells td
+{
+  padding-left: 5px;
+  word-wrap: normal;
+}
+.EveryFirstColumn
+{
+  width: 320px;
+}
+.GradeTable
+{
+  /*+placement: 1px -79px;*/
+  position: relative;
+  left: 1px;
+  top: -79px;
+  width: 926px;
+}
+.GradeTable tbody tr td
+{
+  padding-left: 6px;
+}
+.SportTable tbody tr td
+{
+  padding-left: 7px;
+  padding-right: 16.5px;
+}
+.SportTable
+{
+  /*+placement: 1px -92px;*/
+  position: relative;
+  left: 1px;
+  top: -92px;
+  width: 926px;
+}
+.ClubTable
+{
+  width: 928px;
+  /*+placement: -2px -98px;*/
+  position: relative;
+  left: -2px;
+  top: -98px;
+}
+.StudentDataTable tbody tr td
+{
+  padding-left: 6px;
+  border: 1px solid black;
+}
+table
+{
+  border-collapse: collapse;
+}
+table td
+{
+  font-size: smaller;
+}
+.PageHeading
+{
+  height: 150px;
+}
+.AbsenceDataTable
+{
+  /*+placement: 546px -131px;*/
+  position: relative;
+  left: 546px;
+  top: -131px;
+  width: 378px;
+  text-align: center;
+}
+.AbsenceDataTable, .AdjustThirdTerm, .TermDurationTable tr
+{
+  text-align: center;
+}
+.TermDurationTable
+{
+  /*+placement: 546px -116px;*/
+  position: relative;
+  left: 546px;
+  top: -116px;
+  width: 380px;
+  text-align: center;
+}
+.AdjustThirdTerm
+{
+  width: 407px !important;
+}
+.AdjustThirdTermBelow
+{
+  width: 954px !important;
+  /*+placement: -2px -74px;*/
+  position: relative;
+  left: -2px;
+  top: -74px;
+}
+#AdjustThirdTermClub
+{
+  width: 954px !important;
+  /*+placement: -3px -164px;*/
+  position: relative;
+  left: -3px;
+  top: -164px;
+}
+.AdjustThirdTermSport
+{
+  width: 954px !important;
+  /*+placement: -2px -25px;*/
+  position: relative;
+  left: -2px;
+  top: -25px;
+}
+/*.PageHeading
+{
+}*/
+.AcademicTable
+{
+  /*+placement: -1px -92px;*/
+  position: relative;
+  left: -1px;
+  top: -92px;
+  width: 926px;
+}
+.PageHeading .SealStatement
+{
+  text-align: center;
+  width: 650px;
+  /*+placement: 138px -130px;*/
+  position: relative;
+  left: 138px;
+  top: -130px;
+  /*border: 1px solid black;*/
+  font-size: 18px;
+  font-weight: bold;
+}
+.PageHeading .IjayeLogo
+{
+  width: 190px;
+  height: 193px;
+  /*+placement: 755px -245px;*/
+  position: relative;
+  left: 755px;
+  top: -245px;
+  text-align: center;
+}
+.PageHeading .LagosLogo
+{
+  /*+placement: 0px -1px;*/
+  position: relative;
+  left: 0px;
+  top: -1px;
+}
+.ReportBottom
+{
+  /*+placement: -13px -105px;*/
+  position: relative;
+  left: -13px;
+  top: -105px;
+}
+.ClubTable tbody tr td
+{
+  padding-left: 10px;
+}
+.ThisTermName
+{
+  margin-top: 0;
+  /*+placement: 103px -117px;*/
+  position: relative;
+  left: 103px;
+  top: -117px;
+  padding-left: 238px;
+  font-size: 26px;
+  color: #000000;
+}
+div.ReportBottom b.ClassTeacherCommentText
+{
+  display: inline-block;
+  border-bottom: 1px dashed black;
+  width: 650px;
+}
+.ClassTeacherCommentSecond
+{
+  width: 551px;
+  display: inline-block;
+  border-bottom: 1px dashed black;
+}
+div.ReportBottom span.ParentSignatureStatement
+{
+  width: 551px;
+  display: inline-block;
+}
+div.ReportBottom span.ClassTeacherSignatureDate
+{
+  display: inline-block;
+}

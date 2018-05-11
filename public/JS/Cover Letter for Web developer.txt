@@ -1,0 +1,12 @@
+I am the author of the following website:
+
+ ijayehousingestatesenior.com.ng :
+
+  1.    Please, check the "Practise Question" link and select 2015 >> SS1 >> English Language  --> ( Laravel, PHP, MySQL,  JQuery and W3.css in Action  )
+
+  2.    Please, test-run student report page using the following: Student Admission Number = 2345, 2015/2016 >>first term >> SS1 >> A. -----> (Laravel, PHP, MySQl, HTML - to- PDF converter technology in Action , don't forget to click the download button! )
+
+This is just the tip of the iceberg, wait till you see the Teachers/Administrative back-end pages fully built with Roles/Permissions just like a SAP program and a Click Once, Save All buttons for student scores input.
+
+Best Regards,
+Akinbami Gbenga

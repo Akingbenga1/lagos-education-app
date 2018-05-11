@@ -1,0 +1,3 @@
+<p>&quot;<em>Hello Musa</em>&quot; is a <ins>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</ins>opening for a friendly letter but it is <strong><ins>inappropriate&nbsp;</ins></strong>for a formal letter.</p>
+
+casual    serious   happy  suitable

@@ -1,0 +1,2490 @@
+*
+{
+	margin: 0%;
+	padding: 0%;
+}
+div.ThirdStep img.ThirdImage
+{
+	width: 45%;
+	float: left;
+	height: 40vw;
+	/*+border-radius: 10%;*/
+	-moz-border-radius: 10%;
+	-webkit-border-radius: 10%;
+	-khtml-border-radius: 10%;
+	border-radius: 10%;
+	margin-left: 30%;
+}
+div.ThirdStepWords
+{
+	width: 40%;
+	float: left;
+	margin-left: 5%;
+	height: 20vw;
+	font-size: 1vw;
+	margin-top: 10%;
+}
+div.ThirdStep
+{
+	width: 100%;
+	height: 45vw;
+	padding-top: 2%;
+	background-color: #E8E2E2;
+	padding-left: 2%;
+}
+div.BigWrapper
+{
+	margin: auto;
+	width: 100%;
+}
+body
+{
+	margin: 0%;
+	padding: 0%;
+	height: 100%;
+}
+div.ActionPanel
+{
+	width: 39%;
+	float: left;
+	font-size: 1vw;
+	height: 32vw;
+	margin-top: 2.5vw;
+}
+div.InfoGraphPanel
+{
+	background-color: #FFFFFF;
+	width: 100%;
+	/*margin-top: 24%;*/
+	height: 9.2vw;
+	background-image: linear-gradient(to bottom, #0A50AB 15%, #7FA7DF);
+	/*margin-left: 2%;*/
+	color: #FFFFFF;
+	/*position: fixed;*/
+}
+p.CheckDownload
+{
+	margin-top: 3%;
+	background-color: #2C2398;
+	font-weight: bold;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	/*+border-radius: 1em;*/
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	-khtml-border-radius: 1em;
+	border-radius: 1em;
+	/*font-size: 2vw;*/
+}
+p.CheckDownload:hover
+{
+	background-color: #271E86;
+}
+p.CheckDownload a
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+div.StudentInfo p
+{
+	font-size: 1vw;
+	float: left;
+	width: 24%;
+	text-align: center;
+	font-weight: 500;
+}
+div.DivisionContainerInner div.FirstStep
+{
+	height: 35vw;
+	clear: both;
+}
+div.DivisionContainerInner div.SecondStep
+{
+	width: 90%;
+	height: 45vw;
+	clear: both;
+	margin: auto;
+}
+div.DummySecondStep
+{
+	background-image: linear-gradient(to right, #8C9EA2 15%, #851A75);
+	background-color: #851A75;
+	padding-top: 5%;
+	height: 55vw;
+}
+div.FancySteps h3
+{
+	border: 0px solid black !important;
+	background-color: rgba(255, 255, 255, 0) !important;
+	text-align: left !important;
+	/*font-size: 6vw;*/
+}
+div.SecondStepWords h2
+{
+	font-size: 3.6vw;
+}
+div.SecondStep div.SecondStepWords
+{
+	color: #851A75;
+	position: absolute;
+	top: 40%;
+	left: 55%;
+	width: 45%;
+	font-size: 2vw;
+}
+div.SecondStepWords p
+{
+	color: #FDF5FC;
+	width: 45%;
+	margin-left: 53%;
+	margin-top: 15%;
+	font-weight: bold;
+}
+div.FirstStep div.FirstStepWords
+{
+	float: left;
+	width: 40%;
+	height: 15vw;
+	padding-left: 1%;
+	font-size: 1vw;
+	margin-top: 10%;
+	/*border: 1px solid black;*/
+}
+div.FirstStep img
+{
+	float: left;
+	margin-left: 1%;
+	width: 45%;
+	height: 34vw;
+}
+div.StudentInfo p:nth-child(2)
+{
+	width: 28%;
+}
+div.StudentInfo p span
+{
+	font-size: 3vw;
+}
+div.StudentInfo p:nth-child(4)
+{
+	/*margin-left: 5%;*/
+	/*width: ;*/
+}
+div.StudentInfo p:nth-child(2) span
+{
+	/*margin-left: 30%;*/
+}
+div.StudentPanel
+{
+	width: 90%;
+	border-top-left-radius: 1vw;
+	border-top-right-radius: 1vw;
+	border: 1px solid #C0BABA;
+	background-color: #FFFFFF;
+}
+div.StudentPanel h4
+{
+	height: 2vw;
+	margin-top: 0.0vw;
+	font-size: 2vw;
+	border-top-left-radius: 1vw;
+	border-top-right-radius: 1vw;
+	border-bottom: 1px solid #C0BABA;
+	text-align: center;
+}
+div.StudentPanel .ActionPoint
+{
+	clear: both;
+	height: 4vw;
+	margin-bottom: 0vw;
+	border-top: 1px solid #C0BABA;
+	padding-top: 1vw;
+	padding-left: 10vw;
+	margin-top: 2vw;
+	background-color: #F1F1F1;
+}
+div.TeacherPanel h4
+{
+	font-size: 2vw;
+}
+div.HomePageSlider .SlideShowMin
+{
+	width: 100%;
+	height: 100%;
+}
+div.HomePageSlider
+{
+	width: 60%;
+	height: 35vw;
+	float: left;
+	margin-top: 1.5vw;
+}
+div.StudentListHeading
+{
+	padding-left: 30%;
+	clear: both;
+}
+div.HomePageSlider .SlideShowMin
+{
+	width: 100%;
+	height: 100%;
+}
+div.HomePageSlider #number
+{
+	display: none;
+}
+div.HomePageSlider .SlideShowMin ul li p
+{
+	float: left;
+	font-size: 1vw;
+	width: 40%;
+	display: none;
+	height: 206px;
+	display: none;
+	visibility: hidden;
+}
+div.HomePageSlider .SlideShowMin ul li img
+{
+	width: 100%;
+	height: 32vw;
+	float: left;
+	margin-top: 1vw;
+}
+div.HomePageSlider div.SlideShowMin ul
+{
+	width: 100% !important;
+	height: 40vw !important;
+}
+div.HomePageSlider div.SlideShowMin ul li
+{
+	width: 100% !important;
+	height: 40vw !important;
+}
+.AdminLinks
+{
+	width: 55%;
+	float: left;
+	height: 4.5vw;
+	padding-bottom: 2vw;
+	margin-top: 1.2vw;
+	padding-left: 5%;
+}
+div.ClassLinks
+{
+	width: 45%;
+	float: left;
+	height: 4.5vw;
+	border-bottom: 1vw solid #3178D8;
+	margin-top: 1.2vw;
+}
+div.ClassLinks .YearSelectAdmin
+{
+	clear: both;
+	background-color: #518BD6;
+	/*color: #901212;*/
+}
+div.ClassLinks p
+{
+	font-size: 1vw;
+	float: left;
+	width: 27%;
+	background-color: #377CD6;
+	color: #FFFFFF;
+	font-weight: bold;
+	height: 4vw;
+	padding-left: 1%;
+	display: block;
+}
+p.GetStudentForDetailsEdit
+{
+	font-size: 1vw;
+	padding-left: 14px;
+}
+form.GetStudentForDetailsEditForm
+{
+	font-size: 1vw;
+	width: 50%;
+	margin-left: 2vw;
+}
+p.StudentEditFormInstruction
+{
+	font-size: 1vw;
+}
+div.ClassLinks a
+{
+	font-size: 0.9vw;
+	background-color: #86B2EB;
+	padding: 1% 1%;
+	margin-left: 3%;
+	width: 20%;
+	border: 1px solid #4892F2;
+	color: #FFFFFF;
+	font-weight: bold;
+	float: left;
+	margin-top: 2%;
+	height: 2.5vw;
+	text-decoration: none;
+	text-align: center;
+}
+div.ClassLinks a:hover
+{
+	background-color: #D98989;
+	border: 1px solid #F45E5E;
+}
+.autocomplete-suggestions strong
+{
+	font-weight: bold;
+	color: #000;
+}
+.AdminLinks a
+{
+	text-decoration: none;
+	color: #FFFFFF;
+	font-weight: bold;
+	background-color: #E65B5E;
+	font-size: 1vw !important;
+	padding: 2% 3%;
+	float: left;
+	margin-top: 1%;
+}
+.AdminLinks a:hover
+{
+	text-decoration: none;
+	font-weight: bold;
+	background-color: #86B2EB;
+}
+.autocomplete-suggestions
+{
+	border: 1px solid #999;
+	background: #FFF;
+	cursor: default;
+	overflow: hidden;
+	-webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64);
+	-moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64);
+	box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64);
+	width: 25vw !important;
+}
+.autocomplete-suggestion
+{
+	padding: 2px 5px;
+	white-space: nowrap;
+}
+.autocomplete-suggestion:hover
+{
+	background-color: #F0F0F0;
+}
+.NavBar
+{
+	width: 55%;
+	color: #FFFFFF;
+	margin-left: 20%;
+}
+.NavBar a
+{
+	font-size: 1vw;
+	/*color: #0A50AB;*/
+	padding: 2% 2% 2% 2%;
+	width: 15%;
+	float: left;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.NavBar a:first-child
+{
+	/*border-bottom-left-radius: 5px;*/
+}
+.NavBar a:nth-child(3)
+{
+	/*border-bottom-right-radius: 5px;*/
+}
+.MainHeader .MainHeaderLogo
+{
+	width: 15%;
+	float: left;
+}
+.MainHeader .MainHeaderLogo img
+{
+	width: 13%;
+	z-index: 100;
+	/*+placement: displace;*/
+	position: absolute;
+	margin-left: 0;
+	margin-top: 0;
+	/*height: ;*/
+	/*margin-top: 0.8vw;*/
+	/*margin-left: 2vw;*/
+}
+.NavBar a:hover
+{
+	text-decoration: none;
+	/*background-color: #D98989;*/
+	color: #3050F1;
+}
+div.OffsetBlock p
+{
+	font-size: 1.2vw;
+	float: left;
+	width: 60%;
+	margin-top: 0.5vw;
+	color: #5609F0;
+	font-weight: bold;
+}
+.YearLabel
+{
+	font-weight: bold;
+	color: #1A1717;
+	font-size: 1vw;
+}
+div.BigWrapper h3
+{
+	border-bottom: 2px solid #E07575;
+	font-size: 2vw;
+	clear: both;
+	line-height: 2.7vw;
+	width: 100%;
+	/*margin-bottom: 2.5vw;*/
+	background-color: #FFFFFF;
+	padding-left: 2%;
+	text-align: center;
+	/*margin-top: -10%;*/
+	margin-top: 5%;
+	/*background: rgba(255, 255, 255, 0.8) url('http://sampsonresume.com/labs/pIkfp.gif') 50% 50% no-repeat;*/
+}
+div.GeneralUpadte
+{
+	font-size: 0.9vw;
+	clear: both;
+	padding-left: 2%;
+	margin-top: -2%;
+	/*border: 1px solid black;*/
+	margin-bottom: 3%;
+}
+div.HomeUpdate
+{
+	font-size: 1.5vw;
+	clear: both;
+	padding-left: 2%;
+	margin-top: -2%;
+	margin-bottom: 3%;
+}
+div.DivisionContainerInner
+{
+	margin-top: -5vw;
+	clear: both;
+	width: 100%;
+	height: 20vw;
+}
+div.SlideShowMin
+{
+	width: 100% !important;
+	height: 40vw !important;
+}
+div.SlideShowMin ul
+{
+	width: 100% !important;
+	height: 40vw !important;
+}
+div.SlideShowMin ul li
+{
+	width: 100% !important;
+	height: 40vw !important;
+}
+div.SlideShowMin ul li img
+{
+	width: 100% !important;
+	height: 40vw !important;
+}
+div.SlideShowMin ul li img.ShareIMGSlide
+{
+	width: 50% !important;
+	float: left !important;
+}
+div.GeneralUpadte p
+{
+	background-color: #F7ECB5;
+	padding-left: 2%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	/*margin-top: -0.5vw;*/
+}
+div.HomeUpdate p
+{
+	background-color: #952F30;
+	padding-left: 5%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	color: #FDFDFD;
+	text-align: center;
+}
+div.HomeUpdate .HomeUpdateDate
+{
+	color: #5C9DF4;
+	font-weight: 300;
+}
+div.LoginForm form
+{
+	width: 100%;
+	padding-left: 30%;
+}
+/*H3
+{
+	border-bottom: 2px solid #E07575;
+	font-size: 2vw;
+	clear: both;
+	line-height: 2.7vw;
+	margin-left: 10%;
+	width: 88%;
+	padding-left: 2%;
+}*/
+.StudentRegistrationForm
+{
+	padding-left: 1%;
+	padding-bottom: 10%;
+	background-color: #377CD6;
+	border-radius: 15px;
+	border: 1px solid #B9B9B9;
+	/*+box-shadow: 0px 1px #DBD7D7;*/
+	-moz-box-shadow: 0px 1px #DBD7D7;
+	-webkit-box-shadow: 0px 1px #DBD7D7;
+	box-shadow: 0px 1px #DBD7D7;
+	clear: both;
+	width: 100%;
+	font-size: 1vw;
+	height: 41vw;
+	background-image: linear-gradient(to bottom, white 35%, #FCDEE1);
+}
+.StudentRegistrationForm form input
+{
+	width: 100%;
+	height: 3vw;
+}
+.StudentRegistrationForm #StudentFirstname
+{
+}
+.StudentRegistrationForm #RegistrationButton
+{
+	border: 1px solid #7EA6DC;
+	margin-left: 46%;
+	width: 29vw;
+}
+#StudentAdmissionNumber
+{
+	margin-left: 1%;
+}
+.StudentRegistrationForm #RegistrationButton:hover
+{
+	background-color: #FCDEE1;
+}
+.StudentRegistrationForm #StudentSurname
+{
+}
+.ChooseTermBox div
+{
+	width: 24%;
+	font-size: 1vw;
+	float: left;
+	margin-left: 1%;
+}
+div.ChooseTermError
+{
+	clear: both;
+	margin-top: -1%;
+	height: 5vw;
+}
+div.ChooseTermError div
+{
+	float: left;
+	width: 23%;
+	height: 4vw;
+	margin-left: 1%;
+	padding-top: 1%;
+	font-weight: bold;
+}
+div.ClearBoth
+{
+	clear: both;
+}
+div.InputBlock
+{
+	width: 100%;
+	clear: both;
+}
+div.InputBlock p
+{
+	width: 46%;
+	float: left;
+	margin-top: 4%;
+}
+div.InputBlock div
+{
+	width: 51%;
+	float: left;
+}
+div.InputBlock div span
+{
+	font-size: 0.9vw;
+}
+.YearError
+{
+	/*background-color: #DFB7B7;*/
+	/*padding-top: 1vw;*/
+	/*padding-bottom: 1vw;*/
+	/*padding-left: 1vw;*/
+	/*padding-right: 0vw;*/
+	/*(*+placement: 0% -0.8vw;*)
+									position: relative;
+									left: 0%;
+									top: -0.8vw;*/
+	/*font-size: 0.8vw;*/
+	width: 90%;
+}
+.TermError
+{
+	background-color: #DFB7B7;
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	padding-left: 1vw;
+	padding-right: 0vw;
+	/*+placement: 0% -0.8vw;*/
+	position: relative;
+	left: 0%;
+	top: -0.8vw;
+	font-size: 0.8vw;
+	width: 90%;
+}
+.ClassError
+{
+	/*background-color: #DFB7B7;*/
+	/*(*+placement: 0% -0.8vw;*)
+									position: relative;
+									left: 0%;
+									top: -0.8vw;*/
+	/*padding: 1vw 0vw 1vw 1vw;*/
+	/*font-size: 0.8vw;*/
+	width: 90%;
+}
+.YearSelect
+{
+	background-color: #C5C0C0;
+}
+.TermSelect
+{
+	background-color: #C5C0C0 !important;
+}
+.ClassSelect
+{
+	background-color: #C5C0C0 !important;
+}
+.SubClassSelect
+{
+	background-color: #C5C0C0 !important;
+}
+.SubClassLabel
+{
+	color: #1A1717;
+	font-weight: bold;
+	font-size: 1vw;
+}
+.SubClassError
+{
+	/*background-color: #DFB7B7;*/
+	/*(*+placement: 0% -0.8vw;*)
+									position: relative;
+									left: 0%;
+									top: -0.8vw;*/
+	/*padding: 1vw 0vw 1vw 1vw;*/
+	/*font-size: 0.8vw;*/
+	width: 90%;
+}
+.MainHeader
+{
+	height: 5vw;
+	width: 100%;
+	/*background-image: url('../Images/Logos/b.JPG');*/
+	/*border: 1px solid black;*/
+	background-color: #F27D7F;
+}
+.TermLabel
+{
+	font-weight: bold;
+	color: #1A1717;
+}
+div.BossLevel
+{
+	width: 100%;
+	/*background-color: #E98D8D;*/
+	height: 100%;
+	margin-bottom: 3em;
+}
+p.BossLevelStatement
+{
+	/*+placement: 0% 9%;*/
+	position: relative;
+	left: 0%;
+	top: 9%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 2.0vw;
+}
+img.BossLevelLagosLogo
+{
+	width: 25%;
+	height: 100%;
+	margin-left: 39%;
+	/*+border-radius: 100%;*/
+	-moz-border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-khtml-border-radius: 100%;
+	border-radius: 100%;
+}
+div.MiddleLevel
+{
+	width: 90%;
+	/*+placement: 0% 0px;*/
+	position: relative;
+	left: 0%;
+	top: 0px;
+	height: 24vh;
+	text-align: center;
+	margin-top: -40px;
+	margin-left: 4%;
+}
+div.MiddleLevelDSVision p
+{
+	text-align: center;
+	background-color: rgba(240, 240, 240, 0.672);
+	font-size: 1.8vw;
+}
+div.MiddleLevelDSMotto p
+{
+	text-align: center;
+	background-color: rgba(251, 251, 251, 0.698);
+	font-size: 1.8vw;
+}
+.MiddleLevel .MiddleLevelDSHeading
+{
+	font-size: 2.3vw;
+	text-align: center;
+	background-color: rgba(240, 240, 240, 0.569);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: 1px solid #CCCCCC;
+	font-weight: bold;
+}
+div.MiddleLevelDSVision span
+{
+	font-size: 1.1vw;
+	padding-left: 1%;
+	color: #FFFFFF;
+	font-weight: 800;
+}
+.MiddleLevel .MiddleLevelDSMotto
+{
+	width: 48%;
+	height: 25vh;
+	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	border-bottom-right-radius: 15px;
+	background-color: rgba(132, 132, 132, 0.310);
+	float: left;
+	margin-left: 4%;
+	background-image: linear-gradient(to bottom, #474747 45%, #272727);
+}
+.MiddleLevel .MiddleLevelDSVision
+{
+	border: 1px solid #CCCCCC;
+	width: 48%;
+	height: 25vh;
+	font-size: 90%;
+	border-bottom-left-radius: 15px;
+	background-color: rgba(88, 88, 88, 0.293);
+	float: left;
+	background-image: linear-gradient(to bottom, #474747 45%, #272727);
+	color: #272727;
+}
+div.MiddleLevelDSMotto span
+{
+	font-size: 1.1vw;
+	padding-left: 1%;
+	color: #FFFFFF;
+	font-weight: 800;
+}
+div.LowLevel
+{
+	width: 85%;
+	margin-left: 6%;
+	clear: both;
+	margin-top: 8vw;
+}
+div.LowLevelSCHVision
+{
+	width: 48%;
+	height: 30vw;
+	border-right: 1px solid #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+	border-left: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	border-bottom-left-radius: 15px;
+	background-color: rgba(132, 132, 132, 0.224);
+	float: left;
+	color: #000000;
+	background-image: linear-gradient(to bottom, #474747 45%, #272727);
+}
+.LowLevelSCHHeading
+{
+	border: 1px solid #CCCCCC;
+	font-size: 2.0vw;
+	text-align: center;
+	width: 100%;
+	background-color: rgba(240, 240, 240, 0.569);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 5vw;
+	display: block;
+	margin-top: 3vw;
+	font-weight: bold;
+}
+div.DivisionContainer
+{
+	margin-top: 1vw;
+	clear: both;
+	width: 100%;
+	height: 60vw;
+}
+img.HomeIcon
+{
+	width: 10%;
+}
+div.LowLevelSCHMission
+{
+	width: 48%;
+	height: 30vw;
+	border: 1px solid #CCCCCC;
+	border-bottom-right-radius: 15px;
+	background-color: rgba(132, 132, 132, 0.25);
+	float: left;
+	margin-left: 4%;
+	color: #FFFFFF;
+	background-image: linear-gradient(to bottom, #474747 45%, #272727);
+}
+.LowLevelSCHVision div
+{
+	text-align: center;
+	background-color: rgba(251, 251, 251, 0.810);
+	font-size: 1.5vw;
+	width: 100%;
+	border: 0px solid black !important;
+}
+div.LowLevelSCHMission div
+{
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.698);
+	font-size: 1.5vw;
+	/*+placement: 0% 0%;*/
+	position: relative;
+	left: 0%;
+	top: 0%;
+	color: #000000;
+}
+div.LowLevelSCHVision p
+{
+	font-size: 1.2vw;
+	padding-left: 3%;
+	text-align: justify;
+	padding-right: 2%;
+	font-weight: 800;
+	color: #FFFFFF;
+}
+.LowLevel div.LowLevelSCHMission p
+{
+	font-size: 1.1vw;
+	padding-left: 3%;
+	border-bottom: 1px solid #F4F4F4;
+	text-align: justify;
+	padding-right: 2%;
+	color: #FFFFFF;
+	font-weight: 800;
+}
+.ChooseTermBox
+{
+	background-color: #E9E5E5;
+	padding-top: 2%;
+	height: 13vw;
+	padding-right: 1%;
+	box-shadow: 0.1vw 0.1vw 0.8vw #160E0E;
+	clear: both;
+}
+div.ChooseTermBox:hover
+{
+	box-shadow: 0.1vw 0.1vw 0.8vw #594ACB;
+}
+div.ChooseTermBox div select
+{
+	width: 100%;
+	height: 5vw;
+	font-size: 1vw;
+}
+div.ScoreInputProcess .ScoreInputSubjects
+{
+	width: 100%;
+	height: 2vw;
+	background-color: #3C7FC1;
+	color: #FDFDFD;
+}
+div.ScoreInputProcess p.ScoreInputInstruction b:first-child
+{
+	font-size: 1.5vw;
+}
+div.ScoreInputSubmit #AutoButton
+{
+	background-color: #D98989;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 1.5vw;
+	width: 100%;
+	border: 1px solid #E7E7E7;
+}
+div.ScoreInputSubmit #AutoButton:hover
+{
+	background-color: #FBFBFB;
+	/*padding: 1vw;*/
+	color: #D98989;
+	font-weight: bold;
+	font-size: 1.5vw;
+	/*margin-top: -22%;*/
+	width: 100%;
+	border: 1px solid #D4D2D2;
+}
+div.ScoreInputSubmit a
+{
+	color: #D98989;
+	font-weight: bold;
+	font-size: 1.5vw;
+}
+input#autocomplete-custom-append
+{
+	width: 100%;
+	height: 3vw;
+	color: #2E89E3;
+	display: block;
+	border: 2px solid #2E89E3;
+}
+div.ScoreInputProcess input
+{
+	color: #2E89E3;
+	display: block;
+	border: 2px solid #2E89E3;
+}
+.StudentLabel
+{
+	/*+placement: 0.3% 0%;*/
+	position: relative;
+	left: 0.3%;
+	top: 0%;
+	font-size: 1.8vw;
+}
+div.RegistrationInfo h3
+{
+	line-height: 1.8vw !important;
+	width: 80% !important;
+	font-size: 1.5vw;
+	margin-top: 2%;
+	color: #E07575;
+}
+div.RegistrationInfo div:first-child h3
+{
+	line-height: 1.8vw !important;
+	width: 80% !important;
+	font-size: 1.5vw;
+	margin-top: 2%;
+	border-bottom: 2px solid #377CD6;
+	color: #377CD6;
+}
+.RegistrationInfo
+{
+	background-color: #FFFFFF;
+	padding: 1vw 0vw 1vw 1vw;
+	color: #69666B;
+	width: 40%;
+	float: left;
+	height: 35vw;
+	/*+border-radius: 1vw;*/
+	-moz-border-radius: 1vw;
+	-webkit-border-radius: 1vw;
+	-khtml-border-radius: 1vw;
+	border-radius: 1vw;
+}
+div.RegistrationInfo div.RegInstruction
+{
+	padding-left: 2%;
+	font-size: 0.9vw;
+	border-left: 1vw solid #377CD6;
+	border-top: 1px solid #377CD6;
+	border-right: 1px solid #377CD6;
+	border-bottom: 1px solid #377CD6;
+	width: 97%;
+	height: 44%;
+}
+div.ClassesLink div
+{
+	float: left;
+	clear: both;
+	width: 100%;
+	margin-top: 1%;
+}
+div.ClassesLink div:last-child
+{
+	margin-bottom: 1vw;
+}
+div.ClassesLink div a
+{
+	float: left;
+	border: 1px solid #ECB5B5;
+	text-align: center;
+	color: #F35757;
+	margin-left: 1%;
+	font-weight: bold;
+	background-image: linear-gradient(to bottom, white 45%, #ECB5B5);
+	text-decoration: none;
+	font-size: 1.2vw;
+	padding: 1% 3%;
+}
+div.ClassesLink div a:hover
+{
+	background-image: linear-gradient(to top, white 45%, #ECB5B5);
+}
+img.AuthIcon
+{
+	width: 3%;
+	vertical-align: bottom;
+	margin-left: -9%;
+}
+div.RegistrationInfo div.ClassesLink
+{
+	border-top: 1px solid #F35757;
+	margin-top: 4%;
+	border-left: 1vw solid #F35757;
+	padding-left: 2%;
+	border-bottom: 1px solid #F35757;
+	border-right: 1px solid #F35757;
+	width: 97%;
+	padding-top: 2%;
+	height: 90%;
+	font-size: 1.2vw;
+	padding-right: 1%;
+}
+.UtilityBar
+{
+	background-color: #FBFBFB;
+	width: 100%;
+}
+div.UtilitySection
+{
+	width: 60%;
+	float: left;
+	/*height: 75vw;*/
+	/*border: 1px solid black;*/
+}
+.EmptyVessels
+{
+	background-color: #FFFFFF;
+	height: 6vw;
+	width: 40%;
+	float: left;
+	font-size: 1vw;
+}
+.RegistrationBadResponse
+{
+	background-color: #F7CFCF;
+	height: 6vw;
+	border: 1px dashed #D25454;
+	width: 40%;
+	font-size: 1vw;
+	float: left;
+	padding-left: 1%;
+	margin-left: 15%;
+}
+.RegistrationGoodResponse
+{
+	background-color: #C5F9D2;
+	border: 1px dashed #197514;
+	width: 40%;
+	height: 6vw;
+	font-size: 1vw;
+	float: left;
+	margin-left: 15%;
+}
+.QuickAction
+{
+	background-color: #FFFFFF;
+	width: 40%;
+	height: 6vw;
+	float: left;
+	margin-left: 2%;
+	padding-top: 0.3vw;
+	border: 1px solid #DCDADA;
+	/*+border-radius: 0.5vw;*/
+	-moz-border-radius: 0.5vw;
+	-webkit-border-radius: 0.5vw;
+	-khtml-border-radius: 0.5vw;
+	border-radius: 0.5vw;
+	margin-top: 1vw;
+}
+.QuickAction a
+{
+	color: #FFFFFF;
+	background-color: #377CD6;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 2% 2%;
+	margin-left: 20%;
+	margin-top: 1%;
+	width: 60%;
+	display: block;
+	font-size: 1vw;
+}
+.QuickAction a:hover
+{
+	background-color: #D98989;
+}
+.QuickAction a:nth-child(2)
+{
+	margin-top: 1%;
+}
+.StudentRegistrationForm #StudentMiddlename
+{
+	/*margin-left: 11%;*/
+}
+div.ScoreInputProcess
+{
+	width: 20%;
+	font-size: 1.1vw;
+	float: left;
+	height: 24vw;
+	border-left: 1px solid #BFBABA;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+div.ScoreInputTerm
+{
+	width: 40% !important;
+	clear: both;
+	float: left;
+	padding-right: 1%;
+	font-size: 1.1vw;
+}
+div.StudentTermSelect
+{
+	width: 39% !important;
+	clear: both;
+	float: left;
+	font-size: 1.1vw;
+	border-right: 1px solid #9FCAEB;
+	padding-right: 1%;
+	height: 25vw;
+}
+div.ScoreInputSubmit
+{
+	clear: both;
+}
+p.ScoreInputProcessInstruct
+{
+	font-size: 1.3vw;
+	background-color: #F1EDED;
+	width: 50%;
+	padding-left: 1%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	/*+box-shadow: 0 0 3px;*/
+	-moz-box-shadow: 0 0 3px;
+	-webkit-box-shadow: 0 0 3px;
+	box-shadow: 0 0 3px;
+	float: left;
+	height: 18.5vw;
+}
+div.ScoreInputTerm b
+{
+	font-size: 1.5vw;
+}
+div.AddScoreNotification
+{
+	width: 48%;
+	float: left;
+	/*+box-shadow: 0 0 3px;*/
+	-moz-box-shadow: 0 0 3px;
+	-webkit-box-shadow: 0 0 3px;
+	box-shadow: 0 0 3px;
+	height: 18.5vw;
+	margin-left: 2%;
+	font-size: 1vw;
+	background-color: #F1EDED;
+	font-weight: bold;
+}
+div.AddScoreNotification div.DecoupledErrors
+{
+	font-size: 1vw;
+	float: left;
+	margin-right: 3%;
+	color: #0455A5;
+}
+div.AddScoreNotification .AddScoreNotificationGeneral
+{
+	font-size: 1.3vw;
+	color: #2E89E3;
+}
+div.OffsetBlock
+{
+	width: 50%;
+	margin-left: 95%;
+	font-style: italic;
+}
+div.OffsetBlock .Offset
+{
+	float: left;
+	width: 35%;
+	height: 100%;
+	/*border: 1px solid black;*/
+}
+.StudentNumberLabel
+{
+	font-size: 1.1vw;
+	float: left;
+	padding: 1%;
+	color: #BD3B3B;
+	background-color: #FFFFFF;
+	height: 3vw;
+	text-align: center;
+	font-weight: bold;
+	border: 1px solid #C5C0C0;
+}
+.ReportButton
+{
+	/*+placement: 63px -39px !important;*/
+	position: relative !important;
+	left: 63px !important;
+	top: -39px !important;
+	/*+border-radius: 0;*/
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-khtml-border-radius: 0;
+	border-radius: 0;
+	background-color: #EE3135;
+	border: 1px solid #EFEFEF;
+	color: #EFEBEB;
+}
+.StudentError
+{
+	background-color: #E0CDCD;
+	float: left;
+	font-size: 0.9vw;
+	padding: 2%;
+	margin-left: 1%;
+	border: 1px dashed #C8A5A5;
+}
+.EmailError
+{
+	background-color: #D6C8C8;
+	display: block;
+	width: 30%;
+	float: left;
+	font-size: 1vw;
+	margin-left: 1%;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	padding-left: 1%;
+}
+.LoginPassword
+{
+	height: 3vw;
+	float: left;
+	width: 30%;
+	font-size: 1vw;
+}
+.PasswordError
+{
+	background-color: #D6C8C8;
+	float: left;
+	width: 30%;
+	font-size: 1vw;
+	margin-left: 1%;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	padding-left: 1%;
+}
+.LoginError
+{
+	padding-top: 1vw;
+	background-color: #ECBABA;
+	padding-bottom: 1vw;
+	padding-right: 2vw;
+	padding-left: 1vw;
+	border: 1px dashed #E96868;
+	margin-top: 3vw;
+	display: block;
+	width: 50%;
+	font-size: 1vw;
+}
+.AcademicHeading th
+{
+	background-color: #E0DEDE;
+	color: #5D5454;
+	padding-left: 7px;
+	/*width: 118px;*/
+}
+.StudentInput
+{
+	width: 30%;
+	height: 3vw;
+	float: left;
+	background-color: #E2EEF8;
+	/*+box-shadow: inset 1px 1px;*/
+	-moz-box-shadow: inset 1px 1px;
+	-webkit-box-shadow: inset 1px 1px;
+	box-shadow: inset 1px 1px;
+	font-size: 2vw;
+}
+.StudentNumberField
+{
+	width: 55%;
+	float: left;
+	height: 8vw;
+}
+div.OptionOr
+{
+	float: left;
+	font-weight: bold;
+	width: 5%;
+	margin-top: 3.5vw;
+}
+div.OptionOr h4
+{
+	font-size: 2vw;
+}
+.ClassLabel
+{
+	font-weight: bold;
+	color: #1A1717;
+}
+.EmailLabel
+{
+	font-weight: bold;
+	font-size: 1.2vw;
+	color: #C34242;
+	float: left;
+	width: 10%;
+}
+div.EmailBlock
+{
+	width: 100%;
+	clear: both;
+	height: 2vw;
+	margin-top: 3vw;
+}
+div.PasswordBlock
+{
+	clear: both;
+	height: 4vw;
+	width: 100%;
+	margin-top: 2vw;
+}
+.PasswordLabel
+{
+	font-weight: bold;
+	font-size: 1.2vw;
+	color: #C34242;
+	float: left;
+	width: 10%;
+}
+.LoginEmail
+{
+	height: 3vw;
+	float: left;
+	width: 30%;
+	font-size: 1vw;
+}
+.SignIn
+{
+	background-color: #ED3034;
+	border: 1px solid #ED3034;
+	padding: 1px 1vw;
+	text-align: center;
+	font-size: 1.6vw;
+	color: #FFFFFF;
+	width: 30%;
+	margin-top: 0vw;
+	clear: both;
+	margin-left: 10%;
+}
+.SignIn:hover
+{
+	background-color: #FFFFFF;
+	border: 1px solid #ED3034;
+	color: #ED3034;
+}
+button.StudentButton
+{
+	background-color: #BD3B3B;
+	font-size: 1vw;
+	color: #FFFFFF;
+	padding: 1% 2%;
+	height: 3vw;
+	border: 1px solid #BD3B3B;
+	float: left;
+	text-align: center;
+	margin-left: 2%;
+}
+div.ScoreInputTable
+{
+	width: 70%;
+	float: left;
+}
+form.AjaxScoreForm button.SaveAllScoreButton
+{
+	float: right;
+	border: 1px solid #F39A1D;
+	padding: 1vw;
+	width: 20%;
+	background-color: #FFBD61;
+	font-size: 1.4vw;
+	font-weight: bold;
+	color: #F8F8F8;
+	/*clear: both;*/
+	/*margin-right: 10%;*/
+	/*margin-top: 15%;*/
+}
+form.AjaxScoreForm button#SaveAllScoreButtonDown
+{
+	border: 1px solid #F39A1D;
+	padding: 1vw;
+	width: 20%;
+	background-color: #FFBD61;
+	font-size: 1.4vw;
+	font-weight: bold;
+	color: #F8F8F8;
+	clear: both;
+	margin-left: 80%;
+	/*margin-top: 100vh;*/
+	clear: both;
+}
+form.OfficialCommentsForm
+{
+	clear: both;
+	background-image: linear-gradient(to bottom, #DCDAF5 45%, #B9B4EB);
+	height: 33em;
+	margin-bottom: 2em;
+	padding-left: 3%;
+}
+form.AjaxScoreForm button.SaveAllScoreButton:hover
+{
+	border: 1px solid #C5FF16;
+	background-color: #91EA51;
+}
+form.AjaxScoreForm button#SaveAllScoreButtonDown:hover
+{
+	border: 1px solid #C5FF16;
+	background-color: #91EA51;
+}
+div.SignaturesPool
+{
+	border: 1px solid black;
+	font-size: 1vw;
+	width: 20% !important;
+	height: 30vh;
+	background-color: #111111;
+	color: #FFFFFF;
+	overflow: auto;
+}
+form.AjaxScoreForm
+{
+	margin-bottom: 3vw;
+}
+p.CloseSignaturePanel
+{
+	background-color: #F22F1D;
+	margin-left: 40%;
+	cursor: pointer;
+	padding-left: 5%;
+	font-weight: bold;
+	font-size: 1vw;
+	width: 60%;
+}
+div.OfficialCommentBlock div textarea.ClassTeacherComment
+{
+	width: 40%;
+	background-color: #E7E9FD;
+}
+div.GetStudentScoreSheet
+{
+	width: 35%;
+	float: left;
+	background-color: #DCDAF5;
+	background-image: linear-gradient(to bottom, #DCDAF5 45%, #B9B4EB);
+	margin-left: 2%;
+	margin-top: 2%;
+	padding-top: 54px;
+	padding: 2%;
+	/*height: 20%;*/
+}
+span.ReportStudentClass
+{
+	/*background: rgba(255, 255, 255, 0.8) url('http://sampsonresume.com/labs/pIkfp.gif') 50% 50% no-repeat;*/
+}
+div.OfficialSignatureList
+{
+	/*background-image: linear-gradient(to bottom, #DCDAF5 45%, #B9B4EB);*/
+	margin-top: 5%;
+}
+div.IndividualSignature
+{
+	background-image: linear-gradient(to bottom, #DCDAF5 45%, #B9B4EB);
+	float: left;
+	width: 18%;
+	margin-left: 1%;
+	height: 5em;
+	border: 1px solid #A17FE3;
+	margin-top: 1%;
+}
+img.SignatureImage
+{
+	margin-left: 20%;
+	width: 30%;
+	height: 35%;
+	clear: both;
+	margin-top: 0;
+}
+p.SignatoryName
+{
+	font-size: 1vw;
+	padding-left: 2%;
+	color: #4E4E4E;
+	font-weight: bold;
+	margin-top: 1%;
+}
+div.GetStudentScoreSheet:nth-child(3)
+{
+	width: 60%;
+}
+div.GetStudentScoreSheet p
+{
+	font-size: 1vw;
+}
+div.OfficialCommentBlock textarea.PrincipalCommentText
+{
+	width: 40%;
+	background-color: #E7E9FD;
+}
+p.CloseSignaturePanel:hover
+{
+	background-color: #F1CE1D;
+}
+div.ScoreInputTable tbody tr
+{
+	height: 1vw;
+}
+div.ScoreInputTable tbody tr:hover
+{
+	background-color: #FBE2BE;
+}
+div.ScoreInputTable tr:nth-child(odd)
+{
+	background: #EEE;
+}
+button.SaveScoreButton
+{
+	width: 100%;
+	border: 1px solid #E3DADA;
+	background-color: #91EA51;
+	color: #FFFFFF;
+	/*padding: 1vw;*/
+	font-weight: bold;
+	height: 100%;
+}
+p.ScoreInputUpdate
+{
+	background-color: #FFDAA7;
+	width: 100%;
+	color: #000000;
+	padding-left: 2vw;
+	/*margin-top: 10vw;*/
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	font-size: 1vw;
+}
+p.ScoreInputFourthUpdate
+{
+	background-color: #F9ECDA;
+	width: 100%;
+	color: #000000;
+	padding-left: 2vw;
+	/*margin-top: 10vw;*/
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	font-size: 1vw;
+}
+form.GetStudentScoreSheetForm input#AutoButton
+{
+	padding: 1%;
+	background-image: linear-gradient(to top, #2947F0 25%, #EEF0FC);
+	background-color: #2947F0;
+	color: #FFFFFF;
+	font-weight: bold;
+	clear: both;
+}
+form.GetStudentScoreSheetForm input#AutoButton:hover
+{
+	background-image: linear-gradient(to bottom, #2947F0 25%, #EEF0FC);
+}
+p.ScoreInputSecondUpdate
+{
+	background-color: #EFDABD;
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	font-size: 1vw;
+	padding-left: 2vw;
+	margin-top: 3%;
+}
+p.ScoreInputThirdUpdate
+{
+	background-color: #F5E9D9;
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	font-size: 1vw;
+	padding-left: 2vw;
+}
+b.StudentAddNum
+{
+	font-size: 1.4vw;
+}
+button.SaveScoreButton:hover
+{
+	background-color: #FFBD61;
+}
+table.AcademicTable input
+{
+	/*width: 30%;*/
+	border: 1px solid #FFBD61;
+	/*height: 95%;*/
+	width: 90%;
+}
+button.DeleteScoreButton
+{
+	border: 1px solid #E0DADA;
+	background-color: #EE1871;
+	color: #FFFFFF;
+	/*padding: 1vw;*/
+	font-weight: bold;
+	width: 100%;
+	height: 100%;
+}
+button.DeleteScoreButton:hover
+{
+	background-color: #FFBD61;
+}
+button.StudentButton:hover
+{
+	background-color: #F8F2F2;
+	/*font-size: 1.5vw;*/
+	color: #BD3B3B;
+	/*padding: 1%;*/
+	/*height: 5vw;*/
+	/*border: 1px solid #B9B5B5;*/
+	/*float: left;*/
+	/*text-align: center;*/
+	transition: background-color 200ms ease-in;
+}
+.ForgotLabel
+{
+	color: #D37272;
+	font-size: 1.2vw;
+}
+img.StudentCount
+{
+	width: 10%;
+}
+div.DossierStatement
+{
+	width: 50%;
+	font-size: 1vw;
+}
+div.ChooseStudent
+{
+	float: left;
+	width: 40%;
+	height: 8vw;
+}
+div.ChooseStudent .AutoCompleteContainMe
+{
+	width: 60%;
+	float: left;
+	font-size: 1vw;
+}
+div.ChooseStudent h4
+{
+	font-size: 1.8vw;
+}
+.AcademicCells td
+{
+	padding-left: 1%;
+	word-wrap: normal;
+}
+.GradeTable
+{
+	width: 100%;
+	font-size: 1vw;
+	margin-top: 1vw;
+}
+.GradeTable tbody tr td
+{
+	padding-left: 6px;
+}
+.SportTable tbody tr td
+{
+	padding-left: 7px;
+}
+.SportTable
+{
+	width: 100%;
+	font-size: 1vw;
+	margin-top: 1vw;
+}
+.ClubTable
+{
+	width: 100%;
+	font-size: 1vw;
+}
+.ClubTable tbody tr td
+{
+	padding-left: 9px;
+}
+table.StudentDataTable
+{
+	width: 45%;
+	float: left;
+	height: 16vw;
+	clear: both;
+	margin-top: 3%;
+}
+.StudentDataTable tbody tr td
+{
+	padding-left: 1vw;
+	border: 1px solid black;
+	font-size: 1vw;
+}
+table
+{
+	border-collapse: collapse;
+}
+div.StudentDossier
+{
+	width: 83%;
+	margin: auto auto 5vh auto;
+	border: 1px solid #F5F1F1;
+	padding: 2%;
+	/*+border-radius: 1vw;*/
+	-moz-border-radius: 1vw;
+	-webkit-border-radius: 1vw;
+	-khtml-border-radius: 1vw;
+	border-radius: 1vw;
+	/*+box-shadow: 0px 2px 1vw;*/
+	-moz-box-shadow: 0px 2px 1vw;
+	-webkit-box-shadow: 0px 2px 1vw;
+	box-shadow: 0px 2px 1vw;
+}
+form.OfficialCommentsForm button.SaveOfficialComments
+{
+	/*(*+placement: 390px -700px;*)
+					position: relative;
+					left: 390px;
+					top: -700px;*/
+	border: 1px solid #0C9A3B;
+	padding: 1vw;
+	background-color: #8EE9AC;
+	color: #FFFFFF;
+	font-weight: bold;
+	float: left;
+	/*width: ;*/
+	font-size: 1vw;
+	margin-top: 5vw;
+}
+form.OfficialCommentsForm div.TeacherSignature
+{
+	/*border: 1px solid #E66177;*/
+	/*width: 20%;*/
+}
+div.OfficialCommentBlock div
+{
+	/*width: 100%;*/
+	clear: both;
+}
+div.OfficialCommentBlock p#ClassTeacherSignature img
+{
+	display: inline-block;
+	/*width: 100%;*/
+}
+div.StudentDossier div.ReportBottom
+{
+	width: 100%;
+	font-size: 1vw;
+	/*border: 1px solid black;*/
+	/*height: 30vh;*/
+}
+.PageHeading
+{
+	width: 100%;
+	margin: auto;
+}
+div.TopTables
+{
+	float: left;
+	width: 50%;
+	margin-left: 5%;
+	margin-top: 3%;
+}
+.AbsenceDataTable
+{
+	width: 100%;
+	font-size: 1vw;
+	height: 7vw;
+	/*margin-top;*/
+	margin-bottom: 2vw;
+}
+.AbsenceDataTable, .AdjustThirdTerm, .TermDurationTable tr
+{
+	text-align: center;
+}
+.TermDurationTable
+{
+	width: 100%;
+	font-size: 1vw;
+	height: 7vw;
+}
+.AcademicTable
+{
+	width: 100%;
+	clear: both;
+	font-size: 0.9vw;
+	background-image: none;
+}
+table.AcademicTable tbody tr td:not(.EveryFirstColumn, .TeacherSignature)
+{
+	text-align: center;
+}
+table.AcademicTable tbody tr td:not(.TeacherSigature)
+{
+}
+table.AcademicTable tbody tr td.EveryGradeCommentColumn
+{
+	text-align: left;
+}
+.PageHeading .SealStatement
+{
+	text-align: center;
+	width: 58%;
+	float: left;
+	margin-top: 2%;
+}
+div.SealStatement p.SaluteDossier
+{
+	font-size: 1.2vw;
+}
+div.SealStatement p.SaluteLagos
+{
+	font-size: 2.0vw;
+	font-weight: bold;
+}
+.PageHeading .IjayeLogo
+{
+	width: 20%;
+	height: 15vw;
+	float: left;
+}
+.PageHeading .LagosLogo
+{
+	float: left;
+	width: 20%;
+}
+.PageFooter
+{
+	width: 100%;
+	background-color: #E9E5E5;
+	height: 20vw;
+	clear: both;
+	margin-bottom: 0vw;
+	position: sticky;
+	bottom: 0vw;
+	margin-top: 10vw;
+}
+.ThisTermName
+{
+	font-size: 2vw;
+	margin-top: 3vw;
+}
+#Rotator
+{
+	/*+transition: background-color 2970ms ease-out 1670ms;*/
+	-webkit-transition: background-color 2970ms ease-out 1670ms;
+	-moz-transition: background-color 2970ms ease-out 1670ms;
+	-o-transition: background-color 2970ms ease-out 1670ms;
+	transition: background-color 2970ms ease-out 1670ms;
+	background-color: #F3EFEF;
+}
+button.my_popup_close
+{
+	/*+placement: displace 67% 1em;*/
+	position: absolute;
+	margin-left: 67%;
+	margin-top: 1em;
+	border: 0px solid black;
+	font-size: 1.5vw;
+	background-color: #FFFFFF;
+	padding-right: 18px;
+	width: 12%;
+	font-style: italic;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+button.my_popup_close i.fa.fa-times
+{
+	/*+placement: 0% 1%;*/
+	position: relative;
+	left: 0%;
+	top: 1%;
+	float: left;
+	padding-left: 2px;
+}
+div#my_popup
+{
+	display: none;
+}
+div.TermAddMultipleSelect
+{
+}
+div.StudentTermProcess div.StudentTermProcessDiv
+{
+	float: left;
+	width: 33%;
+	border-right: 1px solid #9FCAEB;
+	padding-right: 1%;
+	padding-left: 1%;
+	height: 25vw;
+}
+div.StudentTermProcess
+{
+	width: 58%;
+	font-size: 1vw;
+	float: left;
+}
+div.TermAddMultipleSelect select
+{
+	background-color: #A5CCBD;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+div.MoveRightButton
+{
+	width: 20%;
+	/*border: 1px solid black;*/
+	/*(*+placement: 147px -70px;*)
+									position: relative;
+									left: 147px;
+									top: -70px;*/
+}
+div.MoveRightButton .AutoButtonRight
+{
+	padding: 4% 6%;
+	/*+box-shadow: 1px 1px 1px 1px;*/
+	-moz-box-shadow: 1px 1px 1px 1px;
+	-webkit-box-shadow: 1px 1px 1px 1px;
+	box-shadow: 1px 1px 1px 1px;
+	margin-top: 40%;
+	width: 60%;
+	color: #938E8E;
+	font-weight: bold;
+	font-size: 1.5vw;
+	margin-left: 10%;
+}
+div.StudentTermProcessDiv .AutoButtonSubmit
+{
+	margin-top: 5%;
+	margin-left: 10%;
+	padding: 0 4% 0%;
+	font-weight: bold;
+	width: 80%;
+	background-image: linear-gradient(to top, #C55050, #F4EAEA);
+	border: 0px solid black;
+	color: #FFFFFF;
+	height: 2.5vw;
+}
+div.StudentTermProcessDiv .AutoButtonSubmit:hover
+{
+	background-image: linear-gradient(to top, #BB0A0A, #F4EAEA);
+	border: 0px solid black;
+}
+div.MoveRightButton .AutoButtonRight:disabled
+{
+	background-color: #C55050;
+	border: 1px solid black;
+	color: #000000;
+}
+div.StudentTermProcessDiv .AutoButtonSubmit:disabled
+{
+	background-color: #C55050;
+	border: 2px solid black;
+	/*color: #000000;*/
+}
+input.AutoButtonSelectAll
+{
+	padding: 1%;
+	color: #FFFFFF;
+	background-image: linear-gradient(to top, #2E89E3, #F4EAEA);
+	font-weight: bold;
+	width: 100%;
+	margin-top: 2%;
+}
+input.AutoButtonSelectAll:hover
+{
+	background-image: linear-gradient(to bottom, #2E89E3, #F4EAEA);
+}
+div.TermAddSuccess
+{
+	background-color: #BCF5CE;
+	font-size: 1vw;
+	font-weight: 100;
+	padding-left: 1%;
+}
+div.TermAddFail
+{
+	background-color: #F6A0A0;
+	font-size: 1vw;
+	font-weight: 100 !important;
+	margin-top: 2vw;
+	padding-left: 1%;
+	color: #FFFFFF;
+}
+#rightValues
+{
+	width: 100%;
+}
+b.Demarcation
+{
+	color: #3425BC;
+	font-size: 1.2vw;
+}
+div.DetailsEditDiv
+{
+	display: none;
+}
+div#ShowStudentEditMessage
+{
+	display: none;
+	font-size: 1.1vw;
+	width: 40%;
+	float: left;
+	/*margin-top: -22vw;*/
+	padding-left: 1%;
+	margin-left: 3%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	/*background-color: #47E688;*/
+	color: #FFFFFF;
+	font-weight: bold;
+	/*border: 1px solid black;*/
+}
+form.StudentDetailsEditForm
+{
+	float: left;
+	/*border: 1px solid black;*/
+	width: 50%;
+}
+form.StudentDetailsEditForm
+{
+	font-size: 1vw;
+}
+div.EditStudentMessage
+{
+	background-color: #CEFCD3;
+}
+div.EditStudentMessage h4
+{
+	font-size: 1vw;
+}
+div.GreenColored
+{
+	background-color: #47E688;
+}
+div.RedColored
+{
+	background-color: #E54757;
+}
+div.ScoreInputTable table.AcademicTable tr td img
+{
+	/*width: 60%;*/
+}
+div.OfficialCommentBlock
+{
+	clear: both;
+	/*margin-top: 26.2vw;*/
+	/*background-color: #FDDAF4;*/
+	width: 50%;
+	float: left;
+	font-size: 1vw;
+	/*border: 1px solid black;*/
+	margin-top: 5vw;
+}
+div.OfficialCommentBlock div p
+{
+	float: left;
+	width: 40%;
+	/*border: 1px solid black;*/
+}
+p.TeacherSignature
+{
+	border: 0.2vw solid #9990FD;
+	clear: both;
+}
+p.TeacherSignature:hover
+{
+	background-color: #9994E0;
+}
+div.OfficialCommentBlock div div
+{
+	float: left;
+	width: 10%;
+}
+div.SignaturesPool a.TeacherSignature
+{
+	/*border-bottom-right-radius: 53px;*/
+}
+div.ScoreInputTable table.AcademicTable td.TeacherSignature
+{
+	width: 8.5%;
+	border-left: 0.2vw solid #F9C9C9;
+	border-top: 0.2vw solid #F9C9C9;
+	border-right: 0.2vw solid #F9C9C9;
+}
+div.ScoreInputTable table.AcademicTable td.TeacherSignature:hover
+{
+	border: 0.2vw solid #E74343;
+}
+div.ScoreInputTable table.AcademicTable td.ScoreInputTermWeight
+{
+	width: 3%;
+}
+div.StudentDossier input.FirstCommentFirstInput
+{
+	width: 78%;
+	border-bottom: 0.2vw dashed black;
+	font-size: 1vw;
+	border-left: 0px solid black;
+	border-top: 0px solid black;
+	border-right: 0px solid black;
+	float: left;
+	margin-top: -0.3vw;
+}
+div.ReportBottom p.ClassTeacherCommenStatement
+{
+	float: left;
+	width: 18%;
+	font-size: 1vw;
+}
+div.ReportBottom input.FirstCommentSecondInput
+{
+	width: 68%;
+	float: left;
+	border-bottom: 0.2vw dashed black;
+	border-top: 0px solid black;
+	border-left: 0px solid black;
+	border-right: 0px solid black;
+	clear: both;
+	margin-top: -0.3vw;
+}
+div.ReportBottom p.ParentSignatureStatement
+{
+	clear: both;
+	float: left;
+	width: 60%;
+}
+div.d
+{
+	clear: both;
+}
+div.ReportBottom p.ParentDate
+{
+	float: left;
+}
+div.ReportBottom p.ClassTeacherSignatureDate
+{
+	width: 30%;
+	float: left;
+	/*margin-top: -0.3vw;*/
+	margin-left: 1%;
+}
+form.AjaxScoreAttendance
+{
+	float: left;
+	width: 45%;
+	font-size: 1vw;
+	clear: both;
+	background-image: linear-gradient(to bottom, #DCDAF5 45%, #B9B4EB);
+	padding-left: 5%;
+}
+form.AjaxScoreTermDuration
+{
+	float: left;
+	width: 45%;
+	font-size: 1vw;
+	margin-left: 5%;
+	background-image: linear-gradient(to bottom, #DCDAF5 45%, #B9B4EB);
+	padding-left: 5%;
+	margin-bottom: 3%;
+}
+form.AjaxScoreAttendance button.SaveAttendanceButton
+{
+	border: 1px solid #FFB189;
+	margin-bottom: 2vw;
+	background-color: #FFDAA7;
+	margin-top: 1vw;
+	width: 60%;
+	font-weight: bold;
+	color: #E28D16;
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	margin-left: 5vw;
+	margin-right: auto;
+}
+form.AjaxScoreAttendance button.SaveAttendanceButton:hover
+{
+	border: 1px solid #9BFF87;
+	background-color: #E9FFA6;
+	color: #0CC148;
+}
+form.AjaxScoreAttendance input, form.AjaxScoreAttendance .hasDatepicker
+{
+	text-align: center;
+	border: 0px solid black;
+	background-color: #FCE8EB;
+}
+form.AjaxScoreAttendance input:hover, form.AjaxScoreAttendance .hasDatepicker:hover
+{
+	text-align: center;
+	border: 0px solid black;
+	background-color: #C7CEF1;
+}
+form.AjaxScoreTermDuration input, form.AjaxScoreAttendance .hasDatepicker
+{
+	text-align: center;
+	border: 0px solid black;
+	background-color: #FCE8EB;
+}
+form.AjaxScoreTermDuration input:hover, form.AjaxScoreAttendance .hasDatepicker:hover
+{
+	text-align: center;
+	border: 0px solid black;
+	background-color: #C7CEF1;
+}
+div.ScoreStudentInfo
+{
+	font-size: 1vw;
+	/*background-color: #FAEFE1;*/
+	height: 3vw;
+	/*padding-top: 1%;*/
+	padding-left: 1%;
+	border-bottom: 0.5vw solid #B16200;
+	padding-bottom: 1%;
+	margin-bottom: 3vw;
+}
+div.ScoreStudentInfo p
+{
+	float: left;
+	width: 15%;
+}
+div.ScoreStudentInfo p:nth-child(2)
+{
+	margin-top: -0.5vw;
+}
+div.ScoreStudentInfo p:nth-child(1)
+{
+	/*margin-top: -0.5vw;*/
+	width: 35%;
+}
+div.ScoreInputUpdate
+{
+	/*background-color: #F8E5CE;*/
+	/*border: 1px solid black;*/
+	border-bottom: 0.5vw solid #B16200;
+	margin-bottom: 1vw;
+}
+form.AjaxScoreAttendance p.ScoreAbsenceTableInfo
+{
+	background-color: #FCE8EB;
+	width: 100%;
+	padding-left: 1vw;
+}
+form.AjaxScoreTermDuration p.ScoreTermDurationTableInfo
+{
+	background-color: #FCE8EB;
+	width: 100%;
+	padding-left: 1vw;
+}
+form.AjaxScoreForm button#SaveAllScoreButtonSecond
+{
+	margin-top: 70vh;
+	margin-right: -20%;
+}
+form.AjaxScoreTermDuration table.ScoreTermDurationTable
+{
+	width: 80%;
+	height: 8vw;
+}
+form.AjaxScoreTermDuration button.SaveTermDurationButton
+{
+	width: 80%;
+	border: 1px solid #9BFF87;
+	margin-bottom: 2vw;
+	background-color: #E9FFA6;
+	margin-top: 1vw;
+	width: 60%;
+	font-weight: bold;
+	color: #0CC148;
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	margin-left: 5vw;
+	margin-right: auto;
+}
+form.AjaxScoreTermDuration button.SaveTermDurationButton:hover
+{
+	border: 1px solid #FFB189;
+	background-color: #FFDAA7;
+	color: #E28D16;
+}
+form.AjaxScoreAttendance table.ScoreAbsenceTable
+{
+	width: 80%;
+	height: 8vw;
+}
+div.UserProfile
+{
+	margin-top: 2%;
+	padding-left: 1%;
+}
+div.UserProfile div.ProfileData
+{
+	float: left;
+	width: 50%;
+	font-size: 1vw;
+}
+button.DetailsEditButton
+{
+	float: left;
+	width: 15%;
+	background-color: #590FEC;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 1vw;
+}
+form.UserProfileUpdateForm div
+{
+	/*border: 1px solid black;*/
+	clear: both;
+	font-size: 1vw;
+}
+div span.PrimaryEmailDiabled
+{
+	color: #E09189;
+}
+form.UserProfileUpdateForm div input:disabled
+{
+	cursor: not-allowed;
+	background-color: #E09189;
+	color: #FFFFFF;
+}
+form.UserProfileUpdateForm div input
+{
+	float: left;
+	font-size: 1vw;
+	height: 2em;
+	width: 32%;
+}
+form.UserProfileUpdateForm input.ProfileUpdateButton
+{
+	font-size: 1vw;
+	width: 25%;
+	background-color: #E09189;
+	color: #F2F9FD;
+	border: 1px solid #DAD0D0;
+	margin-top: 1%;
+}
+form.UserProfileUpdateForm
+{
+	margin-top: 2%;
+	float: left;
+	width: 60%;
+}
+div.DetailsEditDiv button.DetailsShowButton
+{
+	background-color: #590FEC;
+	color: #FFFFFF;
+	font-weight: bold;
+	width: 15%;
+	font-size: 1vw;
+}
+form.UserProfileUpdateForm div p
+{
+	float: left;
+	width: 25%;
+	font-size: 1vw;
+}
+form.QuestionInputform button.ResultButton
+{
+	/*+placement: shift 548px -6px;*/
+	position: relative;
+	left: 548px;
+	top: -6px;
+}
+.pie-legend li span
+{
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	margin-right: 5px;
+}
+.pie-legend
+{
+	list-style: none;
+}
+.AjaxRotator
+{
+	display: block;
+	position: fixed;
+	z-index: 1000000;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.8) url('http://sampsonresume.com/labs/pIkfp.gif') 50% 50% no-repeat !important;
+	/*font-weight: normal;*/
+	/*background-color: rgba(243, 30, 30, 0.800);*/
+}
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+/*.loading
+{
+	overflow: hidden;
+}*/
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+.loading
+{
+	display: block;
+}
+ul.QuestionsPanel
+{
+	list-style-type: none;
+	/*border: 1px solid black;*/
+}
+div.SlideShowMin div#number
+{
+	display: none;
+}

@@ -1,0 +1,795 @@
+body{
+  background-color: white!important;
+  padding-top: 0px!important;
+}
+
+.LeftSideBar {
+   /*outline: 1px solid orange;*/
+   argin-top: 20px;
+}
+.PanelHeadingStatistics {
+    margin-right: 0px!important;
+    margin-left:  20px!important;
+    color: #6699cc !important ;
+    
+
+}
+
+.CheckResultLink 
+{
+   background-color: #6699cc !important ;
+   color: white !important ;
+
+}
+
+.AjaxRotatorClasses {
+   display: block;
+   position: absolute;
+   z-index: 1000000;
+   top: 0;
+   left: 0;
+   height:100%;
+   width: 100%;
+   /*border: 1px solid black;*/
+   background: rgba(255, 255, 255, 0.8) url('../Images/Icons/rotate.gif') 50% 50% no-repeat !important;
+   /*font-weight: normal;*/
+   /*background-color: rgba(243, 30, 30, 0.800);*/
+}
+
+.AjaxRotatorStudentScoreTop
+{
+     display: block;
+     position: absolute;
+     z-index: 1000000;
+     top: 0;
+     left: 0;
+     height:100%;
+     width: 100%;
+     /*border: 1px solid black;*/
+     background: rgba(255, 255, 255, 0.8) url('../Images/Icons/rotate.gif') 50% 50% no-repeat !important;
+     /*font-weight: normal;*/
+     /*background-color: rgba(243, 30, 30, 0.800);*/
+}
+
+
+.AjaxRotatorInfoGraph {
+			   dislay: block;
+			   psition: absolute;
+			   z-index: 1000000;
+			   top: 0;
+			   left: 0;
+			   height: 2.5em;
+			   width: 2.5em;
+			   background: rgba(240, 240, 240, 1.0) url('../Images/Icons/rotate.gif') 50% 50% no-repeat !important;
+			   /*font-weight: normal;*/
+			   /*background-color: rgba(243, 30, 30, 0.800);*/
+            }
+
+
+.MenuDropDown > .dropdown-menu>li>a
+{
+   color: #FFFFFF!important;
+}
+
+.MenuDropDown > .dropdown-menu > li
+{
+   background-color: #000033;
+}
+
+.MenuDropDown > .dropdown-menu > li:hover
+{
+   background-color: #FFFFFF!important;
+}
+
+.MenuDropDown > .dropdown-menu>li > a:hover
+{
+   background-color: #FFFFFF!important;
+   color: #ee3135!important;
+}
+.MenuDropDown > .dropdown-menu
+{
+   background-color: #000033;
+}
+
+.YearSelectDiv .form-control
+{
+    
+    background-color: rgba(205, 205, 205, 1.0);
+}
+
+
+.YearSelectDiv .form-control > option{
+    
+    background-color: rgba(240, 240, 240, 1.0);
+}
+
+.AccordionMenu .panel-group .panel-default  
+{
+   margin-bottom: -5px;
+    
+}
+
+.AccordionMenu > .panel-group > .panel
+{
+   margin-bottom: -10px;
+      
+}
+
+.AccordionMenu  .panel-group  .panel-title
+{
+    color: #6699cc!important;
+}
+
+.AccordionMenu  .badge
+{
+    background-color: #6699cc!important;
+}
+
+.MenuIcon 
+{
+    color: #000033!important;
+}
+
+ [aria-expanded="true"] .panel-default  {
+    font-weight: bold;
+    background-color: #99ccff;
+    bakground-image: url(http://storage4.static.itmages.ru/i/16/0724/h_1469363621_2952426_312a0c7b35.png);
+}
+
+.panel-default > .panel-heading[aria-expanded="false"] {
+    font-weight: bold;
+    background-color: #99ccff;
+    bakground-image: url(http://storage4.static.itmages.ru/i/16/0724/h_1469363621_2952426_312a0c7b35.png);
+}
+
+.glyphicon.glyphicon-menu-hamburger 
+{
+     font-size: 30px;
+}
+
+.DivisionContainer a 
+{
+  margin-top: 60px!important;
+   margin-left: 10px!important;
+}
+
+.DivisionContainer
+{
+  margin-left: 10px!important;
+}
+
+.DivisionContainer .carousel-inner
+{
+  margin-top: 60px!important;
+}
+.LoginButton{
+  margin-top: 3px!important;
+   background-color:  #006699!important;
+   color:  #FFFFFF!important;
+}
+
+
+
+.dropdown-menu>li>a {
+   
+    color:  #ee3135!important;
+   
+}
+.SchoolHeader{
+  color:  #000033!important;
+}
+.StudentButton
+{
+  color:  #006699!important;
+}
+.autocomplete-suggestions
+{
+  border: 1px solid #999;
+  background: #FFF;
+  cursor: default;
+  overflow: hidden;
+  -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64);
+  -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64);
+  box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64);
+  width: 20em!important;
+}
+.autocomplete-suggestion
+{
+  padding: 2px 5px;
+  white-space: nowrap;
+}
+.autocomplete-suggestion:hover
+{
+  background-color: #F0F0F0;
+}
+.autocomplete-suggestions strong
+{
+  font-weight: bold;
+  color: #000;
+}
+.StudentNumberLabel
+{
+   margin-left: 40px!important;
+}
+.StudentPagePanel
+{
+  margin-top: 108px!important;
+}
+.StudentPageChooseTerm
+{
+   margin-left: 20px!important;
+   margin-right: 20px!important;
+}
+.CheckReportText
+{
+    float: none!important;
+    margin-left: 25%!important;
+}
+ .TypeStudentName
+{
+   margin-left: 20px!important;
+   margin-right: 100px!important;
+   width:90%!important;
+ }
+ .StudentTermSelect
+ {
+    margin-left: 20px!important;
+    margi-right: 100px!important;
+    width:90%!important;
+ }
+
+div.DossirStatement
+{
+  width: 50%;
+  font-size: 1vw;
+}
+div.ChooseStudent
+{
+  flot: left;
+  with: 40%;
+  heiht: 8vw;
+}
+div.ChooseStudent .AutoCompleteContainMe
+{
+  with: 60%;
+  foat: left;
+  ont-size: 1vw;
+}
+div.ChooseStudent h4
+{
+  font-size: 1.8vw;
+}
+.AcademicCells td
+{
+  padding-left: 1%;
+  word-wrap: normal;
+}
+.GradeTable
+{
+  width: 100%;
+  font-size: 1vw;
+  margin-top: 1vw;
+}
+.GradeTable tbody tr td
+{
+  padding-left: 6px;
+}
+.SportTable tbody tr td
+{
+  padding-left: 7px;
+}
+.SportTable
+{
+  width: 100%;
+  font-size: 1vw;
+  margin-top: 1vw;
+}
+.ClubTable
+{
+  width: 100%;
+  font-size: 1vw;
+}
+.ClubTable tbody tr td
+{
+  padding-left: 9px;
+}
+table.StudentataTable
+{
+  wdth: 45%;
+  flot: left;
+  height: 16vw;
+  cler: both;
+  margn-top: 3%;
+}
+.StudentataTable tbody tr td
+{
+  padding-left: 1vw;
+  border: 1px solid black;
+  font-size: 1vw;
+}
+tble
+{
+  border-collapse: collapse;
+}
+div.StudentDossier
+{
+  widt: 83%;
+  margn: auto auto 5vh auto;
+  border: 1px solid #F5F1F1;
+  padding: 1%;
+  /*+border-radius: 1vw;*/
+  -moz-border-radius: 1vw;
+  -webkit-border-radius: 1vw;
+  -khtml-border-radius: 1vw;
+  border-radius: 1vw;
+  /*+box-shadow: 0px 2px 1vw;*/
+  -moz-box-shadow: 0px 2px 1vw;
+  -webkit-box-shadow: 0px 2px 1vw;
+  box-shadow: 0px 2px 1vw;
+}
+form.OfficialCommentsForm button.SaveOfficialComments
+{
+  /*(*+placement: 390px -700px;*)
+          position: relative;
+          left: 390px;
+          top: -700px;*/
+  border: 1px solid #0C9A3B;
+  padding: 1vw;
+  background-color: #8EE9AC;
+  color: #FFFFFF;
+  font-weight: bold;
+  float: left;
+  /*width: ;*/
+  font-size: 1vw;
+  margin-top: 5vw;
+}
+form.OfficialCommentsForm div.TeacherSignature
+{
+  /*border: 1px solid #E66177;*/
+  /*width: 20%;*/
+}
+div.OfficialCommentBlock div
+{
+  /*width: 100%;*/
+  clear: both;
+}
+div.OfficialCommentBlock p#ClassTeacherSignature img
+{
+  display: inline-block;
+  /*width: 100%;*/
+}
+div.StudentDossier div.ReportBottom
+{
+  width: 100%;
+  font-sze: 1vw;
+  /*border: 1px solid black;*/
+  /*height: 30vh;*/
+}
+.PageHeading
+{
+  width: 100%;
+  margin: auto;
+}
+div.TopTales
+{
+  float: left;
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+.AbseneDataTable
+{
+  width: 100%;
+  font-size: 1vw;
+  height: 7vw;
+  /*margin-top;*/
+  margin-bottom: 2vw;
+}
+.AbsenceDataTable, .AdjustThirdTerm, .TermDurationTable tr
+{
+  text-align: center;
+}
+.TermDuratinTable
+{
+  width: 100%;
+  font-size: 1vw;
+  height: 7vw;
+}
+.AcademicTable
+{
+  width: 100%;
+  clear: both;
+  fnt-size: 0.9vw;
+  background-image: none;
+  margin-top: -20px;
+}
+table.AcademicTable tbody tr td:not(.EveryFirstColumn, .TeacherSignature)
+{
+  text-align: center;
+}
+table.AcademicTable tbody tr td:not(.TeacherSigature)
+{
+}
+table.AcademicTable tbody tr td.EveryGradeCommentColumn
+{
+  text-align: left;
+}
+.PageHeading .SealStatement
+{
+  text-align: center;
+  width: 58%;
+  float: left;
+  margin-top: 2%;
+}
+div.SealStatement p.SaluteDossier
+{
+  font-size: 1.2vw;
+}
+div.Sealtatement p.SalutLagos
+{
+  font-size: 2.0vw;
+  font-weight: bold;
+}
+.PageHeading .IjayeLogo
+{
+  width: 20%;
+ 
+  float: left;
+}
+
+.PageHeading .LagosLogo
+{
+  float: left;
+  width: 20%;
+}
+
+.CurrentDownloadLink
+{
+  margin-top: 15px;
+}
+div.StudentDossier input.FirstCommentFirstInput
+{
+  width: 78%;
+  border-bottom: 0.2vw dashed black;
+  font-size: 1vw;
+  border-left: 0px solid black;
+  border-top: 0px solid black;
+  border-right: 0px solid black;
+  float: left;
+  margin-top: -0.3vw;
+}
+div.ReportBottom p.ClassTeacherCommenStatement
+{
+  float: left;
+  width: 18%;
+  font-size: 1vw;
+}
+div.ReportBottom input.FirstCommentSecondInput
+{
+  width: 68%;
+  float: left;
+  border-bottom: 0.2vw dashed black;
+  border-top: 0px solid black;
+  border-left: 0px solid black;
+  border-right: 0px solid black;
+  clear: both;
+  margin-top: -0.3vw;
+}
+div.ReportBottom p.ParentSignatureStatement
+{
+  clear: both;
+  float: left;
+  width: 60%;
+}
+div.d
+{
+  clear: both;
+}
+div.ReportBottom p.ParentDate
+{
+  float: left;
+}
+div.ReportBottom p.ClassTeacherSignatureDate
+{
+  width: 30%;
+  float: left;
+  /*margin-top: -0.3vw;*/
+  margin-left: 1%;
+}
+.ReportPageTitle
+{
+  margin-left: 8px;
+  color: #ee3135!important;
+}
+.StudentError
+{
+  margin-left: 18px;
+}
+.EditStudentLink
+{
+  color: white!important;
+  text-decoration: none!important; 
+}
+.StudentQuestionInputPage
+{
+   margin-top: 200px!important;
+   margin-left: 25%!important;
+}
+
+.PromoteStudent
+{
+  cursor: pointer;
+  background: #ec7541!important;
+
+}
+
+.PromoteStudent:hover
+{
+  cursor: pointer;
+  background: green!important;
+  
+}
+.PromotedBadge
+{
+   cursor: default!important;
+    background: green!important;
+}
+.RepeatedBadge
+{
+   cursor: default!important;
+    background: red!important;
+}
+div.ScoreInputTable table.AcademicTable td.TeacherSignature
+{
+  width: 8.5%;
+  border-left: 0.2vw solid #F9C9C9;
+  border-top: 0.2vw solid #F9C9C9;
+  border-right: 0.2vw solid #F9C9C9;
+}
+div.ScoreInputTable table.AcademicTable td.TeacherSignature:hover
+{
+  border: 0.2vw solid #E74343;
+}
+div.ScoreInputTable table.AcademicTable td.ScoreInputTermWeight
+{
+  width: 3%;
+}
+form.AjaxScoreAttendance p.ScoreAbsenceTableInfo
+{
+  background-color: #FCE8EB;
+  width: 100%;
+  padding-left: 1vw;
+}
+form.AjaxScoreAttendance table.ScoreAbsenceTable
+{
+  width: 80%;
+  height: 8vw;
+}
+form.AjaxScoreTermDuration p.ScoreTermDurationTableInfo
+{
+  background-color: #FCE8EB;
+  width: 100%;
+  padding-left: 1vw;
+}
+
+div.ScoreStudentInfo
+{
+  font-size: 1vw;
+  /*background-color: #FAEFE1;*/
+  height: 3vw;
+  /*padding-top: 1%;*/
+  padding-left: 1%;
+  border-bottom: 0.5vw solid #B16200;
+  padding-bottom: 1%;
+  margin-bottom: 3vw;
+}
+div.ScoreStudentInfo p
+{
+  float: left;
+  width: 15%;
+}
+div.ScoreStudentInfo p:nth-child(2)
+{
+  margin-top: -0.5vw;
+}
+div.ScoreStudentInfo p:nth-child(1)
+{
+  /*margin-top: -0.5vw;*/
+  width: 35%;
+}
+
+form.AjaxScoreAttendance button.SaveAttendanceButton
+{
+  border: 1px solid #FFB189;
+  margin-bottom: 2vw;
+  background-color: #FFDAA7;
+  margin-top: 1vw;
+  width: 60%;
+  font-weight: bold;
+  color: #E28D16;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  margin-left: 5vw;
+  margin-right: auto;
+}
+form.AjaxScoreAttendance button.SaveAttendanceButton:hover
+{
+  border: 1px solid #9BFF87;
+  background-color: #E9FFA6;
+  color: #0CC148;
+}
+form.AjaxScoreAttendance input, form.AjaxScoreAttendance .hasDatepicker
+{
+  text-align: center;
+  border: 0px solid black;
+  background-color: #FCE8EB;
+}
+form.AjaxScoreAttendance input:hover, form.AjaxScoreAttendance .hasDatepicker:hover
+{
+  text-align: center;
+  border: 0px solid black;
+  background-color: #C7CEF1;
+}
+form.AjaxScoreTermDuration input, form.AjaxScoreAttendance .hasDatepicker
+{
+  text-align: center;
+  border: 0px solid black;
+  background-color: #FCE8EB;
+}
+form.AjaxScoreTermDuration input:hover, form.AjaxScoreAttendance .hasDatepicker:hover
+{
+  text-align: center;
+  border: 0px solid black;
+  background-color: #C7CEF1;
+}
+form.AjaxScoreTermDuration button.SaveTermDurationButton
+{
+  width: 80%;
+  border: 1px solid #9BFF87;
+  margin-bottom: 2vw;
+  background-color: #E9FFA6;
+  margin-top: 1vw;
+  width: 60%;
+  font-weight: bold;
+  color: #0CC148;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  margin-left: 5vw;
+  margin-right: auto;
+}
+form.AjaxScoreTermDuration button.SaveTermDurationButton:hover
+{
+  border: 1px solid #FFB189;
+  background-color: #FFDAA7;
+  color: #E28D16;
+}
+form.AjaxScoreTermDuration table.ScoreTermDurationTable
+{
+  width: 80%;
+  height: 8vw;
+}
+form.AjaxScoreTermDuration button.SaveTermDurationButton
+{
+  width: 80%;
+  border: 1px solid #9BFF87;
+  margin-bottom: 2vw;
+  background-color: #E9FFA6;
+  margin-top: 1vw;
+  width: 60%;
+  font-weight: bold;
+  color: #0CC148;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  margin-left: 5vw;
+  margin-right: auto;
+}
+
+button.DeleteScoreButton
+{
+  border: 1px solid #E0DADA;
+  background-color: #EE1871;
+  color: #FFFFFF;
+  /*padding: 1vw;*/
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
+button.DeleteScoreButton:hover
+{
+  background-color: #FFBD61;
+}
+form.AjaxScoreForm button.SaveAllScoreButton
+{
+  float: right;
+  border: 1px solid #F39A1D;
+  padding: 1vw;
+  width: 20%;
+  background-color: #FFBD61;
+  font-size: 1.4vw;
+  font-weight: bold;
+  color: #F8F8F8;
+  /*clear: both;*/
+  /*margin-right: 10%;*/
+  /*margin-top: 15%;*/
+}
+form.AjaxScoreForm button#SaveAllScoreButtonDown
+{
+  border: 1px solid #F39A1D;
+  padding: 1vw;
+  width: 100%;
+  background-color: #FFBD61;
+  font-size: 1.4vw;
+  font-weight: bold;
+  color: #F8F8F8;
+  clear: both;
+  
+  /*margin-top: 100vh;*/
+  clear: both;
+}
+form.AjaxScoreForm button.SaveAllScoreButton:hover
+{
+  border: 1px solid #C5FF16;
+  background-color: #91EA51;
+}
+form.AjaxScoreForm button#SaveAllScoreButtonDown:hover
+{
+  border: 1px solid #C5FF16;
+  background-color: #91EA51;
+}
+form.AjaxScoreForm button#SaveAllScoreButtonSecond
+{
+  margin-top: 70vh;
+  margin-right: -20%;
+}
+div.OfficialCommentBlock div textarea.ClassTeacherComment
+{
+  width: 40%;
+  background-color: #E7E9FD;
+}
+div.OfficialCommentBlock textarea.PrincipalCommentText
+{
+  width: 40%;
+  background-color: #E7E9FD;
+}
+div.OfficialCommentBlock div
+{
+  /*width: 100%;*/
+  clear: both;
+}
+div.OfficialCommentBlock
+{
+  clear: both;
+  /*margin-top: 26.2vw;*/
+  /*background-color: #FDDAF4;*/
+  width: 50%;
+  float: left;
+  font-size: 1vw;
+  /*border: 1px solid black;*/
+  margin-top: 5vw;
+}
+div.OfficialCommentBlock div p
+{
+  float: left;
+  width: 40%;
+  /*border: 1px solid black;*/
+}
+div.SignaturesPool
+{
+  border: 1px solid black;
+  font-size: 1vw;
+  width: 30% !important;
+  height: 30vh;
+  background-color: #111111;
+  color: #FFFFFF;
+  overflow: auto;
+}
+p.CloseSignaturePanel
+{
+  background-color: #F22F1D;
+  margin-left: 40%;
+  cursor: pointer;
+  padding-left: 5%;
+  font-weight: bold;
+  font-size: 1vw;
+  width: 60%;
+}

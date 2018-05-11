@@ -1,0 +1,45 @@
+ <table border= 1  class="w3-table w3-threequarter w3-bordered w3-striped w3-border w3-hoverable" >
+        <tr class="w3-grey w3-text-white">
+          <th style="text-align:center,font-weight:bold;" > S/N </th>
+          <th style="text-align:center;"> Name of Student </th>
+          <th style="text-align:center;"> Student Admission Number </th>
+        <!--  <th style="text-align:center;"> Student ID </th> -->
+          <th style="text-align:center;"> Number of Subjects recorded</th>
+          <th style="text-align:center;"> List of Actual subjects Recorded </th>
+
+        </tr>   
+        <?php $count = 1 ?>          
+        @foreach($BigSearchArray['AllThisSTudent'] as $bigSearchArray)
+          
+          @foreach($Massive as $massive)
+                 <?php  $MassiveStudentID = $massive['StudentId'];   $Checker[$MassiveStudentID] =  $massive['StudentId']; ?>
+              @if($bigSearchArray['studentid'] == $massive['StudentId'] ) 
+                
+               <tr class="w3-hover-light-green">
+                  <td style="text-align:center,font-weight:bold;" >{{$count++ }} </td>
+                   <td style="text-align:center;">
+                             {{ $bigSearchArray['user_belong']['surname'] ." ".
+                                $bigSearchArray['user_belong']['middlename']." ".
+                                $bigSearchArray['user_belong']['firstname']
+                              }}  
+                   </td>
+                   <td style="text-align:center;"> {{ $bigSearchArray['school_admission_number'] }}</td>
+                  <!-- <td style="text-align:center;"> {{ $bigSearchArray['studentid'] }}</td> -->
+                  <td style="text-align:center;" > <b> {{$massive['StudentSubjectCount'] }} </b> </td>
+                   <td style="tet-align:center;" >
+                  @foreach($massive['SubjectList'] as $subjectList)
+                         {{ ucfirst(strtolower( $subjectList['subject_belong']['subject'] ))}}
+                         (by  <b> {{ Str::lower( $subjectList['modified_by_belong']['surname'] )}}</b> ), 
+                  @endforeach
+                    </td> 
+    
+               </tr>
+                
+
+              @endif
+             
+           @endforeach
+           <?php unset($Checker[$massive['StudentId']]);  ?>
+        @endforeach
+             
+      </table>

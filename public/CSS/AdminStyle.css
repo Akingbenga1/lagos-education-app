@@ -1,0 +1,807 @@
+
+*{ margin: 0px; padding: 0px;}
+body{ 
+		margin: 0px;
+		padding: 0px;
+		background-color: white;
+		 bacground-image:  linear-gradient( rgba(255, 255, 255,1.0) , rgba(239, 239, 239,1.0)  );
+	}
+
+/********************************Official ********************/
+
+#BigWrapper {
+				margin: auto;
+				width: 96%;
+				padding-bottom: 20px;
+			}
+
+div#topdiv { 
+			 width:;
+			 height:160px;
+			 padding: 5px;
+			 padding-bottom: 0px;
+			 /* background: rgba(239, 155, 42, 0.7);  /* 46, 109,188    and 233, 210, 117*/
+			 overflow: none;
+			 box-shadow: 6px 6px 9px 0px rgba(0, 0, 0, 0.4);
+		   }
+
+#AuthBox {
+			position:absolute;
+ 			 top: 120px;
+			 left: 1080px;
+		}
+
+#AuthBox .NoAuth, .YesAuth{
+								display: inline-block;
+								margin-left: 0px;
+								
+								padding: 10px  30px;
+								
+								
+						  }
+
+#AuthBox a{
+								text-decoration: none;
+								font-family: cumbria;
+								color: white;
+								font-weight: 700;
+								font-size: 16px;
+								border-radius: 4px;
+								height: 20px;
+								text-align: bottom;
+			}
+
+#AuthBox #Login{
+								
+					background-image: linear-gradient(#eeeeee, #d4d4d4);
+					color: gray;
+					box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.4);
+					text-shadow: 1px 1px 1px white;
+			   }
+
+#AuthBox #Login:hover{
+						box-shadow: 1px 1px 7px 0px rgba(0, 0, 0, 0.4);
+			   }
+#AuthBox #SignUp{
+								
+					background-image: linear-gradient( rgba(243, 206, 154 , 1.0) , rgba(243, 147, 12 ,1.0)  );
+					margin-left: 10px;
+					box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.4);
+					text-shadow: 1px 1px 1px black;
+			    }
+#AuthBox #SignUp:hover{	
+						box-shadow: 1px 1px 7px 0px rgba(0, 0, 0, 0.4);
+				
+			    }
+
+
+#SearchBar{
+			position:absolute;
+ 			 top: 20px;
+			 left: 1080px;
+		}
+
+.SearchBox{
+			padding:5px 4px 5px 12px;
+			margin:3px; 
+			background: url('./images/search.png') no-repeat 8px 6px;
+			border:1px solid  #eee;
+		  }
+
+
+.SearchButton{
+				position:relative; 
+				left:-7px;
+				padding: 5px;
+				border:1px solid #adc5cf;
+				color:#3573c0;
+				background-image: linear-gradient(right, rgb(53, 115, 192 ), rgb(243, 206, 154 ) );
+		 	 }
+
+
+	.SearchButton:hover{
+				
+				background-color: white;
+		 	 }
+  
+ .rounded { 
+			border-radius:8px 0px 0px 8px; 
+			-moz-border-radius:8px 0px 0px 8px; 
+			-webkit-border-radius: 8px 0px 0px 8px; 
+		  }
+
+
+.AuthLink a {
+				text-decoration: none;
+			 }
+
+
+div#topdiv  div#Contact{ 
+
+			 position:absolute;
+ 			 top: 0px;
+			 left: 210px;
+			 width: 50%;
+			 height:40px;
+			 padding: 1px;
+			 background-color: whte;
+			 text-align: center;
+			}
+
+div#topdiv  div#Contact div{ 
+								float: left;
+								margin-right: 20px;
+								margin-top: -10px;
+			 
+			}
+	div#topdiv  div#Contact .IconUp{ 
+										opacity: 0.6;
+										color: black;
+										font-family: verdana;
+										font-size: 12px;
+										border-right: 1px solid black;
+										padding-right: 15px;
+									}
+div#topdiv  div#Contact img{ 
+	
+			margin-top: 10px;
+			 
+			}
+div#topdiv  div#Contact .Location{ 
+	
+										margin-left: 0px;
+										opacity: 0.6;
+								}
+div#topdiv  div#Contact .Location:hover{ 
+										opacity: 1.0;
+										}
+div#topdiv  div#Contact .Location a { 
+										color: black;
+										text-decoration: none;
+										font-family: verdana;
+										font-size: 12px;
+										}
+
+div#topdiv a#LogoLink { 
+				text-decoration: none;
+				color: #89cbfa;
+			}
+
+div#topdiv .FavoursLogo { 
+						 	float: left;
+						 	margin-left:-5px;
+							width: 150px;
+			 				height:150px;
+			 				/* box-shadow: 6px 6px 9px 0px rgba(0, 0, 0, 0.4); */
+			 				border-radius: 3px;
+						}
+
+
+ul#navmenu {
+   					list-style-type: none;
+					margin-top: 115px;
+					margin-left: 180px;
+					height: 67px;				
+					
+			   }
+	ul#navmenu div {
+					width: 765px;
+   					height: 41px;
+				 }
+
+   ul#navmenu, ul.sub1, ul.sub2{
+   									list-style-type: none;
+								}
+
+	
+							
+	ul#navmenu li{
+					text-align: center;
+					position: relative;
+					float: left;
+					margin-right: 4px;
+				} 
+					
+ul#navmenu li  a {
+					text-decoration: none;
+					display: block;
+					height: 20px;
+					line-height: 25px;
+					background-color: rgb(47,110,190);
+					boder: 1px solid black;
+					text-align: center;
+					padding: 10px 20px;
+					font-family: MuseoSans , Arial , Helvetica , sans-serif;
+					font-size: 16px;
+					color: white;
+					border-radius: 5px 5px 5px 5px;
+		}
+
+ul#navmenu .sub1 a {
+						margin-top: 5px;
+						z-index: 1000;		
+
+					}
+
+ul#navmenu .sub2 a {
+					  margin-left: 8px;
+				   }
+
+ul#navmenu li:hover > a{
+
+							background-color: #78b3f7;
+							color:#f3f3be;
+							text-shadow: 1px 1px 1px #78b3f7;
+						}
+
+ul#navmenu li:hover  a:hover{
+
+							   background-color: #78b3f7;
+							   color:#f3f3be;
+							   text-shadow: 1px 1px 1px #78b3f7;
+							}
+
+ul#navmenu #Active {
+   						background: rgba(243, 243, 190, 0.8);	
+   						border-bottom: 1px solid #f3f3be; 
+				   }
+
+ul#navmenu #Active:hover {
+   						background: #78b3f7;	
+   						border-bottom: 1px solid #f3f3be; 
+				   }
+
+
+div#UpdatePanel 		 {
+							width:99%;
+							height:80px;
+							margin: auto;
+							margin-top: 10px;
+							margi-left: 20px;
+							border: 0px solid black;
+						 }
+
+div#UpdatePanel .UpdateDiv {
+								float: left;
+								height: 70px;
+				           }
+
+div#TopDivider {
+					
+					width: 40%;
+					font-family: Verdana;
+				}
+
+div#TopDivider .PageTopic {
+								float: left;
+								margin-top: 5px;
+								font-family: Verdana;
+								height: inherit;
+								
+				         }
+div#TopDivider #Favours {
+							color: #f9c27f; 
+						}
+
+div#TopDivider .PageTopic .header1 {
+										font-size: 30px;
+										color: #326fbf;
+									}
+
+div#TopDivider .PageTopic .MeBreadCrumb	 {
+											font-size: 12px;
+										    color: #cd9550; 
+										    padding: 2px;
+										    background-color: white;
+										    border-radius: 4px 4px 0px 0px;
+										    font-weight: 500;
+										    margin-top: 80px;
+										}
+.MeBreadCrumb	#BreadNav{
+							 text-decoration: none;
+							 color:#cd9550;
+							 font-weight: 500;
+						}
+.MeBreadCrumb	#BreadNav:hover{
+								 text-decoration: underline;
+								 color:#cd9550;
+						       } 
+div#UpdatePanel   div#UpdateLeft {
+									border-radius: 4px;
+								 }
+
+div#UpdatePanel   div#UpdateRight {
+									
+									margin-left: 76px;
+									border-radius: 4px;
+									width: 54%;
+									background-image:  linear-gradient(#eeeeee, #d4d4d4);
+								 }
+
+
+
+
+div#MiddleBody{ 
+					clear: both;
+				   margin-top: 0px;
+				   margin-bottom:  100px;
+				   overflow: hidden;
+				   border: 0px solid black;
+		      }  
+
+div#RightPanel {
+				width: 35%;
+				height: 800px;
+				margin-left: 840px;
+				position: relative;
+				top: 30px;
+				color: black;
+			   }
+.FixedSide {
+				position:fixed;
+				top: 0px;
+		    }
+
+#PushMeDown {
+				
+				width: 440px;
+				height: 630px;
+				margin-left: 0px;
+				margin-top: 0px;
+				border-radius: 10px 10px 0px 0px;
+		    }
+
+#CategoryBox{
+
+				height: 250px;
+				border-radius: 10px 10px 0px 0px;
+			}
+
+#CategoryName{
+				background: #35c083;
+				text-align: middle;
+				border-radius: 10px 10px 0px 0px;
+				background-image: linear-gradient(#eeeeee, #d4d4d4);
+				padding: 5px 0px 5px 0px; 
+
+			}
+
+#CategoryName p{
+				text-align: middle;
+				margin-left: 120px;
+				color: #326fbf;
+				font-family: verdana;
+				font-size: 25px;
+			}
+
+#CategoryList {
+					border: 1px solid #eeeeee;
+					border-top: 0px;
+			  }
+#CategoryList p a{
+			    	text-align: middle;
+					margin-left: 10px;
+					text-decoration:  none;
+					font-weight: 700;
+					font-family: verdana;
+			}
+#CategoryList p a:hover{
+							text-decoration:  underline;
+						}
+#FacebookPage {
+				   border-radius: 10px 10px 0px 0px;
+				   position: relative;
+			    }
+
+div#ImageContainer{
+				
+					width: 65%;
+					float: left;
+					border-radius: 1px;
+					-webkit-border-radius: 10px;
+					-moz-border-radius: 10px;
+					border-radius: 10px;
+					overflow: hidden;
+				  }
+div.EachImage{	
+				float: left;
+				width: 180px;
+				min-height: 210px;
+				padding: 10px;
+				margin-top: 20px;
+				margin-left: 5px;
+				bacground: rgba(11, 11, 11, 0.2);
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px 10px 0px 0px;
+				overflow: hidden;
+				border: 1px solid #eeeeee;
+				border-bottom: 1px solid #eeeeee;
+			}
+						
+div.EachImage:hover{	
+						opacity: 0.7;
+						 cursor:pointer;	 
+					}
+						
+						
+div.EachImage .UtilityIconsBottom,.UtilityIconsTop {
+														background-color: #cef41d;
+														text-decoration: none;
+														text-shadow: 0 0.1em 0 rgba(255, 255, 255, 0.5);
+														display: inline-block;
+														outline: none;
+														padding: 0.2em 1em 0.2em; /* edit */
+														-moz-border-radius: 0.3em;
+													  	-webkit-border-radius: 0.3em;
+  														border-radius: 0.3em;
+  														border: 1px solid;
+														border-color: #bbbbbb #a2a2a2 #888888;
+														background-color: #eeeeee;
+														background-image: -moz-linear-gradient(#eeeeee, #d4d4d4);
+														background-image: -webkit-linear-gradient(#eeeeee, #d4d4d4);
+  														background-image: linear-gradient(#eeeeee, #d4d4d4);
+														-moz-box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.1), 0 0.1em 0.2em rgba(0, 0, 0, 0.3), 0 -0.1em 0.07em rgba(0, 0, 0, 0.3) inset, 0 0.1em 0.07em rgba(255, 255, 255, 0.2) inset;
+														-webkit-box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.1), 0 0.1em 0.2em rgba(0, 0, 0, 0.3), 0 -0.1em 0.07em rgba(0, 0, 0, 0.3) inset, 0 0.1em 0.07em rgba(255, 255, 255, 0.2) inset;
+ 														 box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.1), 0 0.1em 0.2em rgba(0, 0, 0, 0.3), 0 -0.1em 0.07em rgba(0, 0, 0, 0.3) inset, 0 0.1em 0.07em rgba(255, 255, 255, 0.2) inset;
+														 -moz-transition: all 100ms;
+														 -o-transition: all 100ms;
+														 -webkit-transition: all 100ms;
+  														 transition: all 100ms;
+														color: rgba(0, 0, 0, 0.8);
+														positin: absolute;	
+														overflow :hiddn;
+													}	
+iv.EachImage .UtilityIconsBottom:hover,.UtilityIconsTop:hover {
+  -moz-box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4), 0 0.1em 0.2em rgba(0, 0, 0, 0.4), 0 -0.1em 0.07em rgba(0, 0, 0, 0.3) inset, 0 0.1em 0.07em rgba(255, 255, 255, 0.2) inset;
+  -webkit-box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4), 0 0.1em 0.2em rgba(0, 0, 0, 0.4), 0 -0.1em 0.07em rgba(0, 0, 0, 0.3) inset, 0 0.1em 0.07em rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4), 0 0.1em 0.2em rgba(0, 0, 0, 0.4), 0 -0.1em 0.07em rgba(0, 0, 0, 0.3) inset, 0 0.1em 0.07em rgba(255, 255, 255, 0.2) inset;
+}					
+						
+						
+.UtilityIconsBottom {
+			}
+.UtilityIconsTop{
+					
+					position: relative;
+					top: 150px;
+					left: 95px;
+				}
+#SecondTop{
+			margin-top: 0px;
+			margin-left: 55px;
+					 
+		}
+
+.TopImages {
+				float:left;
+				width: 33%;
+				border: 0px solid black;
+			}
+ #ThirdEduImage {
+ 					margin-left: 55px;
+ 					border-radius: 15px;
+
+ 				}
+ #SecondEduImage {
+ 					margin-left: 50px;
+ 					border-radius: 15px;
+ 			    }
+
+ #FirstEduImage {
+ 					border-radius: 15px;
+ 			    }
+#EduMission {
+				clear: both;
+
+			}
+#EduImageGrid{
+				clear: both;
+			}
+
+.PushMissionLeft{
+					float: left;
+					height: 1110px;
+					margin-top: 20px;
+			    }
+#EduMissionLeft {
+					border-radius: 10px;
+					width:35%;
+					
+				}
+#MissionTitle {
+					font-size:25px;
+					font-weight: 700px;
+					background-image:  linear-gradient(#eeeeee, #d4d4d4);
+					border-radius: 10px 10px 0px 0px;
+					text-align: center;
+					font-family: sans-serif;
+					color: gray;   
+					font-weight: 600;
+			  }
+#ProductTitle{
+					font-size:25px;
+					font-weight: 700px;
+					background-image:  linear-gradient(#eeeeee, #d4d4d4);
+					border-radius: 10px 10px 0px 0px;
+					text-align: center;
+					font-family: sans-serif;
+					color: gray;   
+					font-weight: 600;
+			}
+#MissionTalk{
+				background-color: white;
+				color: gray;
+				line-height: 25px;
+				font-family: verdana;
+				font-size: 15px;
+				padding: 20px;
+				border-radius: 0px 0px 10px 10px;
+				border: 1px solid #eee;
+				box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.4);;
+			}
+
+#EduMissionRight {
+					margin-left: 20px;
+					width: 30%;
+					border-radius: 10px;
+				 }
+
+.MissionElement{
+					margin-bottom:  83px;
+					border-radius: 10px;
+					border: 1px solid #eeeeee;
+					font-size:18px;
+					background: white;
+					height: 65px;
+					color: gray;
+					padding: 15px;
+					padding-top: 5px;
+					padding-bottom: 32px;
+					font-family: verdana;
+					box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.4);
+				}
+
+#BigTourInfo {
+					width: 100%;
+				
+					
+			 }
+
+
+.TopTourRow{
+					height: 350px;
+					width: 640px;
+					margin-bottom: 20px;
+					padding: 20px; 
+					margin-top: 30px;
+			 }
+.TopTourRow div{
+						line-height: 25px;
+						font-family: verdana;	
+						color: #848383;
+						background-color: white;
+						margin-top: 30px;
+						padding: 10px;
+						border-radius: 3px;
+			 	  }
+#TourMessage {
+				 background-color:#544eb2;d22a4e;
+			  }
+#TourMessage p {
+				  color: white;
+				  font-size: 20px;
+				  font-family: verdana;
+				  font-weight: 600;
+			  }
+
+.TourInfo1 {
+				float: left;
+				width: 30%;
+				margin-top: 10px;
+		   }
+.FirstTourRow{
+					height: 250px;
+					width: 250px;
+					margin-bottom: 20px;
+					padding: 20px; 
+			 }
+.FirstTourRow div{
+						line-height: 20px;
+						font-family: cursive;	
+						color: #848383;
+						background-color: white;
+						margin-top: 30px;
+						padding: 10px;
+						border-radius: 3px;
+			 	  }
+#TourCatering {
+				 background-color:#e69414;
+			  }
+#TourCatering p {
+				  color: white;
+				  font-size: 20px;
+				  font-family: verdana;
+				  font-weight: 600;
+
+			  }
+
+#TourHotel {
+				 background-color:#d22a4e;
+			  }
+#TourHotel p {
+				  color: white;
+				  font-size: 20px;
+				  font-family: verdana;
+				  font-weight: 600;
+			  }
+.SecondTourRow{
+					height: 250px;
+					width: 250px;
+					margin-bottom: 20px;
+					padding: 20px; 
+			 }
+.SecondTourRow div{
+						line-height: 20px;
+						font-family: cursive;	
+						color: #848383;
+						background-color: white;
+						margin-top: 30px;
+						padding: 10px;
+						border-radius: 3px;
+			 	  }
+#TourTour {
+				 background-color: #02b9e3;edc319
+		  }
+#TourTour p {
+				  color: white;
+				  font-size: 20px;
+				  font-family: verdana;
+				  font-weight: 600;
+			  }
+
+#TourShopping {
+				 background-color:#da3031;
+		  }
+#TourShopping p {
+				  color: white;
+				  font-size: 20px;
+				  font-family: verdana;
+				  font-weight: 600;
+			  }
+/********************************Official ********************/			 
+			 
+div#BottomDiv {  position:fixed;
+ 				 bottom: 0px;
+			 	 left: 0px;
+			 	 width: 100%;
+			 	 height:30px;
+			 	 color: #CCCCCC;
+			 	 background-color:#333333;
+			 	 padding: 0px;
+				 z-index: 100px;
+				 
+			  }
+div#BottomDiv a { 	
+					color:#CCCCCC;
+					widh: 33.25%;
+					height: 30px;
+					text-decoration: none;
+					display: block;
+					border-right: 1px solid white;
+					text-align:center;
+					font-family:Geneva, Arial, Helvetica, sans-serif;
+					font-size: 20px;
+					font-weight:700;
+				}
+				
+div#BottomDiv p {
+						float: left;
+						width: 33.25%;
+						height: 30px;
+				}	
+				
+div#BottomDiv a:hover { 
+							background-color:#666666;
+					   }
+			 
+div#contentdiv { 
+					margin-top: 80px;
+ 			   }
+
+ #CheckoutPanel {
+ 					height: 220px;
+ 					width: 820px;
+ 					background-color: #cfed68;
+ 					margin-top:  50px;
+ 					color: #5c6246;
+ 				}
+#CheckoutPanel  div {
+ 						float: left;
+ 						height: 120px;
+ 						padding: 5px;
+ 					}
+#CheckoutPanel  #CheckoutImage {
+ 						
+ 									width: 13%;
+ 								}
+ #CheckoutPanel  #CheckoutMessage {
+ 						
+ 									width: 60%;
+ 									font-size: 10px;
+ 									margin-top: 15px;
+
+ 								}
+			 
+ #container{ 
+				margin-left: 50px;
+				margin: auto;
+				min-height: 300px;
+				width:  80%;
+				color: #000;
+				padding: 20px;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				bordr: 1px groove #666666;
+		  }
+
+#buttons{
+			text-align: center;
+		}
+#buttons a.ButtonsLinks {
+				float: left;
+				margin: 20px;
+				display: block;
+				height: 250px;
+				width: 300px;
+				overflow:hidden;
+				background: rgba(54, 25, 25, 0.4);
+				text-decoration: none;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				border: 1px solid white;
+		}
+#buttons h6{
+			color: #FFF;
+			margin: 0px;
+			padding: 0px;
+			height: 250px;
+			font-size: 1.5em;
+			line-height: 250px;
+			font-family: 'Myriad Pro' Helvatica, san-serif;
+			text-shadow: 1px 1px 1px  black;
+			-webkit-transition: all 0.3s linear;
+			-moz-transition: all 0.3s linear;
+			-o-transition: all 0.3s linear;
+			transition: all 0.3s linear;
+			}
+			
+#buttons div.BigDiv{ 
+				color: #FFF;
+				background: rgba(200, 148, 49, 0.2);
+				 height: 250px;
+				 padding: 5px;
+			}
+
+#buttons div.BigDiv div.TFIntro{
+									color: #f5e1bc;
+									font-size: 18px;
+				 					height: 200px;	
+			}
+
+#buttons div.BigDiv	.TFIntroImage {
+										foat: right;
+				
+		}
+#buttons .ButtonsLinks:hover h6{ 
+						margin-top: -250px;
+					}
+.SeeProducts{
+		         border: 1px soild  black;
+}
+
+.SeeProducts CategoryTable{
+		        		float: left; 
+}
