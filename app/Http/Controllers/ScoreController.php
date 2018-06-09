@@ -1093,7 +1093,7 @@ class ScoreController extends Controller {
 							$response = array('msg' => 'Official result comments was successfully created', 'status' => 1);
 			 				return Response::json($response);
 						}
-					catch(Exception $e)
+					catch(\Exception $e)
 						{
 							//var_dump($e);die();
 							$response = array('msg' => 'Official result comments not successfully created', 'status' => 0);
@@ -1123,7 +1123,7 @@ class ScoreController extends Controller {
 			 				return Response::json($response);
 					}
 
-				catch(Exception $e)
+				catch(\Exception $e)
 					{
 						//return  var_dump($e);//die();
 						//$thiscore->delete();

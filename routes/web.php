@@ -21,14 +21,15 @@ Route::match(['get', 'post'], '/', ['uses' => 'HomeController@home', 'as' => 'ho
 
 
 
-
-
 //--------------------------------------Authentication Routes---------------------------------------
 Route::match(['get', 'post'], '/login', ['uses' => 'AuthenticationController@processLogin', 'as' => 'login']);
 
 Route::match(['get'], '/account/signout.html', ['uses' => 'AuthenticationController@userSignOut', 'as' => 'signout']);
 
 Route::match(['get', 'post'], '/userprofile.html', ['uses' => 'AccountController@getProfileData', 'as' => 'user-profile']);
+
+
+Route::match(['get', 'post'], '/register', ['uses' => 'AccountController@register', 'as' => 'register']);
 
 
 

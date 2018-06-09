@@ -20,7 +20,9 @@
 
  <div class="RegistrationInfo"> 
             <div class="RegInstruction">
-                 <h3> {{HTML::image("/Images/Icons/announce1.jpg", '', array('class' => 'HomeIcon') )}} Instruction </h3>
+                 <h3>
+                     {{--{{HTML::image("/Images/Icons/announce1.jpg", '', array('class' => 'HomeIcon') )}} --}}
+                     <img src="{{asset('/Images/Icons/announce1.jpg')}}" class="HomeIcon" /> Instruction </h3>
                     Register student information here by entering their names and Student admission number.<br />
                     <b> Student surname and student first name are compulsory.</b><br />
                     Student Admission Number <b> must be a 4-digit number </b>. <br />
@@ -32,8 +34,8 @@
       <div class="UtilitySection">
           <div class="UtilityBar">
               <div class="QuickAction">
-                  <a href="{{URL::action('edit-student-details-form')}}"> Edit student details  </a>
-                 <!--  <a href="{{URL::action('edit-student-details-form')}}"> Remove student details  </a> -->
+                  <a href="{{URL::route('edit-student-details-form')}}"> Edit student details  </a>
+                 <!--  <a href="{{URL::route('edit-student-details-form')}}"> Remove student details  </a> -->
              </div>  
 
               @if(Session::has('AccountCreateInfo') and Session::has('GoodResponse'))
@@ -49,7 +51,9 @@
                 @endif                         
           </div>      
           <div class="StudentRegistrationForm">          
-               {{ Form::open(array( 'route' => 'register-student-details' ,'files' => true, 'method'=> 'post')) }}
+
+
+              <form action="{{URL::route('register-student-details')}}" method="post" data-parsley-validate>
 
                    <div class="InputBlock"> 
                          <p> Student surname:(<b> compulsory </b>)</p>
@@ -91,10 +95,10 @@
                         </div>
                     </div>
                       <br />
-                       <br />        
-                    {{Form::token()}}
+                       <br />
+                  {{ csrf_field() }}
                         <br /><br /><input type = "submit"  value="Register Student" id="RegistrationButton"  />
-               {{Form::close()}}
+              </form>
           </div>
       </div>
 @stop

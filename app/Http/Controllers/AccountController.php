@@ -27,7 +27,7 @@ class AccountController extends Controller
     public function __construct(  )
     {
 
-        $this->middleware('auth');
+        $this->middleware('auth',  ['except' => 'register']);
         $this->middleware('web');
     }
 
@@ -249,6 +249,96 @@ class AccountController extends Controller
             }
         }
 
+    }
+
+    public function register(Request $request)
+    {
+
+        $method = $request->isMethod('post');
+        if($method)
+        {
+//            dd($request->all());
+//            "_token" => "I9w61HRkZUEuBQin8wqLcJ1ZJhvLsZd2gvB0gvMn"
+//  "fakeusernameremembered" => null
+//  "fakepasswordremembered" => null
+//  "name" => "Akinbami Akinsola Oluwagbenga"
+//  "username" => "Akingbenga1"
+//  "YourClass" => "JSS2"
+//  "Password" => "kazem123"
+
+            $FormMessages = array(
+                'name.required' => 'Your name is needed..',
+                'username.required' => 'Your need to give a username.',
+                'username.max' => 'Your username cannot be more than 20 characters.',
+                'YourClass.required' => 'Your must choose your current class.',
+                'YourClass.max' => 'Your chosen class cannot be more than :max characters.',
+                'Password.required' => 'Your password is required.',
+                'Password.min' => 'Your password must be a minimum of 6 characters.'
+            );
+            $validator = Validator::make(Input::all(),
+                array(
+                    'name' => 'required',
+                    'username' => 'required|max:20',
+                    'YourClass' => 'required|max:5',
+                    'Password' => 'required|min:6',
+                ), $FormMessages
+            );
+            if($validator->fails())
+            {
+                return back()->with(array(
+                    'LoginInfo'=> 'Error! Incorrect Input of information'))->withErrors($validator)->withInput();
+            }
+            else
+            {
+
+                $Name = $request->name;
+                $NameArray = explode(' ',$Name);
+                $StudentSurname    =  array_key_exists(0, $NameArray) ? $NameArray[0] : " " ;
+                $StudentFirstname  =  array_key_exists(1, $NameArray) ? $NameArray[1] : " ";
+                $StudentMiddlename =  array_key_exists(2, $NameArray) ? $NameArray[2] : " ";
+                $password = $request->Password;
+                $username = $request->username;
+                $YourClass = $request->YourClass;
+                $user =  new Users;
+                $user->useremail =  $username.'@eduapp.com';
+                $user->firstname = $StudentFirstname;
+                $user->middlename = $StudentMiddlename;
+                $user->surname = $StudentSurname;
+                $user->username = $username;
+                $user->password = Hash::make($password);
+                $user->activated = 0;
+
+               // dd($user);
+                try
+                {
+                    $user->save(); // save user details to data base
+                    $student = new Students;
+                    $student->current_class = $YourClass;
+                    $student->userid = $user->userid;
+                    $student->save();
+
+                    return back()->with(array(
+                        'AccountCreateInfo'=> 'Your account is created.'));
+                }
+                catch(\Exception $e)
+                {
+                    dd($e->getMessage());
+                    if(isset($student) ) { $student->delete(); }
+                    if(isset($user) ) { $user->delete(); }
+                    return back()->with(array(
+                        'AccountCreateInfo'=>'Error! Unable to create student account.
+				  		 There might be a duplicate student username in the database.'));
+                }//end catch block
+            }//end else that ensures that the user data is validates
+        }
+        else
+        {
+           return View::make('account.registration')->with(
+                    array(
+                        'Title' => ' Registration Page',
+                        'myBreadCrumb' => "<a href='". URL::route('home')."' id='BreadNav'>Home</a> => Registration Page"));
+
+        }
     }
 
 //New List of Methods

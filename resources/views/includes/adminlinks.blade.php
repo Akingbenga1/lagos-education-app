@@ -3,18 +3,19 @@
 
 <div class="AdminLinks">
 
-    <!--<a href="{{URL::action('user-profile')}}" > Your Profile </a> -->
-    @if ((  Auth::user()->ability(array('Super User', 'Teacher'), array()) )  )
-          <a href="{{URL::action('student-registration-form')}}" > Register student  </a>
-          <a href="{{URL::action('get-this-student-details')}}" > Student Score Table  </a>
-          <a href="{{URL::action('add-student-term')}}" > Add Student to Term </a>
-          <a href="{{URL::action('student-question-input-page')}}" > Question Input Page </a>    
+    <!--<a href="{{URL::route('user-profile')}}" > Your Profile </a> /*(  Auth::user()->ability(array('Super User', 'Teacher'), array()) )  ) */ -->
+    @if (true)
+          <a href="{{URL::route('student-registration-form')}}" > Register student  </a>
+          <a href="{{URL::route('get-this-student-details')}}" > Student Score Table  </a>
+          <a href="{{URL::route('add-student-term')}}" > Add Student to Term </a>
+          <a href="{{URL::route('student-question-input-page')}}" > Question Input Page </a>
 	  
     @endif
     
 
 </div>
- @if ((   Auth::user()->ability(array('Super User', 'Teacher'), array())  ))
+{{--(   Auth::user()->ability(array('Super User', 'Teacher'), array())  )--}}
+ @if (true)
 <!--<div class="ClassLinks">
   <p> List of classes for<br />                      
  
@@ -42,7 +43,7 @@
  @endif
 <div class="GeneralUpadte">
  <!--<p>  <b> Profile Update </b>(Sunday, 31st January, 2016 08:07pm ): <b> Your Personal data</b> can be editted. Please
-              <b> <a href="{{URL::action('user-profile')}}" > Click here to view your profile.</a></b> 
+              <b> <a href="{{URL::route('user-profile')}}" > Click here to view your profile.</a></b>
   </p> -->
 
    <!--<p>  <b> General Update </b>(Wednesday, 30th March, 2016 04:55am ):<b>  No new Update at the moment. </b> 
@@ -52,7 +53,7 @@
 entered into the database (100% complete).</b> 
 </p> 
  <p>  <b> General Update (Friday, 29th January, 2016 03:07pm ):</b> Processing of <b> Signatures </b> into the database is in progress. Click here <b>
-               <a href="{{URL::action('signauture-list')}}" > to see list of processed signatures</a></b> 
+               <a href="{{URL::route('signauture-list')}}" > to see list of processed signatures</a></b>
    </p>
 <p> General Update (Thursday, 28th January, 2016 06:25am ):  Missing and wrongly spelt students' names and admission numbers 
 in <b> SS3 C, SS2 B, SS2 D, SS3 A, SS1 J, SS1 H </b> have been resolved (100% complete). 

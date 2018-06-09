@@ -52,7 +52,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s6 m6 l6">
-                    <p class="margin medium-small tooltipped" data-position="bottom" data-delay="20" data-tooltip="You must be logged in as an Admin!"><a href="{{ URL::route('teachers-home-page')}}">Register Student</a></p>
+                    <p class="margin medium-small tooltipped" data-position="bottom" data-delay="20" data-tooltip="You must be logged in as an Admin!"><a href="{{ URL::route('register')}}">Register</a></p>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <p class="margin right-align medium-small"><a href="{{URL::route('password-reminder')}}">Forgot password ?</a></p>
