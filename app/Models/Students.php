@@ -2,24 +2,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Students extends Model  {
 
+    use SoftDeletes;
 
 
 
-protected $fillable = array('school_admission_number', 'userid');
+//protected $fillable = array('school_admission_number', 'userid');
 
-protected $guarded = array('password'); 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
 	protected $table = 'students';
-	protected $primaryKey = 'studentid';
-	//protected $hidden = array('password');
-	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.

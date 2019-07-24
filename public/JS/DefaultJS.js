@@ -242,7 +242,7 @@ $( document ).ready(function(){
             myFormData.append(index, value);
         });
 
-        // console.log(myFormData);
+        console.log(myFormData);
 
         $.ajax({
             type: 'POST',

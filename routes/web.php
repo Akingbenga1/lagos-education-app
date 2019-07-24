@@ -11,17 +11,9 @@
 |
 */
 
-Route::get('/oldwelcome', function ()
-{
-    return view('welcome');
-});
-
-Route::match(['get', 'post'], '/', ['uses' => 'HomeController@home', 'as' => 'home']);
-//Route::match(['get', 'post'], '/home', ['uses' => 'HomeController@home', 'as' => 'home']);
-
-
 
 //--------------------------------------Authentication Routes---------------------------------------
+
 Route::match(['get', 'post'], '/login', ['uses' => 'AuthenticationController@processLogin', 'as' => 'login']);
 
 Route::match(['get'], '/account/signout.html', ['uses' => 'AuthenticationController@userSignOut', 'as' => 'signout']);
@@ -35,6 +27,7 @@ Route::match(['get', 'post'], '/register', ['uses' => 'AccountController@registe
 
 
 //--------------------------------------Admin Related Routes---------------------------------------
+
 Route::match(['get', 'post'], '/admin/TeachersHome.html', ['uses' => 'AccountController@showTeachersHomePage', 'as' => 'teachers-home-page']);
 
 Route::match(['get', 'post'], '/admin/getstudentdetails.html', ['uses' => 'AccountController@getStudentDetailsSession', 'as' => 'get-student-details']);
@@ -51,6 +44,53 @@ Route::match(['get', 'post'], '/poststudentscoredetail', ['uses' => 'ScoreContro
 
 
 Route::match(['get', 'post'], '/saveeachstudentscore', ['uses' => 'ScoreController@saveEachStudentScores', 'as' => 'save-each-student-score']);
+
+
+Route::match(['get', 'post'], '/excel_upload', ['uses' => 'ExcelUploadController@excel_upload', 'as' => 'excel_uploader']);
+
+//--------------------------------------Admin Related Routes---------------------------------------
+
+
+//--------------------------------------Schools Related Routes---------------------------------------
+
+Route::match(['get', 'post'], '/schools', ['uses' => 'SchoolController@index', 'as' => 'all-schools']);
+
+Route::match(['get', 'post'], '/schools_options', ['uses' => 'SchoolController@schools_options', 'as' => 'schools_options']);
+
+
+Route::match(['get', 'post'], '/schools_excel_upload', ['uses' => 'SchoolController@schools_excel_upload', 'as' => 'schools_excel_upload']);
+
+Route::match(['get', 'post'], '/schools_save_scores', ['uses' => 'SchoolController@schools_save_scores', 'as' => 'schools_save_scores']);
+
+Route::match(['get', 'post'], '/schools_registration_save_students', ['uses' => 'SchoolController@schools_registration_save_students', 'as' => 'schools_registration_save_students']);
+
+
+Route::match(['get', 'post'], '/schools_registration', ['uses' => 'SchoolController@schools_registration', 'as' => 'schools_registration']);
+
+Route::match(['get', 'post'], '/schools_registration_excel_upload', ['uses' => 'SchoolController@schools_registration_excel_upload', 'as' => 'schools_registration_excel_upload']);
+
+
+
+
+//--------------------------------------Schools Related Routes---------------------------------------
+
+
+
+
+
+
+
+
+
+Route::get('/oldwelcome', function ()
+{
+    return view('welcome');
+});
+
+Route::match(['get', 'post'], '/', ['uses' => 'HomeController@home', 'as' => 'home']);
+//Route::match(['get', 'post'], '/home', ['uses' => 'HomeController@home', 'as' => 'home']);
+
+
 
 
 

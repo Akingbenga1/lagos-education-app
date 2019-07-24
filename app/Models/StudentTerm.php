@@ -2,8 +2,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class StudentTerm extends Model {
+
+    use SoftDeletes;
 	
 
 
@@ -14,15 +17,8 @@ class StudentTerm extends Model {
 	 *
 	 * @var string
 	 */
-	protected $table = 'studentterm';
+	protected $table = 'student_term';
 	protected $primaryKey = 'id';
-	public $timestamps = false;
-
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
 
      public function StudentBelong()
     {

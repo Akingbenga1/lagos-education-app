@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title> {{$Title}} </title>
+<title> Edu App | School Management   </title>
  <meta name="csrf-token" content="<?= csrf_token() ?>">
  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta charset="utf-8">
-<meta name="author" content="Akinbami Akinsola Oluwagbenga">
+<meta name="author" content="Imagine Business Service">
 <link rel="shortcut icon" href="{{asset('/Images/Logos/FavIjayeSchool.ico')}}">
 <style>
 @font-face {
@@ -49,6 +49,11 @@
 <link href="{{asset('CSS/jquery-ui-style.css')}}" rel="stylesheet">
 
     <link href="{{asset('assets-new/img/prime_favicon.png')}}" rel="shortcut icon">
+
+
+    <script src="{{ asset('JS/jquery.js') }}"></script>
+    <script src="{{ asset('JS/materialize.min.js') }}"></script>
+
 
 
 </head>
@@ -96,10 +101,18 @@
             &nbsp;<li class=" lighten-5 red-text center-align">You are not logged in!</li>
         @endif
         <li><div class="divider"></div></li>
+
         <li><a href="{{ route('home')}}" class="waves-effect"><i class="red-text material-icons">home</i>Home</a></li>
+
+        <li><a href="{{ url('/schools_options')}}" class="waves-effect"><i class="red-text material-icons">home</i> Schools </a></li>
+
+
         <li><a href="{{route('student-page')}}" class="waves-effect"><i class="red-text material-icons">library_books</i>Students @if(true)<span class=" deep-orange white-text badge">new report!</span>@endif</a></li>
+
         <li><a href="{{route('teachers-home-page')}}" class="waves-effect"><i class="red-text material-icons">school</i>Teachers</a></li>
+
         <li><a href="{{route('student-question-page')}}" class="waves-effect"><i class="red-text material-icons">cloud</i>Practise Questions</a></li>
+
         {{--<li class="green white-text"><a href="{{URL::action('excel-upload-page')}}" class="waves-effect white-text"><i class=" white-text material-icons">list</i>Excel Bulk Upload</a></li>--}}
         <li><div class="divider"></div></li>
         <li><a class="subheader">Classes</a></li>
@@ -129,6 +142,7 @@
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{ route('home')}}" class="waves-effect">Home</a></li>
+                <li><a href="{{url('/schools_options')}}" class="waves-effect"> Schools </a></li>
                 <li><a href="{{route('student-page')}}" class="waves-effect">Students</a></li>
                 <li><a href="{{route('teachers-home-page')}}" class="waves-effect">Teachers</a></li>
                 <li><a href="{{route('student-question-page')}}" class="waves-effect">Practise Questions</a></li>
@@ -197,12 +211,11 @@
 </footer>
 
 
-<script src="{{ asset('JS/jquery.js') }}"></script>
+
 <script src="{{ asset('JS/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('JS/ajaxeditscore.js') }}"></script>
 <script src="{{ asset('JS/randomColor.js') }}"></script>
 <script src="{{ asset('JS/parsley.min.js') }}"></script>
-<script src="{{ asset('JS/materialize.min.js') }}"></script>
 <script src="{{ asset('JS/Chart.min.js') }}"></script>
 <script src="{{ asset('JS/Chart.PieceLabel.js') }}"></script>
 <script src="{{ asset('JS/knob/jquery.knob.min.js') }}"></script>

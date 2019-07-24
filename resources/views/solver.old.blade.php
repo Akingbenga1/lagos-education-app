@@ -1,5 +1,10 @@
 @extends('layouts.master')
 @section('content')
+
+
+    /media/gbenga/A67839A278397263
+
+
    Command to make Directory Writable by Apache :
 
    1. sudo chgrp -R www-data /var/www/html/FRC/public/uploads/

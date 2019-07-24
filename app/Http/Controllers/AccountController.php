@@ -341,7 +341,7 @@ class AccountController extends Controller
         }
     }
 
-//New List of Methods
+    //New List of Methods
 
 
     //Old List of Methods

@@ -20,7 +20,7 @@ protected $fillable = array('useremail', 'password','firstname', 'surname', 'mid
 	 * @var string
 	 */
 	protected $table = 'users';
-	protected $primaryKey = 'userid';
+	protected $primaryKey = 'id';
 
 	/**
 	 * The attributes excluded from the model's JSON form.

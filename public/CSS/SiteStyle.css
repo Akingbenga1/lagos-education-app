@@ -545,3 +545,10 @@ p.CloseSignaturePanel
   background: -webkit-linear-gradient(45deg, #FF5252 0%, #f48fb1 100%)!important;
   background: linear-gradient(45deg, #FF5252 0%, #f48fb1 100%)!important;
 }
+
+.push_down
+{
+    margin-top: 60px!important;
+}
+
+
