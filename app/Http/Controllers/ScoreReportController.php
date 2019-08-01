@@ -16,15 +16,22 @@ use App\Models\SubjectScore;
 use App\Models\Terms;
 use App\Models\Users;
 use App\User;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
+use ZipArchive;
 
 
-class SchoolController extends Controller
+class ScoreReportController extends Controller
 {
 
     public function __construct(  )
@@ -153,8 +160,6 @@ class SchoolController extends Controller
 
                 break;
         }
-
-
 
     }
 
@@ -718,8 +723,6 @@ class SchoolController extends Controller
                 $student_score_counter =  0;
                 $subject_score_collection   = Subjects::all();
 
-//                dd($subject_score_collection->toArray());
-
                 switch ($school_object->school_type_id)  //  Check school_type_id
                 {
                     case 1:/* This is for Junior Secondary School */
@@ -749,7 +752,7 @@ class SchoolController extends Controller
                             $loop_breaker = 1;
                             foreach( $selectedScoreList as $eachScoreDetail)
                             {
-                                if($loop_breaker > 10)
+                                if($loop_breaker > 3)
                                 {
                                     break;
                                 }
@@ -912,40 +915,34 @@ class SchoolController extends Controller
                                             // Build subject score using the id  builted and generated
 
                                             // Create Student Subject Score  Model
+                                            $student_score_model =  new SubjectScore();
 
-                                            $exam_score = array_key_exists( "slugged_subject_score" ,  $subject_filtered_collections_subject_array )  ? $subject_filtered_collections_subject_array["slugged_subject_score"]  : null; // Can be null;
-                                            // Create Student Subject Score  Model
+                                        $student_score_model->exam_score = array_key_exists( "slugged_subject_score" ,  $subject_filtered_collections_subject_array )  ? $subject_filtered_collections_subject_array["slugged_subject_score"]  : null; // Can be null;
 
-                                            if(!is_null($exam_score)) {
-                                                $student_score_model = new SubjectScore();
+                                            $student_score_model->subject_id =   array_key_exists( "subjectid" , $subject_filtered_collections_subject_array )  ? $subject_filtered_collections_subject_array["subjectid"]   :  0; // Cannot be null
 
-                                                $student_score_model->exam_score = $exam_score;
-
-                                                $student_score_model->subject_id = array_key_exists("subjectid", $subject_filtered_collections_subject_array) ? $subject_filtered_collections_subject_array["subjectid"] : 0; // Cannot be null
-
-                                                $student_score_model->school_id = $student_school_id;
-                                                $student_score_model->student_registration_id = $student_registration_model->id;
-                                                $student_score_model->class_level_id = $student_registration_model->class_level_id;
-                                                $student_score_model->class_type_id = $student_registration_model->class_type_id;
-                                                $student_score_model->class_subdivision_id = $student_registration_model->class_subdivision;
-                                                $student_score_model->term_id = $term_id;
-                                                $student_score_model->academic_year_id = $student_registration_model->academic_year;;
-                                                $student_score_model->createdby = Auth::user()->id;
+                                            $student_score_model->school_id = $student_school_id;
+                                            $student_score_model->student_registration_id = $student_registration_model->id;
+                                            $student_score_model->class_level_id = $student_registration_model->class_level_id;
+                                            $student_score_model->class_type_id = $student_registration_model->class_type_id;
+                                            $student_score_model->class_subdivision_id = $student_registration_model->class_subdivision;
+                                            $student_score_model->term_id = $term_id;
+                                            $student_score_model->academic_year_id = $student_registration_model->academic_year;;
+                                            $student_score_model->createdby = Auth::user()->id;
 
 //                                            var_dump($student_score_model);
-                                                $student_score_model->save();
+                                            $student_score_model->save();
 
-                                                $successArray =
-                                                    [
-                                                        "student_registration_counter" => $student_score_counter,
-                                                        "student_name" => $student_name_surname_first,
-                                                        "admn_no" => $student_admission_no,
-                                                        "school" => $school_object->school_name,
-                                                        "reason" => "Student Score was successfully saved.",
-                                                    ];
+                                            $successArray =
+                                                [
+                                                    "student_registration_counter" =>  $student_score_counter,
+                                                    "student_name" => $student_name_surname_first ,
+                                                    "admn_no" => $student_admission_no,
+                                                    "school" => $school_object->school_name,
+                                                    "reason" => "Student Score was successfully saved.",
+                                                ];
 
-                                                $StudentScoreUploadArray["Success"][$student_score_counter] = $successArray;
-                                            }
+                                            $StudentScoreUploadArray["Success"][$student_score_counter] = $successArray;
                                         }
                                         catch(\Exception $e)
                                         {
@@ -1025,68 +1022,23 @@ class SchoolController extends Controller
                         break;
                     case 2: /* This is for Senior Secondary School */
 
-//                        dd("Process Score for Senior Secondary School");
-//                        dd($selectedScoreList[0]);
+                        dd("Process Score for Senior Secondary School");
                         if( (
                                 count($selectedScoreList) > 0 )
+                            and $selectedScoreList[0]->has("admn_no")
                             and $selectedScoreList[0]->has("academic_year")
                             and $selectedScoreList[0]->has("class_level")
                             and $selectedScoreList[0]->has("subdivision")
-                            and $selectedScoreList[0]->has("admn_no")
                             and $selectedScoreList[0]->has("english")
                             and $selectedScoreList[0]->has("mathematics")
-                            and $selectedScoreList[0]->has("biology")
+                            and $selectedScoreList[0]->has("basic_science_and_technology")
                             and $selectedScoreList[0]->has("french")
                             and $selectedScoreList[0]->has("yoruba")
-                            and $selectedScoreList[0]->has("chemistry")
-                            and $selectedScoreList[0]->has("physics")
-                            and $selectedScoreList[0]->has("agricultural_science")
-                            and $selectedScoreList[0]->has("clothing_textile_food_nutrition")
-                            and $selectedScoreList[0]->has("further_mathematics")
-                            and $selectedScoreList[0]->has("history")
-                            and $selectedScoreList[0]->has("geography")
-                            and $selectedScoreList[0]->has("literature_in_english")
-                            and $selectedScoreList[0]->has("accounting")
-                            and $selectedScoreList[0]->has("commerce")
-                            and $selectedScoreList[0]->has("government")
-                            and $selectedScoreList[0]->has("christian_religious_knowledge")
-                            and $selectedScoreList[0]->has("economics")
-                            and $selectedScoreList[0]->has("technical_drawing")
-                            and $selectedScoreList[0]->has("visual_art")
-                            and $selectedScoreList[0]->has("ict")
-                            and $selectedScoreList[0]->has("civic_education")
-                            and $selectedScoreList[0]->has("book_keeping")
-                            and $selectedScoreList[0]->has("office_practice")
-                            and $selectedScoreList[0]->has("physical_education")
-                            and $selectedScoreList[0]->has("dyeing_and_bleaching")
-                            and $selectedScoreList[0]->has("salesmanship")
-                            and $selectedScoreList[0]->has("animal_husbandry")
-                            and $selectedScoreList[0]->has("fisheries")
-                            and $selectedScoreList[0]->has("data_processing")
-                            and $selectedScoreList[0]->has("auto_mechanics")
-                            and $selectedScoreList[0]->has("catering_and_craft")
-                            and $selectedScoreList[0]->has("insurance")
-                            and $selectedScoreList[0]->has("electronics")
-                            and $selectedScoreList[0]->has("wood_work")
-                            and $selectedScoreList[0]->has("marketing")
-
-//        "visual_art" => null
-//        "ict" => null
-//        "civic_education" => 78.0
-//        "book_keeping" => null
-//        "office_practice" => null
-//        "physical_education" => null
-//        "dyeing_and_bleaching" => null
-//        "salesmanship" => null
-//        "animal_husbandry" => null
-//        "fisheries" => null
-//        "data_processing" => null
-//        "auto_mech" => null
-//        "catering_and_craft" => null
-//        "insurance" => null
-//        "electronics" => null
-//        "wood_work" => null
-//        "marketing" => null
+                            and $selectedScoreList[0]->has("rel_val_edu")
+                            and $selectedScoreList[0]->has("pre_vocational_studies")
+                            and $selectedScoreList[0]->has("business_studies")
+                            and $selectedScoreList[0]->has("cca")
+                            and $selectedScoreList[0]->has("arabic")
                         )
                         {
                             ini_set('memory_limit', '-1');
@@ -1096,8 +1048,7 @@ class SchoolController extends Controller
                             $loop_breaker = 1;
                             foreach( $selectedScoreList as $eachScoreDetail)
                             {
-
-                                if($loop_breaker > 10)
+                                if($loop_breaker > 3)
                                 {
                                     break;
                                 }
@@ -1230,6 +1181,7 @@ class SchoolController extends Controller
                                     // Build Collection based on filter function that is based on
 
 
+
                                     $subject_filtered_collections =   $subject_score_collection->filter(function ($item, $key) use ($eachScoreDetail)
                                     {
                                         $slugged_subject_name = str_slug($item->subject, '_');
@@ -1246,7 +1198,7 @@ class SchoolController extends Controller
                                         }
                                     });
 
-//                                    dd($subject_score_collection->toArray(), $subject_filtered_collections->toArray());
+//                                    dd($eachScoreDetail, $subject_filtered_collections->toArray());
 
                                     foreach ( $subject_filtered_collections as $subject_filtered_collections_keys => $subject_filtered_collections_subject)
                                     {
@@ -1258,41 +1210,35 @@ class SchoolController extends Controller
                                             // Query and get student_registration model and get student id
                                             // Build subject score using the id  builted and generated
 
-                                            //only save subjects that are not null
-                                            $exam_score = array_key_exists( "slugged_subject_score" ,  $subject_filtered_collections_subject_array )  ? $subject_filtered_collections_subject_array["slugged_subject_score"]  : null; // Can be null;
                                             // Create Student Subject Score  Model
-                                            if(!is_null($exam_score))
-                                            {
-                                                $student_score_model =  new SubjectScore();
+                                            $student_score_model =  new SubjectScore();
 
-                                                $student_score_model->exam_score =  $exam_score;
+                                            $student_score_model->exam_score = array_key_exists( "slugged_subject_score" ,  $subject_filtered_collections_subject_array )  ? $subject_filtered_collections_subject_array["slugged_subject_score"]  : null; // Can be null;
 
-                                                $student_score_model->subject_id =   array_key_exists( "subjectid" , $subject_filtered_collections_subject_array )  ? $subject_filtered_collections_subject_array["subjectid"]   :  0; // Cannot be null
+                                            $student_score_model->subject_id =   array_key_exists( "subjectid" , $subject_filtered_collections_subject_array )  ? $subject_filtered_collections_subject_array["subjectid"]   :  0; // Cannot be null
 
-                                                $student_score_model->school_id = $student_school_id;
-                                                $student_score_model->student_registration_id = $student_registration_model->id;
-                                                $student_score_model->class_level_id = $student_registration_model->class_level_id;
-                                                $student_score_model->class_type_id = $student_registration_model->class_type_id;
-                                                $student_score_model->class_subdivision_id = $student_registration_model->class_subdivision;
-                                                $student_score_model->term_id = $term_id;
-                                                $student_score_model->academic_year_id = $student_registration_model->academic_year;;
-                                                $student_score_model->createdby = Auth::user()->id;
+                                            $student_score_model->school_id = $student_school_id;
+                                            $student_score_model->student_registration_id = $student_registration_model->id;
+                                            $student_score_model->class_level_id = $student_registration_model->class_level_id;
+                                            $student_score_model->class_type_id = $student_registration_model->class_type_id;
+                                            $student_score_model->class_subdivision_id = $student_registration_model->class_subdivision;
+                                            $student_score_model->term_id = $term_id;
+                                            $student_score_model->academic_year_id = $student_registration_model->academic_year;;
+                                            $student_score_model->createdby = Auth::user()->id;
 
-//                                            var_dump($student_score_model->toArray());
-                                                $student_score_model->save();
+//                                            var_dump($student_score_model);
+                                            $student_score_model->save();
 
-                                                $successArray =
-                                                    [
-                                                        "student_registration_counter" =>  $student_score_counter,
-                                                        "student_name" => $student_name_surname_first ,
-                                                        "admn_no" => $student_admission_no,
-                                                        "school" => $school_object->school_name,
-                                                        "reason" => "Student Score was successfully saved.",
-                                                    ];
+                                            $successArray =
+                                                [
+                                                    "student_registration_counter" =>  $student_score_counter,
+                                                    "student_name" => $student_name_surname_first ,
+                                                    "admn_no" => $student_admission_no,
+                                                    "school" => $school_object->school_name,
+                                                    "reason" => "Student Score was successfully saved.",
+                                                ];
 
-                                                $StudentScoreUploadArray["Success"][$student_score_counter] = $successArray;
-                                            }
-
+                                            $StudentScoreUploadArray["Success"][$student_score_counter] = $successArray;
                                         }
                                         catch(\Exception $e)
                                         {
@@ -1360,7 +1306,8 @@ class SchoolController extends Controller
                             // Complain that excel does not have subdivision and many other headings  heading and that it must be added
                             // continue but don't execute any code further, loop out an return error through session
 
-                            $request->session()->flash('error' , "Bulk student score upload  was not done because  one or more headings for Senior Secondary schools is/are  missing. Please ensure the following heading: Admission Number, Student Name and all subjects applicable for Senior secondary school are added. ");
+                            $request->session()->flash('error' , "Bulk student score upload  was not done because  one or more headings are  missing. Please ensure the following heading:  
+                        Admission Number, Student Name, SEX , 	ENGLISH, MATHEMATICS , BASIC SCIENCE AND TECHNOLOGY , FRENCH, YORUBA , REL & VAL EDU, PRE VOCATIONAL STUDIES, BUSINESS STUDIES, CCA, ARABIC, subdivision, Class Level, Academic Year ");
 
                             return view('schools.score_excel_upload',
                                 [
@@ -1554,23 +1501,12 @@ class SchoolController extends Controller
 
     }
 
-    public function schools_registration(Request $request)
+    public function schools_reports(Request $request)
     {
         $method = $request->isMethod('post');
         if ($method)
         {
-//            dd($request->all());
-
-//            "school_value" => "22"
-//              "academic_year" => "1"
-//              "academic_year_value" => "1"
-//              "term" => "2"
-//              "term_value" => "2"
-//              "class_level" => "4"
-//              "class_level_value" => "4"
-//              "class_subdivision" => "5"
-//              "class_subdivision_value" => "5"
-//
+            dd($request->all());
             // post value for school modal
             // If academic year, term, class subdivision and class level exists
             // then redirect to new view that show excel to be uploaded for student scores
@@ -1599,7 +1535,7 @@ class SchoolController extends Controller
             $school_value = $request->school_value;
 
 //                $school_value = 869669959;
-//                dd($academic_year, $term_value, $class_level_value, $class_subdivision_value  );
+                dd($academic_year, $term_value, $class_level_value, $class_subdivision_value  );
 
 
             $this_class_subdivision = ClassSubdivisions::find($class_subdivision_value);
@@ -1679,7 +1615,9 @@ class SchoolController extends Controller
 
             $data['Title'] = 'Edu App | School Management Software';
 
-            return view('schools.schools_registration', $data);
+//            dd($data);
+
+            return view('schools.report_schools', $data);
         }
 
     }
@@ -2286,6 +2224,1224 @@ class SchoolController extends Controller
              return  [];
 
          }
+
+    }
+
+    public function school_report_download(Request $request)
+    {
+        // Authorization based , Only admin can do CRUD.
+        // Switch case to different route based on role or permission assessment
+        // Show all schools and include appropriate utility action links
+        //  Links to schools and show modal on mode of score upload
+
+        $method = $request->isMethod('get');
+        switch ($method) {
+            case true:
+
+                $all_schools = School::all();
+
+                $academic_year = AcademicYear::all();
+
+                $terms = Terms::all();
+
+                $classlevels = ClassLevels::all();
+
+                $class_subdivisions = ClassSubdivisions::all();
+
+                $data['all_schools'] = $all_schools->toArray();
+
+                $data['academic_years'] = $academic_year;
+
+                $data['terms'] = $terms;
+
+                $data['classlevels'] = $classlevels;
+
+                $data['class_subdivisions'] = $class_subdivisions;
+
+                $data['Title'] = 'Edu App | School Management Software';
+
+                //        dd($data);
+                return view('schools.schools', $data);
+
+                break;
+            case false:
+                // post value for school modal
+                // If academic year, term and class level exists
+                // the redirect to new view that show excel to be uploaded for student scores
+
+//                dd($request->all());
+//                Session::forget("ExcelData");
+
+                $validator = Validator::make($request->all(),
+                    [
+                    'academic_year_value' => 'required|integer',
+                        'term_value' => 'required|integer',
+                    'class_level_value' => 'required|integer',
+                        'school_value' => 'required|integer'
+
+                    ]);
+
+                if ($validator->fails())
+                {
+                    return back()->withErrors($validator)->withInput();
+                }
+
+                $academic_year = $request->academic_year_value;
+                $term_value = $request->term_value;
+                $class_level_value = $request->class_level_value;
+                $school_value = $request->school_value;
+
+//                $school_value = 869669959;
+//                dd($academic_year, $term_value, $class_level_value , $school_value  );
+
+                $this_school = School::find($school_value);
+                if(is_null($this_school)  )
+                {
+                    $request->session()->flash('error' , "The school chosen is not valid.");
+                    return back();
+                }
+
+
+                $this_academic_year = AcademicYear::find($academic_year);
+                if(is_null($this_academic_year)  )
+                {
+                    $request->session()->flash('error' , "The academic year chosen is not valid.");
+                    return back();
+                }
+
+                $this_term = Terms::find($term_value);
+                if(is_null($this_term)  )
+                {
+                    $request->session()->flash('error' , "The term chosen is not valid.");
+                    return back();
+                }
+
+                $this_class_level = ClassLevels::find($class_level_value);
+                if(is_null($this_class_level)  )
+                {
+                    $request->session()->flash('error' , "The class level chosen is not valid.");
+                    return back();
+                }
+
+
+                // Save Models in Session Variables and open next page , Excel upload page
+
+                Session::put("academic_year_object", $this_academic_year);
+
+                Session::put("term_object", $this_term);
+
+                Session::put("class_level_object", $this_class_level);
+
+                Session::put("school_object", $this_school);
+
+                // Use the Values Sent here to Build Tables
+
+            $whereQueryArray =
+
+                [
+                    'ss.academic_year_id' => $this_academic_year->id,
+                    'ss.school_id' => $this_school->id,
+                    'ss.term_id' => $this_term->id,
+                    'ss.class_level_id' => $this_class_level->id
+                ];
+
+//            dd($whereQueryArray);
+                $score_data =  DB::table("subject_score as ss")
+                               ->join('class_subdivisions as csb', 'csb.id', '=', 'ss.class_subdivision_id')
+//                               ->join('academic_years as acy', 'acy.id', '=', 'ss.academic_year_id')
+                                ->join('class_levels as cls', 'cls.id', '=', 'ss.class_level_id')
+                               ->join('subjects as sbj', 'sbj.subjectid', '=', 'ss.subject_id')
+                                ->join('student_registration as srg', 'srg.id', '=', 'ss.student_registration_id')
+                    ->join('students as std', 'std.id', '=', 'srg.student_id')
+                    ->join('users as usr', 'usr.id', '=', 'std.userid')
+                      ->groupBy([ 'ss.class_subdivision_id' , 'ss.student_registration_id', 'ss.subject_id'])
+
+                                ->where($whereQueryArray)
+                                ->selectRaw('ss.*, ss.student_registration_id as group_student_registration_id, csb.class_subdivision as class_subdivision_name, cls.class_level  as student_class_level, srg.admission_number as student_admission_number, usr.surname as student_surname, usr.middlename as student_middlename, usr.firstname as student_firstname, sbj.subject as student_subject, srg.admission_number as student_admission_number' )
+                                ->get();
+//                dd($score_data);
+
+
+                $score_grouped_class_subdivision = collect();
+                $score_data_grouped =  collect();
+                if(count ($score_data) > 0)
+                {
+                    $score_data_grouped = $score_data->groupBy([
+                        'class_subdivision_name',
+                        'group_student_registration_id',
+                        function ($item)
+                        {
+                            return  str_slug($item->student_subject, "_");
+                        },
+//                        'student_subject',
+                    ]);
+
+                    $score_grouped_class_subdivision = $score_data_grouped->keys();
+
+//                    dd($score_grouped_class_subdivision);
+//                    dd($score_data_grouped);
+
+                      Session::put("StudentScoreResultData", $score_data_grouped);
+                }
+                else
+                {
+                    // The query above return no values
+
+                }
+
+
+
+                $data["score_grouped_class_subdivision"] =  $score_grouped_class_subdivision;
+                $data["score_data_grouped"] =  $score_data_grouped;
+
+                return view('schools.score_download_upload', $data);
+
+                break;
+        }
+
+    }
+
+    public function student_score_download_pdf(Request $request, $student_registration_id, $class_subdivision_loop_key)
+    {
+        $method = $request->isMethod('get');
+        if ($method)
+        {
+//            dd($request->all(), $student_registration_id ,  $class_subdivision_loop_key);
+
+//            $validator = Validator::make($request->a, [
+//
+//                'class_subdivision_loop_key' => 'required|integer',
+//            ]);
+//
+//            if ($validator->fails())
+//            {
+////                dd($validator->errors());
+//                return back()->withErrors($validator)->withInput();
+//            }
+
+//            dd(Session::get("academic_year_object"));
+
+            $term_object = Session::has("term_object") ? Session::get("term_object") : null;
+            $school_object = Session::has("school_object") ? Session::get("school_object") : null;
+
+            $academic_year_object = Session::has("academic_year_object") ? Session::get("academic_year_object") : null;
+
+            // Get Excel Data from Session Varibale
+            // Loop through data and use school_id and student admission number to get userid and save score in database
+            $FullExcelData =  Session::has("StudentScoreResultData" ) ? Session::get("StudentScoreResultData" ) : null ;
+
+            $selected_registration_list_index = $class_subdivision_loop_key;
+            $selected_student_registration_index = $student_registration_id;
+
+            if(!is_null($FullExcelData) and ( count($FullExcelData) > 0) and !is_null($term_object) )
+            {
+                // Extended checks should be put in place
+                $StudentScoreData =   $FullExcelData[$selected_registration_list_index][$selected_student_registration_index];
+//                dd($StudentScoreData);
+
+                //Send this variable to reportpdf and make attempt to download it
+                $html = '';
+
+                $surname = property_exists($StudentScoreData->first()->first(), "student_surname") ? ucwords(strtolower($StudentScoreData->first()->first()->student_surname))  : " ";
+
+                $middle_name = property_exists($StudentScoreData->first()->first(), "student_middlename") ? ucwords(strtolower($StudentScoreData->first()->first()->student_middlename))  : " ";
+
+                $first_name = property_exists($StudentScoreData->first()->first(), "student_firstname") ? ucwords(strtolower($StudentScoreData->first()->first()->student_firstname))  : " ";
+
+                $class_level = property_exists($StudentScoreData->first()->first(), "student_class_level") ? ucwords(strtolower($StudentScoreData->first()->first()->student_class_level))  : " ";
+
+
+                $student_admission_number = property_exists($StudentScoreData->first()->first(), "student_admission_number") ? ucwords(strtolower($StudentScoreData->first()->first()->student_admission_number))  : " ";
+
+                $StudentName = $surname . " ". $middle_name . " ".  $first_name;
+
+                $view_string = View::make('includes.reportviewpdf_review')
+                    ->with(array(
+                        'Title' => 'Student Report Page',
+                        'ThisStudent' => $StudentName,
+                        'SubjectScore' => $StudentScoreData,
+                        'Attendance' => [] ,
+                        'TermDuration' => [],
+                        'RequestedTerm'   => $term_object,
+                        "OfficialComments" => [],
+                        'School'   => $school_object,
+                        'ClassSubDivision'  => $class_subdivision_loop_key,
+                        'ClassLevel'  => $class_level,
+                        'AcademicYear'  => $academic_year_object,
+                        'StudentAdmissionNumber'  => $student_admission_number,
+                        'FirstTermSubjectScore'  => $StudentScoreData,
+                        'SecondTermSubjectScore'  => []))
+                    ->render();
+
+                $view_string = preg_replace('/>\s+</', "><", $view_string);
+//                return $view_string;
+
+                $pdf = App::make('dompdf.wrapper');
+                $pdf->loadHTML($view_string);
+
+//                return $pdf->stream("Download.pdf");
+                $pdfStream =  $pdf->stream("Download.pdf");
+
+//                dd ( $pdfStream->getContent() );
+
+//                TUNDE  SHOMEFUN - FIRST TERM SS1 A - Result
+            $requested_term = $term_object->term;
+                return $pdf->download("$StudentName - $requested_term  term - " .  strtoupper($class_level) . "$class_subdivision_loop_key - Result.pdf");
+
+                $zip_file = storage_path( 'app/test.zip') ;
+
+                $zip = new ZipArchive;
+                $res = $zip->open($zip_file , ZipArchive::CREATE);
+                if ($res === TRUE)
+                {
+                    $zip->addFromString("test.pdf",  $pdfStream->getContent());
+                    $zip->addFromString("test1.pdf", $pdfStream->getContent());
+                    $zip->addFromString("test3.pdf", $pdfStream->getContent());
+                    $zip->close();
+                    echo 'ok';
+                } else {
+                    echo 'failed';
+                }
+
+
+//                header('Content-Type: application/zip');
+//                header('Content-disposition: attachment; filename='.$zip_file);
+//                header('Content-Length: ' . filesize($zip_file));
+//                readfile($zip_file);
+
+//                dd($zip_file);
+
+                $response  = response()->download($zip_file);
+                ob_end_clean();
+                return $response;
+            }
+            else
+            {
+                // Return That Data does not exist
+            }
+
+
+
+//            $academic_year_object = Session::get("academic_year_object");
+
+//            $term_object = Session::get("term_object");
+
+//            $class_level_object = Session::get("class_level_object");
+
+//            $school_object = Session::get("school_object");
+
+//            Log::info(json_encode($school_object) . " ". json_encode($term_object) );
+
+//            $academic_year_object = Session::get("academic_year_object");
+//
+//            Session::put("academic_year_object", $this_academic_year);
+//
+//            Session::put("term_object", $this_term);
+//
+//            Session::put("class_level_object", $this_class_level);
+//
+//            Session::put("school_object", $this_school);
+
+            if(Session::has("ExcelData" ))
+            {
+                $FullExcelData =  Session::get("ExcelData" );
+
+                // Get The data list based on the selected index choosen
+
+                $selectedRegistrationList = $FullExcelData->get($selected_registration_list_index);
+//                dd($selectedRegistrationList);
+
+                //Loop through list
+
+//
+//                $academic_year_object = Session::get("academic_year_object");
+
+//                $term_object = Session::get("term_object");
+
+                $class_level_object = Session::get("class_level_object");
+
+                $school_object = Session::has("school_object") ? Session::get("school_object")  : "";
+
+                $school_id = $school_object->id;
+
+//                $academic_year = $academic_year_object->id;
+
+                // Test Run And Check that Excel sheet has Sub division, or else bypass bulk student registration and complain
+
+                //Get first student as a sample
+//                dd(count($selectedRegistrationList));
+
+                $StudentRegistrationArray = [];
+                $student_registration_counter =  0;
+
+                if( (count($selectedRegistrationList) > 0 )
+                    and $selectedRegistrationList[0]->has("subdivision")
+                    and $selectedRegistrationList[0]->has("sex")
+                    and $selectedRegistrationList[0]->has("class_level")
+                    and $selectedRegistrationList[0]->has("academic_year")
+                    and $selectedRegistrationList[0]->has("admn_no")
+                    and $selectedRegistrationList[0]->has("student_name")
+                )
+                {
+                    ini_set('memory_limit', '-1');
+                    ini_set('max_execution_time', 30000); //300 seconds = 5 minutes
+
+
+                    $loop_breaker = 1;
+                    foreach( $selectedRegistrationList as $eachRegisteredStudent)
+                    {
+//                        dd($eachRegisteredStudent);
+                        // Check first that collection has district_no
+                        //if true, use district_no to save student details including other details
+                        //if false, use school_id and admn_no to save student details. Also, generated an alphanumeric 5 digit code for district number for the students
+
+//                             "admn_no" => "4485"
+//                                "student_name" => "Paul-Maduka Faith Obianuju"
+//                                "spin" => null
+//                                "sex" => "F"
+//                                "subdivision" => "A"
+//                                "class_level" => "JSS1"
+//                                "academic_year" => 2019.0
+
+
+//                        if($loop_breaker > 10)
+//                        {
+//                            break;
+//                        }
+
+                        $loop_breaker++;
+
+                        if($eachRegisteredStudent->has('district_no') )
+                        {
+                            //if true, use district_no to get student/user model
+                            $student_district_no =  $eachRegisteredStudent->get('district_no');
+                        }
+                        else
+                        {
+                            //if false, auto generate student district ID
+                            $random_alphanum_array = Utilities::getUniqueFixedCharacters(5, ["district_number" => "students"]);
+                            $student_district_no =   $random_alphanum_array["generated_character"];
+
+                        }
+
+                        $student_admission_no =  $eachRegisteredStudent->has('admn_no') ? $eachRegisteredStudent->get('admn_no') : null;
+                        $student_spin_no =  $eachRegisteredStudent->has('spin') ? $eachRegisteredStudent->get('spin') : null;
+                        $student_sex =  $eachRegisteredStudent->has('sex') ? $eachRegisteredStudent->get('sex') : null;
+                        $student_name_surname_first =  $eachRegisteredStudent->has('student_name') ? $eachRegisteredStudent->get('student_name') : null;
+
+//                        $student_academic_year =  $academic_year;
+                        $student_academic_year =  $eachRegisteredStudent->has('academic_year') ? $eachRegisteredStudent->get('academic_year') : null;
+                        $student_school_id =  $school_id;
+//                        $student_term =  $term_object->id;
+                        $student_class_level =  $eachRegisteredStudent->has('class_level') ? $eachRegisteredStudent->get('class_level') : null;
+
+                        $classubdivision_array =
+                            [
+                                "a" => 1,
+                                "b" => 2,
+                                "c" => 3,
+                                "d" => 4,
+                                "e" => 5,
+                                "f" => 6,
+                                "g" => 7,
+                                "h" => 8,
+                                "i" => 9,
+                                "j" => 10,
+                                "k" => 11
+                            ];
+
+                        /* Check Values of Class Sub division for correctness */
+                        $student_subdivision =  $eachRegisteredStudent->has('subdivision') ? $eachRegisteredStudent->get('subdivision') : null;
+
+                        $student_subdivision = strtolower($student_subdivision);
+
+                        $student_division_id = array_key_exists($student_subdivision, $classubdivision_array )  ? $classubdivision_array[$student_subdivision] : null ;
+
+                        if(is_null($student_division_id))
+                        {
+                            // continue but dont execute any code further for this iteration
+                            //Record this student name and Admin_id
+                            $failureArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "The Class Subdivision is invalid. This student was skipped."
+                            ];
+                            $StudentRegistrationArray["Failure"][$student_registration_counter] = $failureArray;
+                            continue;
+                        }
+                        /* Check Values of Class Sub division for correctness */
+
+
+                        /* Check Values of Class Levels for correctness */
+
+                        $class_level_array =
+                            [
+                                "jss1" => 1,
+                                "jss2" => 2,
+                                "jss3" => 3,
+                                "ss1" => 4,
+                                "ss2" => 5,
+                                "ss3" => 6
+                            ];
+
+                        $student_class_level =  preg_replace('/\s+/', '', strtolower($student_class_level)) ;
+
+
+                        $student_class_level_id = array_key_exists($student_class_level, $class_level_array )  ? $class_level_array[$student_class_level] : null;
+
+//                        dd($student_class_level, $student_class_level_id);
+
+
+                        if(is_null($student_class_level_id))
+                        {
+                            // continue but don't execute any code further for this iteration
+                            //Record this student name and Admin_id
+                            $failureArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "The Student Class Level is invalid. This student was skipped."
+                            ];
+                            $StudentRegistrationArray["Failure"][$student_registration_counter] = $failureArray;
+
+                            continue;
+                        }
+
+                        /* Check Values of Class Levels for correctness */
+
+                        /* Check Values of Academic Year for correctness */
+
+
+                        $student_academic_year = (int)$student_academic_year;
+
+                        $student_academic_year =  preg_replace('/\s+/', '', strtolower($student_academic_year)) ;
+
+                        $student_academic_year_object =  AcademicYear::where("academic_year", $student_academic_year )->get();
+                        $student_academic_year_id = null;
+                        if(count($student_academic_year_object) > 0)
+                        {
+                            $student_academic_year_id =  $student_academic_year_object->first()->id;
+                        }
+                        else
+                        {
+                            $student_academic_year_id = null;
+                        }
+
+//                        dd($student_academic_year, $student_academic_year_id);
+
+
+                        if(is_null($student_academic_year_id))
+                        {
+                            // continue but dont execute any code further for this iteration
+                            //Record this student name and Admin_id
+                            $failureArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "The Academic Year is invalid. This student was skipped."
+                            ];
+                            $StudentRegistrationArray["Failure"][$student_registration_counter] = $failureArray;
+                            continue;
+                        }
+
+                        /* Check Values of Academic Year for correctness */
+
+
+                        // Build Student Model and Users Model and populate Student , Users and Student Registration Tables
+                        $user_object = null;
+                        $student_model = null;
+                        $student_registration = null;
+                        try
+                        {
+                            $studentNameArray = $this->extractName($student_name_surname_first);
+                            $builtStudentEmail = $this->buildEmail($studentNameArray, $student_district_no);
+                            $raw_password = Utilities::create_random_name(20);
+                            $userInsertStudentArrayCount = count($studentNameArray);
+                            $studentSex = strtolower($student_sex) == "m" ? "Male" : "Female";
+
+                            $surname =   $userInsertStudentArrayCount > 0 ?  $studentNameArray[0] : " ";
+                            $firstname =   $userInsertStudentArrayCount > 1 ?  $studentNameArray[1] : " ";
+                            $middlename =   $userInsertStudentArrayCount > 2 ?  $studentNameArray[2] : " ";
+
+                            $user_object = new Users();
+
+                            $user_object->useremail = $builtStudentEmail;
+                            $user_object->firstname = $firstname;
+                            $user_object->middlename = $middlename;
+                            $user_object->surname = $surname;
+                            $user_object->activated =  1; // Activated by default
+                            $user_object->password =  bcrypt($raw_password);
+                            $user_object->sex = $studentSex;
+
+//                            dd($user_object);
+                            $user_object->save();
+
+                            // Create Student Model
+
+                            $student_model = new Students();
+
+                            $student_model->userid =   $user_object->id;
+                            $student_model->district_number =  $student_district_no;
+                            $student_model->spin =  $student_spin_no;
+
+//                            dd($student_model);
+                            $student_model->save();
+
+                            $student_registration =  new StudentRegistration();
+                            $student_registration->student_id = $student_model->id;
+                            $student_registration->academic_year = $student_academic_year_id;
+                            $student_registration->school_id = $student_school_id;
+                            $student_registration->class_level_id = $student_class_level_id;
+                            $student_registration->class_type_id = null;
+                            $student_registration->class_subdivision = $student_division_id;
+                            $student_registration->admission_number = $student_admission_no;
+
+//                            dd($student_registration);
+                            $student_registration->save();
+
+                            $successArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "Student details was successfully saved.",
+
+                            ];
+
+                            $StudentRegistrationArray["Success"][$student_registration_counter] = $successArray;
+                        }
+                        catch(\Exception $e)
+                        {
+                            Log::info($e->getMessage());
+
+                            if(!is_null($student_registration))
+                            {
+                                $student_registration->forceDelete();
+                            }
+
+                            if(!is_null($student_model))
+                            {
+                                $student_model->forceDelete();
+                            }
+
+                            if(!is_null($user_object))
+                            {
+                                $user_object->forceDelete();
+                            }
+
+                            // Record failure situation here and store in recon Array
+
+                            $failureArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "There was an error in saving User, Student or Student Registration information. Please contact administrator.",
+                                "errorText" => $e->getMessage()
+                            ];
+
+                            $StudentRegistrationArray["Failure"][$student_registration_counter] = $failureArray;
+
+                            $StudentRegistrationArray["Success"][$student_registration_counter] = $failureArray;
+                        }
+
+                        $student_registration_counter++;
+
+                    }
+
+//                     dd("End of loop" );
+                    // Build Response Object and return
+
+                    $request->session()->flash('success' , "Bulk student registration is successful.");
+                    $session_name = "StudentRegistrationExcelExportData";
+
+
+
+                    Session::put("StudentRegistrationExcelExportData", $StudentRegistrationArray );
+                    Session::put("session_name", $session_name );
+
+                    $request->session()->flash('bulkOperationArray' , $StudentRegistrationArray );
+
+                    return view('schools.registration_excel_upload',
+                        [
+                            'MyBreadCrumb' => '',
+                            'Title' => 'EduApp Lagos',
+                        ]);
+
+//                    return back()->withInput();
+                }
+                else
+                {
+                    // Complain that excel does not have subdivision and many other headings  heading and that it must be added
+                    // continue but don't execute any code further, loop out an return error through session
+//                    dd("An important header is missing " );
+
+                    $request->session()->flash('error' , "Bulk student registration was not done because an important heading was missing. Please ensure the following heading:  Student name, Admission Number, Sex, Class level, Academic Year, Sub Division.");
+
+                    return view('schools.registration_excel_upload',
+                        [
+                            'MyBreadCrumb' => '',
+                            'Title' => 'EduApp Lagos',
+                        ]);
+
+//                    return back()->withInput();
+                }
+
+            }
+            else
+            {
+                // Return with error that excel data does not exist
+//                dd("No data choosen or index is wrong" );
+
+                $request->session()->flash('error' , "Student Registration Data is unavailable. Please try again.  ");
+
+                return view('schools.registration_excel_upload',
+                    [
+                        'MyBreadCrumb' => '',
+                        'Title' => 'EduApp Lagos',
+                    ]);
+
+//                return back()->withInput();
+            }
+
+        }
+        else
+        {
+            return view('school.registration_excel_upload',
+                [
+                    'MyBreadCrumb' => '',
+                    'Title' => 'EduApp Lagos',
+                ]);
+        }
+
+    }
+
+    public function download_all_class_subdivision(Request $request, $class_subdivision_loop_key)
+    {
+        $method = $request->isMethod('get');
+        if ($method)
+        {
+//            dd($request->all() ,  $class_subdivision_loop_key);
+
+//            dd(Session::get("class_level_object"));
+
+            $term_object = Session::has("term_object") ? Session::get("term_object") : null;
+            $school_object = Session::has("school_object") ? Session::get("school_object") : null;
+            $class_level_object = Session::has("class_level_object") ? Session::get("class_level_object") : null;
+            $academic_year_object = Session::has("academic_year_object") ? Session::get("academic_year_object") : null;
+
+            // Get Excel Data from Session Varibale
+            // Loop through data and use school_id and student admission number to get userid and save score in database
+            $FullExcelData =  Session::has("StudentScoreResultData" ) ? Session::get("StudentScoreResultData" ) : null ;
+
+            $selected_registration_list_index = $class_subdivision_loop_key;
+//            $selected_student_registration_index = $student_registration_id;
+
+            if(!is_null($FullExcelData) and ( count($FullExcelData) > 0) and !is_null($term_object) )
+            {
+                // Extended checks should be put in place
+                $SelectedClassSubdivision =  $FullExcelData[$selected_registration_list_index];
+//                dd($SelectedClassSubdivision);
+
+                if(count($SelectedClassSubdivision) > 0)
+                {
+                    $zip_file_name = str_slug($school_object->school_name, "_"). "_".
+                                      $academic_year_object->academic_year. "_".
+                                     strtolower($term_object->term). "_term_". strtoupper($class_level_object->class_level) . "_" .
+                                     strtoupper($selected_registration_list_index).".zip";
+
+//                    dd($zip_file_name);
+
+                    $zip_file = storage_path( "app/$zip_file_name") ;
+
+                    if(file_exists($zip_file))
+                    {
+                        unlink($zip_file);
+                    }
+
+//                    dd("Stope-");
+                    $zip = new ZipArchive;
+                    $res = $zip->open($zip_file , ZipArchive::CREATE);
+                    if ($res === TRUE)
+                    {
+                        // Zip file was found and it openable
+                        foreach ( $SelectedClassSubdivision as  $StudentScoreData )
+                            {
+                                ini_set('memory_limit', '-1');
+                                ini_set('max_execution_time', 30000); //300 seconds = 5 minutes
+//                                dd($StudentScoreData);
+                                    $html = '';
+
+                                    $surname = property_exists($StudentScoreData->first()->first(), "student_surname") ? ucwords(strtolower($StudentScoreData->first()->first()->student_surname))  : " ";
+
+                                    $middle_name = property_exists($StudentScoreData->first()->first(), "student_middlename") ? ucwords(strtolower($StudentScoreData->first()->first()->student_middlename))  : " ";
+
+                                    $first_name = property_exists($StudentScoreData->first()->first(), "student_firstname") ? ucwords(strtolower($StudentScoreData->first()->first()->student_firstname))  : " ";
+
+                                    $class_level = property_exists($StudentScoreData->first()->first(), "student_class_level") ? ucwords(strtolower($StudentScoreData->first()->first()->student_class_level))  : " ";
+
+
+                                    $student_admission_number = property_exists($StudentScoreData->first()->first(), "student_admission_number") ? ucwords(strtolower($StudentScoreData->first()->first()->student_admission_number))  : " ";
+
+                                    $StudentName = $surname . " ". $middle_name . " ".  $first_name;
+
+                                    $view_string = View::make('includes.reportviewpdf_review')
+                                        ->with(array(
+                                            'Title' => 'Student Report Page',
+                                            'ThisStudent' => $StudentName,
+                                            'SubjectScore' => $StudentScoreData,
+                                            'Attendance' => [] ,
+                                            'TermDuration' => [],
+                                            'RequestedTerm'   => $term_object,
+                                            "OfficialComments" => [],
+                                            'School'   => $school_object,
+                                            'ClassSubDivision'  => $class_subdivision_loop_key,
+                                            'ClassLevel'  => $class_level,
+                                            'AcademicYear'  => $academic_year_object,
+                                            'StudentAdmissionNumber'  => $student_admission_number,
+                                            'FirstTermSubjectScore'  => $StudentScoreData,
+                                            'SecondTermSubjectScore'  => []))
+                                        ->render();
+
+                                    $view_string = preg_replace('/>\s+</', "><", $view_string);
+                                    //                return $view_string;
+                                    $pdf = App::make('dompdf.wrapper');
+                                    $pdf->loadHTML($view_string);
+                                    //                return $pdf->stream("Download.pdf");
+                                    $pdfStream =  $pdf->stream("Download.pdf");
+
+                                    //                dd ( $pdfStream->getContent() );
+                                    $requested_term = $term_object->term;
+                                        $zip->addFromString("$StudentName - $requested_term  term - " .  strtoupper($class_level) . "$class_subdivision_loop_key - Result.pdf",  $pdfStream->getContent());
+                            }// end for loop
+
+                        $zip->close();
+                        //dd($zip_file);
+                        $response  = response()->download($zip_file);
+                        ob_end_clean();
+//                        unlink($zip_file);
+                        return $response;
+                    }
+                    else
+                    {
+                        // We cannot Loop  because the zip file cannot be opened
+//                        echo 'failed';
+                        dd("Cannot ;loop because the zip cannot be opened");
+                    }
+                }
+                else
+                {
+                    // Count of Student in this subdividion is less than zeroo
+
+                }
+
+            }
+            else
+            {
+                // Return That Data does not exist
+            }
+
+
+
+//            $academic_year_object = Session::get("academic_year_object");
+
+//            $term_object = Session::get("term_object");
+
+//            $class_level_object = Session::get("class_level_object");
+
+//            $school_object = Session::get("school_object");
+
+//            Log::info(json_encode($school_object) . " ". json_encode($term_object) );
+
+//            $academic_year_object = Session::get("academic_year_object");
+//
+//            Session::put("academic_year_object", $this_academic_year);
+//
+//            Session::put("term_object", $this_term);
+//
+//            Session::put("class_level_object", $this_class_level);
+//
+//            Session::put("school_object", $this_school);
+
+            if(Session::has("ExcelData" ))
+            {
+                $FullExcelData =  Session::get("ExcelData" );
+
+                // Get The data list based on the selected index choosen
+
+                $selectedRegistrationList = $FullExcelData->get($selected_registration_list_index);
+//                dd($selectedRegistrationList);
+
+                //Loop through list
+
+//
+//                $academic_year_object = Session::get("academic_year_object");
+
+//                $term_object = Session::get("term_object");
+
+                $class_level_object = Session::get("class_level_object");
+
+                $school_object = Session::has("school_object") ? Session::get("school_object")  : "";
+
+                $school_id = $school_object->id;
+
+//                $academic_year = $academic_year_object->id;
+
+                // Test Run And Check that Excel sheet has Sub division, or else bypass bulk student registration and complain
+
+                //Get first student as a sample
+//                dd(count($selectedRegistrationList));
+
+                $StudentRegistrationArray = [];
+                $student_registration_counter =  0;
+
+                if( (count($selectedRegistrationList) > 0 )
+                    and $selectedRegistrationList[0]->has("subdivision")
+                    and $selectedRegistrationList[0]->has("sex")
+                    and $selectedRegistrationList[0]->has("class_level")
+                    and $selectedRegistrationList[0]->has("academic_year")
+                    and $selectedRegistrationList[0]->has("admn_no")
+                    and $selectedRegistrationList[0]->has("student_name")
+                )
+                {
+                    ini_set('memory_limit', '-1');
+                    ini_set('max_execution_time', 30000); //300 seconds = 5 minutes
+
+
+                    $loop_breaker = 1;
+                    foreach( $selectedRegistrationList as $eachRegisteredStudent)
+                    {
+//                        dd($eachRegisteredStudent);
+                        // Check first that collection has district_no
+                        //if true, use district_no to save student details including other details
+                        //if false, use school_id and admn_no to save student details. Also, generated an alphanumeric 5 digit code for district number for the students
+
+//                             "admn_no" => "4485"
+//                                "student_name" => "Paul-Maduka Faith Obianuju"
+//                                "spin" => null
+//                                "sex" => "F"
+//                                "subdivision" => "A"
+//                                "class_level" => "JSS1"
+//                                "academic_year" => 2019.0
+
+
+//                        if($loop_breaker > 10)
+//                        {
+//                            break;
+//                        }
+
+                        $loop_breaker++;
+
+                        if($eachRegisteredStudent->has('district_no') )
+                        {
+                            //if true, use district_no to get student/user model
+                            $student_district_no =  $eachRegisteredStudent->get('district_no');
+                        }
+                        else
+                        {
+                            //if false, auto generate student district ID
+                            $random_alphanum_array = Utilities::getUniqueFixedCharacters(5, ["district_number" => "students"]);
+                            $student_district_no =   $random_alphanum_array["generated_character"];
+
+                        }
+
+                        $student_admission_no =  $eachRegisteredStudent->has('admn_no') ? $eachRegisteredStudent->get('admn_no') : null;
+                        $student_spin_no =  $eachRegisteredStudent->has('spin') ? $eachRegisteredStudent->get('spin') : null;
+                        $student_sex =  $eachRegisteredStudent->has('sex') ? $eachRegisteredStudent->get('sex') : null;
+                        $student_name_surname_first =  $eachRegisteredStudent->has('student_name') ? $eachRegisteredStudent->get('student_name') : null;
+
+//                        $student_academic_year =  $academic_year;
+                        $student_academic_year =  $eachRegisteredStudent->has('academic_year') ? $eachRegisteredStudent->get('academic_year') : null;
+                        $student_school_id =  $school_id;
+//                        $student_term =  $term_object->id;
+                        $student_class_level =  $eachRegisteredStudent->has('class_level') ? $eachRegisteredStudent->get('class_level') : null;
+
+                        $classubdivision_array =
+                            [
+                                "a" => 1,
+                                "b" => 2,
+                                "c" => 3,
+                                "d" => 4,
+                                "e" => 5,
+                                "f" => 6,
+                                "g" => 7,
+                                "h" => 8,
+                                "i" => 9,
+                                "j" => 10,
+                                "k" => 11
+                            ];
+
+                        /* Check Values of Class Sub division for correctness */
+                        $student_subdivision =  $eachRegisteredStudent->has('subdivision') ? $eachRegisteredStudent->get('subdivision') : null;
+
+                        $student_subdivision = strtolower($student_subdivision);
+
+                        $student_division_id = array_key_exists($student_subdivision, $classubdivision_array )  ? $classubdivision_array[$student_subdivision] : null ;
+
+                        if(is_null($student_division_id))
+                        {
+                            // continue but dont execute any code further for this iteration
+                            //Record this student name and Admin_id
+                            $failureArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "The Class Subdivision is invalid. This student was skipped."
+                            ];
+                            $StudentRegistrationArray["Failure"][$student_registration_counter] = $failureArray;
+                            continue;
+                        }
+                        /* Check Values of Class Sub division for correctness */
+
+
+                        /* Check Values of Class Levels for correctness */
+
+                        $class_level_array =
+                            [
+                                "jss1" => 1,
+                                "jss2" => 2,
+                                "jss3" => 3,
+                                "ss1" => 4,
+                                "ss2" => 5,
+                                "ss3" => 6
+                            ];
+
+                        $student_class_level =  preg_replace('/\s+/', '', strtolower($student_class_level)) ;
+
+
+                        $student_class_level_id = array_key_exists($student_class_level, $class_level_array )  ? $class_level_array[$student_class_level] : null;
+
+//                        dd($student_class_level, $student_class_level_id);
+
+
+                        if(is_null($student_class_level_id))
+                        {
+                            // continue but don't execute any code further for this iteration
+                            //Record this student name and Admin_id
+                            $failureArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "The Student Class Level is invalid. This student was skipped."
+                            ];
+                            $StudentRegistrationArray["Failure"][$student_registration_counter] = $failureArray;
+
+                            continue;
+                        }
+
+                        /* Check Values of Class Levels for correctness */
+
+                        /* Check Values of Academic Year for correctness */
+
+
+                        $student_academic_year = (int)$student_academic_year;
+
+                        $student_academic_year =  preg_replace('/\s+/', '', strtolower($student_academic_year)) ;
+
+                        $student_academic_year_object =  AcademicYear::where("academic_year", $student_academic_year )->get();
+                        $student_academic_year_id = null;
+                        if(count($student_academic_year_object) > 0)
+                        {
+                            $student_academic_year_id =  $student_academic_year_object->first()->id;
+                        }
+                        else
+                        {
+                            $student_academic_year_id = null;
+                        }
+
+//                        dd($student_academic_year, $student_academic_year_id);
+
+
+                        if(is_null($student_academic_year_id))
+                        {
+                            // continue but dont execute any code further for this iteration
+                            //Record this student name and Admin_id
+                            $failureArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "The Academic Year is invalid. This student was skipped."
+                            ];
+                            $StudentRegistrationArray["Failure"][$student_registration_counter] = $failureArray;
+                            continue;
+                        }
+
+                        /* Check Values of Academic Year for correctness */
+
+
+                        // Build Student Model and Users Model and populate Student , Users and Student Registration Tables
+                        $user_object = null;
+                        $student_model = null;
+                        $student_registration = null;
+                        try
+                        {
+                            $studentNameArray = $this->extractName($student_name_surname_first);
+                            $builtStudentEmail = $this->buildEmail($studentNameArray, $student_district_no);
+                            $raw_password = Utilities::create_random_name(20);
+                            $userInsertStudentArrayCount = count($studentNameArray);
+                            $studentSex = strtolower($student_sex) == "m" ? "Male" : "Female";
+
+                            $surname =   $userInsertStudentArrayCount > 0 ?  $studentNameArray[0] : " ";
+                            $firstname =   $userInsertStudentArrayCount > 1 ?  $studentNameArray[1] : " ";
+                            $middlename =   $userInsertStudentArrayCount > 2 ?  $studentNameArray[2] : " ";
+
+                            $user_object = new Users();
+
+                            $user_object->useremail = $builtStudentEmail;
+                            $user_object->firstname = $firstname;
+                            $user_object->middlename = $middlename;
+                            $user_object->surname = $surname;
+                            $user_object->activated =  1; // Activated by default
+                            $user_object->password =  bcrypt($raw_password);
+                            $user_object->sex = $studentSex;
+
+//                            dd($user_object);
+                            $user_object->save();
+
+                            // Create Student Model
+
+                            $student_model = new Students();
+
+                            $student_model->userid =   $user_object->id;
+                            $student_model->district_number =  $student_district_no;
+                            $student_model->spin =  $student_spin_no;
+
+//                            dd($student_model);
+                            $student_model->save();
+
+                            $student_registration =  new StudentRegistration();
+                            $student_registration->student_id = $student_model->id;
+                            $student_registration->academic_year = $student_academic_year_id;
+                            $student_registration->school_id = $student_school_id;
+                            $student_registration->class_level_id = $student_class_level_id;
+                            $student_registration->class_type_id = null;
+                            $student_registration->class_subdivision = $student_division_id;
+                            $student_registration->admission_number = $student_admission_no;
+
+//                            dd($student_registration);
+                            $student_registration->save();
+
+                            $successArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "Student details was successfully saved.",
+
+                            ];
+
+                            $StudentRegistrationArray["Success"][$student_registration_counter] = $successArray;
+                        }
+                        catch(\Exception $e)
+                        {
+                            Log::info($e->getMessage());
+
+                            if(!is_null($student_registration))
+                            {
+                                $student_registration->forceDelete();
+                            }
+
+                            if(!is_null($student_model))
+                            {
+                                $student_model->forceDelete();
+                            }
+
+                            if(!is_null($user_object))
+                            {
+                                $user_object->forceDelete();
+                            }
+
+                            // Record failure situation here and store in recon Array
+
+                            $failureArray = [
+                                "student_registration_counter" =>  $student_registration_counter,
+                                "student_name" => $student_name_surname_first ,
+                                "admn_no" => $student_admission_no,
+                                "school" => $school_object->school_name,
+                                "reason" => "There was an error in saving User, Student or Student Registration information. Please contact administrator.",
+                                "errorText" => $e->getMessage()
+                            ];
+
+                            $StudentRegistrationArray["Failure"][$student_registration_counter] = $failureArray;
+
+                            $StudentRegistrationArray["Success"][$student_registration_counter] = $failureArray;
+                        }
+
+                        $student_registration_counter++;
+
+                    }
+
+//                     dd("End of loop" );
+                    // Build Response Object and return
+
+                    $request->session()->flash('success' , "Bulk student registration is successful.");
+                    $session_name = "StudentRegistrationExcelExportData";
+
+
+
+                    Session::put("StudentRegistrationExcelExportData", $StudentRegistrationArray );
+                    Session::put("session_name", $session_name );
+
+                    $request->session()->flash('bulkOperationArray' , $StudentRegistrationArray );
+
+                    return view('schools.registration_excel_upload',
+                        [
+                            'MyBreadCrumb' => '',
+                            'Title' => 'EduApp Lagos',
+                        ]);
+
+//                    return back()->withInput();
+                }
+                else
+                {
+                    // Complain that excel does not have subdivision and many other headings  heading and that it must be added
+                    // continue but don't execute any code further, loop out an return error through session
+//                    dd("An important header is missing " );
+
+                    $request->session()->flash('error' , "Bulk student registration was not done because an important heading was missing. Please ensure the following heading:  Student name, Admission Number, Sex, Class level, Academic Year, Sub Division.");
+
+                    return view('schools.registration_excel_upload',
+                        [
+                            'MyBreadCrumb' => '',
+                            'Title' => 'EduApp Lagos',
+                        ]);
+
+//                    return back()->withInput();
+                }
+
+            }
+            else
+            {
+                // Return with error that excel data does not exist
+//                dd("No data choosen or index is wrong" );
+
+                $request->session()->flash('error' , "Student Registration Data is unavailable. Please try again.  ");
+
+                return view('schools.registration_excel_upload',
+                    [
+                        'MyBreadCrumb' => '',
+                        'Title' => 'EduApp Lagos',
+                    ]);
+
+//                return back()->withInput();
+            }
+
+        }
+        else
+        {
+            return view('school.registration_excel_upload',
+                [
+                    'MyBreadCrumb' => '',
+                    'Title' => 'EduApp Lagos',
+                ]);
+        }
 
     }
 

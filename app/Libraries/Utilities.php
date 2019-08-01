@@ -12,6 +12,7 @@ use App\Models\EmployeeRenumeration;
 use App\Models\MonthDay;
 use App\Models\PayStack;
 use Exception;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
@@ -526,9 +527,11 @@ class Utilities
         return $string;
     }
 
+    public static function downloadExcel($exportObject, $ExcelName)
+    {
+        return Excel::download($exportObject, $ExcelName. "_". now(). '.xlsx');
 
 
-
-
+    }
 
 }

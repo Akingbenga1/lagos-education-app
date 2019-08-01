@@ -210,5 +210,24 @@
 
 
 
+                    Domains Registered:
+                    giftconnect.com.ng
+
+                    jumiagift.com
+                    jumiagifts.com.ng
+                    jumiagifts.ng
+                    kongagifts.com
+                    kongagifts.com.ng
+                    kongagifts.ng
+
+
+
+                    Hosting details for ( only giftconnect.com.ng ):
+
+                    Domain: giftconnect.com.ng
+                    Control Panel: http://www.giftconnect.com.ng/cpanel
+                    Username: giftconn
+                    Password: t2E#ieH0a7J9+I
+
 
 @stop

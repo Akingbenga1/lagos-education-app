@@ -57,16 +57,16 @@
 
                                             <div class="row">
 
-                                                <div class="col s12 m6 l3">
+                                                {{--<div class="col s12 m6 l3">--}}
 
-                                                <select name="academic_year" id="" class="academic_year" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}">
-                                                    <option value="" > Academic Year  </option>
-                                                    @foreach($academic_years as $academic_year)
-                                                        <option {{old('academic_year') ==  $academic_year->id ? 'selected' : ''}} value="{{$academic_year->id}}"> {{$academic_year->academic_year}} </option>
-                                                    @endforeach
-                                                </select>
-                                                    <input type="hidden"  class="academic_year_value_{{$SecondLeveSplitedStudent["id"] }}" name="academic_year_value"   />
-                                                </div>
+                                                {{--<select name="academic_year" id="" class="academic_year" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}">--}}
+                                                    {{--<option value="" > Academic Year  </option>--}}
+                                                    {{--@foreach($academic_years as $academic_year)--}}
+                                                        {{--<option {{old('academic_year') ==  $academic_year->id ? 'selected' : ''}} value="{{$academic_year->id}}"> {{$academic_year->academic_year}} </option>--}}
+                                                    {{--@endforeach--}}
+                                                {{--</select>--}}
+                                                    {{--<input type="hidden"  class="academic_year_value_{{$SecondLeveSplitedStudent["id"] }}" name="academic_year_value"   />--}}
+                                                {{--</div>--}}
 
                                                 <div class="col s12 m6 l3">
 
@@ -79,18 +79,18 @@
                                                     <input type="hidden" name="term_value"  class="term_value_{{$SecondLeveSplitedStudent["id"] }}"    />
                                                 </div>
 
-                                                <div class="col s12 m6 l3">
+                                                {{--<div class="col s12 m6 l3">--}}
 
-                                                    <select name="class_level" class="class_level" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}">
-                                                        <option> Choose Class  </option>
-                                                        @foreach($classlevels as $classlevel)
-                                                            <option {{old('class_level') ==  $classlevel->id ? 'selected' : ''}} value="{{$classlevel->id}}"> {{$classlevel->class_level}}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    {{--<select name="class_level" class="class_level" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}">--}}
+                                                        {{--<option> Choose Class  </option>--}}
+                                                        {{--@foreach($classlevels as $classlevel)--}}
+                                                            {{--<option {{old('class_level') ==  $classlevel->id ? 'selected' : ''}} value="{{$classlevel->id}}"> {{$classlevel->class_level}}</option>--}}
+                                                        {{--@endforeach--}}
+                                                    {{--</select>--}}
 
-                                                    <input type="hidden"  class="class_level_value_{{$SecondLeveSplitedStudent["id"] }}"  name="class_level_value"     />
+                                                    {{--<input type="hidden"  class="class_level_value_{{$SecondLeveSplitedStudent["id"] }}"  name="class_level_value"     />--}}
 
-                                                </div>
+                                                {{--</div>--}}
 
                                                 {{--<div class="col s12 m6 l3">--}}
                                                     {{--<select name="class_subdivision" id="">--}}
@@ -225,7 +225,8 @@
 
             {{--<input type="hidden" name="school_value"  class="school_value_{{$SecondLeveSplitedStudent["id"] }}"    />--}}
 
-                if((typeof  class_level_value !==   'undefined' && class_level_value !==  ""  )  && (typeof  term_value !== 'undefined'  && term_value !== ""  ) && (typeof  academic_year_value !== 'undefined'  && academic_year_value !== ""  ) && (typeof  school_value !== 'undefined'  && school_value !== ""  ) )
+//                if((typeof  class_level_value !==   'undefined' && class_level_value !==  ""  )  && (typeof  term_value !== 'undefined'  && term_value !== ""  ) && (typeof  academic_year_value !== 'undefined'  && academic_year_value !== ""  ) && (typeof  school_value !== 'undefined'  && school_value !== ""  ) )
+                if(  (typeof  term_value !== 'undefined'  && term_value !== ""  )  )
             {
                 // $(".submit_form_"+ school_id).submit();
                // this.prop("disabled", true);
@@ -233,7 +234,8 @@
             }
             else
             {
-                alert("You must choose school,  academic year, term and class");
+                // alert("You must choose school,  academic year, term and class");
+                alert("You must choose term");
                 e.preventDefault();
                 // this.prop("disabled", false);
 

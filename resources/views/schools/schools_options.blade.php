@@ -36,7 +36,7 @@
                 <div class="card pink hoverable">
                     <div class="card-content ">
                         <span class="card-title">
-                          <a class="white-text"> Result Download   </a>
+                          <a href="{{ url('/schools_reports') }}" class="white-text"> Result Download   </a>
                         </span>
                         <p>
 

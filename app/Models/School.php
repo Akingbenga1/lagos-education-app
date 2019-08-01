@@ -13,4 +13,10 @@ class School extends Model
          */
         protected $table = 'schools';
 
+//    public function schoolTypeBelong()
+//    {
+//        return $this->belongsTo('App\Models\SchoolType','userid', 'userid');
+//    }
+
+
 }

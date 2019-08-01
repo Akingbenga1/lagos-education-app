@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('division_container')
-    <h1> Students' Registration </h1>
 
+    <h1> Student Reports Downloads </h1>
 
     @if(isset($all_schools) and is_array($all_schools))
 
@@ -9,7 +9,7 @@
             <?php $SplitStudentClass = array_chunk($all_schools, ceil(count($all_schools) / 3));
             // var_dump(count($things[0]));
             $count = 1;   ?>
-            <b> Search for any school using their name
+            <b> Search for anyschhol  using their name
             </b> <input type="text" id="CardSearch" placeholder="Search this list"></input> <p class="ShowTheCount"> </p>
             <div class="row">
                 @include("errors.error")
@@ -30,18 +30,13 @@
                             <div class="card-content" style="height: 60%!important;">
                                 {{--<p class="card-title activator grey-text text-darken-4" style="font-size: 18px!important;"> <b>   {{ $SecondLeveSplitedStudent["school_name"]  }} </b> </p>--}}
 
-                                 {{--<a class=" tooltipped modal-trigger card-title  grey-text text-darken-4"  data-position="left" data-delay="50" data-tooltip="Click to Upload Scores" style="font-size: 18px!important;"  href="#modal_{{  $SecondLeveSplitedStudent["id"]}}" >--}}
-                                     {{--<b>  {{ $SecondLeveSplitedStudent["school_name"]  }}  </b>--}}
-
-                                {{--</a>--}}
-
-                                <a class=" tooltipped modal-trigger card-title  grey-text text-darken-4"  data-position="left" data-delay="50" data-tooltip="Click to Upload Scores" style="font-size: 18px!important;"  href="{{   url('/schools_registration_excel_upload/'. $SecondLeveSplitedStudent["id"] ) }}" >
-                                    <b>  {{ $SecondLeveSplitedStudent["school_name"]  }}  </b>
+                                 <a class=" tooltipped modal-trigger card-title  grey-text text-darken-4"  data-position="left" data-delay="50" data-tooltip="Click to Upload Scores" style="font-size: 18px!important;"  href="#modal_{{  $SecondLeveSplitedStudent["id"]}}" >
+                                     <b>  {{ $SecondLeveSplitedStudent["school_name"]  }}  </b>
 
                                 </a>
 
 
-                                <p> {{ $SecondLeveSplitedStudent["school_type_id"]  == 1 ? "Junior" : "Senior" }}  </p>
+                             <p> {{ $SecondLeveSplitedStudent["school_type_id"]  == 1 ? "Junior" : "Senior" }}  </p>
 
                                 <!-- Modal Structure -->
                                 <div id="modal_{{  $SecondLeveSplitedStudent["id"]}}" class="modal" style="height: 600px!important;">
@@ -53,68 +48,63 @@
                                         give options for excel upload method
                                         -->
 
-                                        <form method="post" action="{{url('/schools_registration')}}" class="submit_form_{{$SecondLeveSplitedStudent["id"]  }}">
+                                        <form method="post" action="{{url('/school_report_download')}}" class="submit_form_{{$SecondLeveSplitedStudent["id"]  }}">
 
                                             {{ csrf_field() }}
                                             <h4> Choose Year, Term and Class Parameters </h4>
 
                                             <input type="hidden" name="school_value"  class="school_value_{{$SecondLeveSplitedStudent["id"] }}" value="{{$SecondLeveSplitedStudent["id"] }}"    />
 
-                                            {{--<div class="row">--}}
-
-                                                {{--<div class="col s12 m6 l3">--}}
-
-                                                {{--<select name="academic_year" id="" class="browser-default academic_year" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}">--}}
-                                                    {{--<option value="" > Academic Year  </option>--}}
-                                                    {{--@foreach($academic_years as $academic_year)--}}
-                                                        {{--<option {{old('academic_year') ==  $academic_year->id ? 'selected' : ''}} value="{{$academic_year->id}}"> {{$academic_year->academic_year}} </option>--}}
-                                                    {{--@endforeach--}}
-                                                {{--</select>--}}
-                                                    {{--<input type="hidden"  class="academic_year_value_{{$SecondLeveSplitedStudent["id"] }}" name="academic_year_value"   />--}}
-                                                {{--</div>--}}
-
-                                                {{--<div class="col s12 m6 l3">--}}
-
-                                                    {{--<select name="term" id="term" class="browser-default term" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}" >--}}
-                                                        {{--<option> Choose Term  </option>--}}
-                                                        {{--@foreach($terms as $term)--}}
-                                                            {{--<option {{old('term') ==  $term->id ? 'selected' : ''}} value="{{$term->id}}">{{$term->term}}</option>--}}
-                                                        {{--@endforeach--}}
-                                                    {{--</select>--}}
-                                                    {{--<input type="hidden" name="term_value"  class="term_value_{{$SecondLeveSplitedStudent["id"] }}"    />--}}
-                                                {{--</div>--}}
-
-                                                {{--<div class="col s12 m6 l3">--}}
-
-                                                    {{--<select name="class_level" class=" browser-default class_level" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}">--}}
-                                                        {{--<option> Choose Class  </option>--}}
-                                                        {{--@foreach($classlevels as $classlevel)--}}
-                                                            {{--<option {{old('class_level') ==  $classlevel->id ? 'selected' : ''}} value="{{$classlevel->id}}"> {{$classlevel->class_level}}</option>--}}
-                                                        {{--@endforeach--}}
-                                                    {{--</select>--}}
-
-                                                    {{--<input type="hidden"  class="class_level_value_{{$SecondLeveSplitedStudent["id"] }}"  name="class_level_value"     />--}}
-
-                                                {{--</div>--}}
-
-                                                {{--<div class="col s12 m6 l3">--}}
-
-                                                    {{--<select name="class_subdivision" class="class_subdivision browser-default" data-schoolid="{{$SecondLeveSplitedStudent["id"] }}" >--}}
-                                                        {{--<option> Class Sub division   </option>--}}
-                                                        {{--@foreach($class_subdivisions as $class_subdivision)--}}
-                                                            {{--<option {{old('class_subdivision') ==  $class_subdivision->id ? 'selected' : ''}} value="{{$class_subdivision->id}}"> {{ $class_subdivision->class_subdivision }} </option>--}}
-                                                        {{--@endforeach--}}
-                                                    {{--</select>--}}
-
-                                                    {{--<input type="hidden"  class="class_subdivision_value_{{$SecondLeveSplitedStudent["id"] }}"  name="class_subdivision_value"     />--}}
-                                                {{--</div>--}}
-
-                                            {{--</div>--}}
-
                                             <div class="row">
-                                                <input type = "submit"  value="Register Students"  class="btn btn-default btn-block saveScore" data-schoolid="{{$SecondLeveSplitedStudent["id"] }}" />
 
-                                                {{--<a href="{{ url() }}"   class="btn btn-default btn-block saveScore" data-schoolid="{{$SecondLeveSplitedStudent["id"] }}"  >  Register Students  </a>--}}
+                                                <div class="col s12 m6 l3">
+
+                                                <select name="academic_year" id="" class="academic_year" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}">
+                                                    <option value="" > Academic Year  </option>
+                                                    @foreach($academic_years as $academic_year)
+                                                        <option {{old('academic_year') ==  $academic_year->id ? 'selected' : ''}} value="{{$academic_year->id}}"> {{$academic_year->academic_year}} </option>
+                                                    @endforeach
+                                                </select>
+                                                    <input type="hidden"  class="academic_year_value_{{$SecondLeveSplitedStudent["id"] }}" name="academic_year_value"   />
+                                                </div>
+
+                                                <div class="col s12 m6 l3">
+
+                                                    <select name="term" id="term" class="term" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}" >
+                                                        <option> Choose Term  </option>
+                                                        @foreach($terms as $term)
+                                                            <option {{old('term') ==  $term->id ? 'selected' : ''}} value="{{$term->id}}">{{$term->term}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <input type="hidden" name="term_value"  class="term_value_{{$SecondLeveSplitedStudent["id"] }}"    />
+                                                </div>
+
+                                                <div class="col s12 m6 l3">
+
+                                                    <select name="class_level" class="class_level" data-schoolid="{{$SecondLeveSplitedStudent["id"]  }}">
+                                                        <option> Choose Class  </option>
+                                                        @foreach($classlevels as $classlevel)
+                                                            <option {{old('class_level') ==  $classlevel->id ? 'selected' : ''}} value="{{$classlevel->id}}"> {{$classlevel->class_level}}</option>
+                                                        @endforeach
+                                                    </select>
+
+                                                    <input type="hidden"  class="class_level_value_{{$SecondLeveSplitedStudent["id"] }}"  name="class_level_value"     />
+
+                                                </div>
+
+                                                {{--<div class="col s12 m6 l3">--}}
+                                                    {{--<select name="class_subdivision" id="">--}}
+                                                        {{--<option> Choose Class  </option>--}}
+                                                        {{--@foreach($class_subdivisions as $class_subdivision)--}}
+                                                            {{--<option {{old('class_level') ==  $class_subdivision->id ? 'selected' : ''}} value="{{$class_subdivision->id}}"> {{ $class_subdivision->class_subdivision }}</option>--}}
+                                                        {{--@endforeach--}}
+                                                    {{--</select>--}}
+                                                {{--</div>--}}
+
+                                                <div class="col s12 m6 l3">
+                                                    <input type = "submit"  value="Upload score"  class="btn btn-default saveScore" data-schoolid="{{$SecondLeveSplitedStudent["id"] }}" />
+                                                </div>
+
                                             </div>
                                         </form>
 
@@ -217,19 +207,6 @@
 
             });
 
-            $('.class_subdivision').on("change", function (e)
-            {
-                e.preventDefault();
-
-                var class_subdivision = $(this).val();
-                var school_id = $(this).data('schoolid');
-                $(".class_subdivision_value_"+ school_id).val(class_subdivision);
-
-                // console.log(class_level, this, school_id,  $(".class_level_value_"+ school_id));
-
-            });
-
-
             $('.saveScore').on("click", function (e)
             {
                 // var class_level = $(this).val();
@@ -241,9 +218,6 @@
 
                 var academic_year_value  = $(".academic_year_value_"+ school_id).val();
 
-                var class_subdivision_value_  = $(".class_subdivision_value_"+ school_id).val();
-
-
                 var school_value  = $(".school_value_"+ school_id).val();
 
                 console.log($(".school_value_"+ school_id));
@@ -251,9 +225,8 @@
 
             {{--<input type="hidden" name="school_value"  class="school_value_{{$SecondLeveSplitedStudent["id"] }}"    />--}}
 
-                // if((typeof  class_level_value !==   'undefined' && class_level_value !==  ""  )  && (typeof  term_value !== 'undefined'  && term_value !== ""  ) && (typeof  academic_year_value !== 'undefined'  && academic_year_value !== ""  ) && (typeof  school_value !== 'undefined'  && school_value !== ""  ) && (typeof  class_subdivision_value_ !== 'undefined'  && class_subdivision_value_ !== ""  ) )
-
-                if( typeof  school_value !== 'undefined'  && school_value !== ""  )
+               if((typeof  class_level_value !==   'undefined' && class_level_value !==  ""  )  && (typeof  term_value !== 'undefined'  && term_value !== ""  ) && (typeof  academic_year_value !== 'undefined'  && academic_year_value !== ""  ) && (typeof  school_value !== 'undefined'  && school_value !== ""  ) )
+//                 if(  (typeof  term_value !== 'undefined'  && term_value !== ""  )  )
             {
                 // $(".submit_form_"+ school_id).submit();
                // this.prop("disabled", true);
@@ -261,7 +234,8 @@
             }
             else
             {
-                alert("You must choose school,  academic year, term , class and class sub division");
+                alert("You must choose  academic year, term and class");
+                // alert("You must choose term");
                 e.preventDefault();
                 // this.prop("disabled", false);
 

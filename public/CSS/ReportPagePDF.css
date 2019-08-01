@@ -18,6 +18,8 @@ table.ThirdTermAcademicTable
   position: relative;
   left: 2px;
   top: 12px;
+  width: 320px!important;
+
 }
 .YearLabel
 {
@@ -234,7 +236,7 @@ body
 }
 .EveryFirstColumn
 {
-  width: 320px;
+  width: 280px;
   height: 20px!important;
 }
 .GradeTable
@@ -243,7 +245,7 @@ body
   position: relative;
   left: 1px;
   top: -79px;
-  width: 926px;
+  width: 700px;
 }
 .GradeTable tbody tr td
 {
@@ -291,9 +293,9 @@ table td
 {
   /*+placement: 546px -131px;*/
   position: relative;
-  left: 546px;
+  left: 420px;
   top: -131px;
-  width: 378px;
+  width: 280px;
   text-align: center;
 }
 .AbsenceDataTable, .AdjustThirdTerm, .TermDurationTable tr
@@ -304,9 +306,9 @@ table td
 {
   /*+placement: 546px -116px;*/
   position: relative;
-  left: 546px;
+  left: 420px;
   top: -116px;
-  width: 380px;
+  width: 280px;
   text-align: center;
 }
 .AdjustThirdTerm
@@ -346,19 +348,20 @@ table td
   position: relative;
   left: -1px;
   top: -92px;
-  width: 926px;
+  width: 700px;
 }
 .PageHeading .SealStatement
 {
   text-align: center;
-  width: 650px;
+  width: 370px;
   /*+placement: 138px -130px;*/
   position: relative;
-  left: 138px;
+  left: 170px;
   top: -130px;
   /*border: 1px solid black;*/
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
+  height: 130px;
 }
 .PageHeading .IjayeLogo
 {
@@ -366,8 +369,8 @@ table td
   height: 193px;
   /*+placement: 755px -245px;*/
   position: relative;
-  left: 755px;
-  top: -245px;
+  left: 530px;
+  top: -297px;
   text-align: center;
 }
 .PageHeading .LagosLogo
@@ -393,11 +396,12 @@ table td
   margin-top: 0;
   /*+placement: 103px -117px;*/
   position: relative;
-  left: 103px;
-  top: -117px;
+  left: 0px;
+  top: -157px;
   padding-left: 238px;
-  font-size: 26px;
   color: #000000;
+  font-size: 20px!important;
+  font-weight: 700;
 }
 div.ReportBottom b.ClassTeacherCommentText
 {

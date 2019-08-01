@@ -67,8 +67,20 @@ Route::match(['get', 'post'], '/schools_registration_save_students', ['uses' => 
 
 Route::match(['get', 'post'], '/schools_registration', ['uses' => 'SchoolController@schools_registration', 'as' => 'schools_registration']);
 
-Route::match(['get', 'post'], '/schools_registration_excel_upload', ['uses' => 'SchoolController@schools_registration_excel_upload', 'as' => 'schools_registration_excel_upload']);
 
+Route::match(['get', 'post'], '/schools_registration_excel_upload/{school_id?}', ['uses' => 'SchoolController@schools_registration_excel_upload', 'as' => 'schools_registration_excel_upload']);
+
+Route::match(['get', 'post'], '/download_excel/{session_name}', ['uses' => 'DownloadManagerController@downloadExcelOperation', 'as' => 'downloadExcelOperation']);
+
+
+
+Route::match(['get', 'post'], '/schools_reports', ['uses' => 'ScoreReportController@schools_reports', 'as' => 'schools_reports']);
+
+Route::match(['get', 'post'], '/school_report_download', ['uses' => 'ScoreReportController@school_report_download', 'as' => 'school_report_download']);
+
+Route::match(['get', 'post'], '/student_score_download/{student_registration_id}/class_subdivision/{class_subdivision_loop_key}', ['uses' => 'ScoreReportController@student_score_download_pdf', 'as' => 'student_score_download_pdf']);
+
+Route::match(['get', 'post'], '/download_all_class_subdivision/class_subdivision/{class_subdivision_loop_key}', ['uses' => 'ScoreReportController@download_all_class_subdivision', 'as' => 'download_all_class_subdivision']);
 
 
 

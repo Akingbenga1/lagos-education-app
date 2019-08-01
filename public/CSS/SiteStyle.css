@@ -551,4 +551,8 @@ p.CloseSignaturePanel
     margin-top: 60px!important;
 }
 
+table.centered tbody tr td {
+    vertical-align: initial;
+}
+
 
