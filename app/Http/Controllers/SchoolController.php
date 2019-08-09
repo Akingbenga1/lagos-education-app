@@ -1875,10 +1875,10 @@ class SchoolController extends Controller
 //                                "academic_year" => 2019.0
 
 
-//                        if($loop_breaker > 10)
-//                        {
-//                            break;
-//                        }
+                        if($loop_breaker > 10)
+                        {
+                            break;
+                        }
 
                         $loop_breaker++;
 

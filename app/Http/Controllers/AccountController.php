@@ -439,7 +439,7 @@ class AccountController extends Controller
 	public function getProfileData()
 	{
 	  // dd(Auth::user());
-		$ThisUser = Users::with('StudentRelate')->where('userid', '=', Auth::user()->userid  )->get()->first();
+		$ThisUser = Users::with('StudentRelate')->where('id', '=', Auth::user()->userid  )->get()->first();
 		$UserThoughts = Social::with('UserBelong')->where('user_id', '=', Auth::user()->userid  )->get();
 		$YourThoughts = (count($UserThoughts) > 0 ) ? $UserThoughts->first()->toArray() : [ "thoughts"=>"You have not posted any Thoughts yet."];
 		//var_dump($YourThoughts);die();

@@ -752,7 +752,7 @@ class ScoreReportController extends Controller
                             $loop_breaker = 1;
                             foreach( $selectedScoreList as $eachScoreDetail)
                             {
-                                if($loop_breaker > 3)
+                                if($loop_breaker > 10)
                                 {
                                     break;
                                 }
@@ -1048,7 +1048,7 @@ class ScoreReportController extends Controller
                             $loop_breaker = 1;
                             foreach( $selectedScoreList as $eachScoreDetail)
                             {
-                                if($loop_breaker > 3)
+                                if($loop_breaker > 10)
                                 {
                                     break;
                                 }
@@ -1813,10 +1813,10 @@ class ScoreReportController extends Controller
 //                                "academic_year" => 2019.0
 
 
-//                        if($loop_breaker > 10)
-//                        {
-//                            break;
-//                        }
+                        if($loop_breaker > 10)
+                        {
+                            break;
+                        }
 
                         $loop_breaker++;
 
@@ -2604,10 +2604,10 @@ class ScoreReportController extends Controller
 //                                "academic_year" => 2019.0
 
 
-//                        if($loop_breaker > 10)
-//                        {
-//                            break;
-//                        }
+                        if($loop_breaker > 10)
+                        {
+                            break;
+                        }
 
                         $loop_breaker++;
 
@@ -3129,10 +3129,10 @@ class ScoreReportController extends Controller
 //                                "academic_year" => 2019.0
 
 
-//                        if($loop_breaker > 10)
-//                        {
-//                            break;
-//                        }
+                        if($loop_breaker > 10)
+                        {
+                            break;
+                        }
 
                         $loop_breaker++;
 
