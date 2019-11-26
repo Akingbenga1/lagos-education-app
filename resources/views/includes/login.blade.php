@@ -21,9 +21,7 @@
                     <i class="material-icons prefix"> account_circle</i>
                     <input id="email" type="text" name="Email"  required data-parsley-type="email" value="{{ old('Email') }}">
                     <label for="email" class="center-align">Email</label>
-                    <?php
-                        //dd(Session::get('url.intended'));
-                    ?>
+
                     @if($errors->has('Email'))
                         <span class="center-align LoginError" >{{$errors->first('Email')}}</span>
                     @endif
