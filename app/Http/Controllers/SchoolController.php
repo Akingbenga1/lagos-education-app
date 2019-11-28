@@ -75,14 +75,14 @@ class SchoolController extends Controller
                 // If academic year, term and class level exists
                 // the redirect to new view that show excel to be uploaded for student scores
 
-//                dd($request->all());
+                // dd($request->all());
                 Session::forget("ExcelData");
 
                 $validator = Validator::make($request->all(),
                 [
-//                    'academic_year_value' => 'required|integer',
+                    // 'academic_year_value' => 'required|integer',
                     'term_value' => 'required|integer',
-//                    'class_level_value' => 'required|integer',
+                    // 'class_level_value' => 'required|integer',
                     'school_value' => 'required|integer'
 
                 ]);

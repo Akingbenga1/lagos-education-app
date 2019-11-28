@@ -9,7 +9,7 @@
             <?php $SplitStudentClass = array_chunk($all_schools, ceil(count($all_schools) / 3));
             // var_dump(count($things[0]));
             $count = 1;   ?>
-            <b> Search for anyschhol  using their name
+            <b> Search for any school  using their name
             </b> <input type="text" id="CardSearch" placeholder="Search this list"></input> <p class="ShowTheCount"> </p>
             <div class="row">
                 @include("errors.error")
@@ -30,7 +30,7 @@
                             <div class="card-content" style="height: 60%!important;">
                                 {{--<p class="card-title activator grey-text text-darken-4" style="font-size: 18px!important;"> <b>   {{ $SecondLeveSplitedStudent["school_name"]  }} </b> </p>--}}
 
-                                 <a class=" tooltipped modal-trigger card-title  grey-text text-darken-4"  data-position="left" data-delay="50" data-tooltip="Click to Upload Scores" style="font-size: 18px!important;"  href="#modal_{{  $SecondLeveSplitedStudent["id"]}}" >
+                                 <a class=" tooltipped modal-trigger card-title  grey-text text-darken-4"  data-position="left" data-delay="50" data-tooltip="Click to download reports" style="font-size: 18px!important;"  href="#modal_{{  $SecondLeveSplitedStudent["id"]}}" >
                                      <b>  {{ $SecondLeveSplitedStudent["school_name"]  }}  </b>
 
                                 </a>
@@ -102,7 +102,7 @@
                                                 {{--</div>--}}
 
                                                 <div class="col s12 m6 l3">
-                                                    <input type = "submit"  value="Upload score"  class="btn btn-default saveScore" data-schoolid="{{$SecondLeveSplitedStudent["id"] }}" />
+                                                    <input type = "submit"  value="Download Report"  class="btn btn-default saveScore" data-schoolid="{{$SecondLeveSplitedStudent["id"] }}" />
                                                 </div>
 
                                             </div>

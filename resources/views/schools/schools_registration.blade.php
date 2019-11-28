@@ -35,7 +35,7 @@
 
                                 {{--</a>--}}
 
-                                <a class=" tooltipped modal-trigger card-title  grey-text text-darken-4"  data-position="left" data-delay="50" data-tooltip="Click to Upload Scores" style="font-size: 18px!important;"  href="{{   url('/schools_registration_excel_upload/'. $SecondLeveSplitedStudent["id"] ) }}" >
+                                <a class=" tooltipped modal-trigger card-title  grey-text text-darken-4"  data-position="left" data-delay="50" data-tooltip="Click to Register Students" style="font-size: 18px!important;"  href="{{   url('/schools_registration_excel_upload/'. $SecondLeveSplitedStudent["id"] ) }}" >
                                     <b>  {{ $SecondLeveSplitedStudent["school_name"]  }}  </b>
 
                                 </a>

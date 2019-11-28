@@ -2406,6 +2406,7 @@ class ScoreReportController extends Controller
         $method = $request->isMethod('get');
         if ($method)
         {
+            set_time_limit(300);
 //            dd($request->all(), $student_registration_id ,  $class_subdivision_loop_key);
 
 //            $validator = Validator::make($request->a, [
@@ -2421,9 +2422,10 @@ class ScoreReportController extends Controller
 
 //            dd(Session::get("academic_year_object"));
 
+
             $term_object = Session::has("term_object") ? Session::get("term_object") : null;
             $school_object = Session::has("school_object") ? Session::get("school_object") : null;
-
+            
             $academic_year_object = Session::has("academic_year_object") ? Session::get("academic_year_object") : null;
 
             // Get Excel Data from Session Varibale
