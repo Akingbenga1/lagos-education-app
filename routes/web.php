@@ -145,9 +145,9 @@ Route::get('/', array(
     'uses' => 'HomeController@home'));
 
 //Excel Upload Page
-Route::get('/ExcelUploadPage.html', array(
-    'as' => 'excel-upload-page',
-    'uses' => 'ExcelScoreController@index'));
+// Route::get('/ExcelUploadPage.html', array(
+//     'as' => 'excel-upload-page',
+//     'uses' => 'ExcelScoreController@index'));
 
 //Excel Upload Page
 Route::get('/ExcelUploadView.html', array(
@@ -797,3 +797,15 @@ Route::group(array('before' => 'auth'), function()
 //Auth::routes();
 //
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+/********************************************* USER MANAGEMENT ****************************************************/
+Route::post('/detachuserrole', 'UserManagementController@detachUserRole')->name('detachUserRole');
+Route::post('/detachuserpermission', 'UserManagementController@detachUserPermission')->name('detachUserPermission');
+Route::match(['get', 'post'], '/searchuser', ['uses' => 'UserManagementController@searchUser']);
+Route::match(['get', 'post'], '/searcheduser', ['uses' => 'UserManagementController@searchedUser']);
+Route::match(['get', 'post'], '/attachrole', ['uses' => 'RoleController@attachRole']);
+
+Route::resource('/users', 'UserManagementController');
+Route::resource('/roles', 'RoleController');
+Route::resource('/permissions', 'PermissionController');

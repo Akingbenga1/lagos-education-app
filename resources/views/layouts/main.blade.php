@@ -42,11 +42,11 @@
   src: url({{ asset('/fonts/Titillium/Titillium-Semibold.otf') }});
 }
 </style>
-
 <link href="{{asset('CSS/SiteStyle.css')}}" rel="stylesheet">
 <link href="{{asset('CSS/MaterialDesign/iconfont/material-icons.css')}}" rel="stylesheet">
 <link href="{{asset('CSS/materialize.min.css')}}" rel="stylesheet">
-<link href="{{asset('CSS/jquery-ui-style.css')}}" rel="stylesheet">
+{{-- <link href="{{asset('CSS/jquery-ui-style.css')}}" rel="stylesheet"> --}}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link href="{{asset('assets-new/img/prime_favicon.png')}}" rel="shortcut icon">
 
@@ -111,6 +111,12 @@
 
         <li><a href="{{route('teachers-home-page')}}" class="waves-effect"><i class="red-text material-icons">school</i>Teachers</a></li>
 
+        <li><a href="{{route('users.index')}}" class="waves-effect"><i class="red-text material-icons">cloud</i>User Management</a></li>
+        @role('superadmin')
+            <li><a href="{{route('roles.index')}}" class="waves-effect"><i class="red-text material-icons">cloud</i>Roles Management</a></li>
+
+            <li><a href="{{route('permissions.index')}}" class="waves-effect"><i class="red-text material-icons">cloud</i>Permissions Management</a></li>
+        @endrole
         <li><a href="{{route('student-question-page')}}" class="waves-effect"><i class="red-text material-icons">cloud</i>Practise Questions</a></li>
 
         {{--<li class="green white-text"><a href="{{URL::action('excel-upload-page')}}" class="waves-effect white-text"><i class=" white-text material-icons">list</i>Excel Bulk Upload</a></li>--}}
@@ -145,6 +151,7 @@
                 <li><a href="{{url('/schools_options')}}" class="waves-effect"> Schools </a></li>
                 <li><a href="{{route('student-page')}}" class="waves-effect">Students</a></li>
                 <li><a href="{{route('teachers-home-page')}}" class="waves-effect">Teachers</a></li>
+                <li><a href="{{route('users.index')}}" class="waves-effect">User Management</a></li>
                 <li><a href="{{route('student-question-page')}}" class="waves-effect">Practise Questions</a></li>
                 <!-- Dropdown Trigger -->
                 @if(Auth::check())

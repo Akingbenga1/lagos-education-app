@@ -5,6 +5,7 @@ namespace App\Models;
 //use Illuminate\Auth\Reminders\RemindableInterface;
 //use Illuminate\Auth\Reminders\RemindableTrait;
 //use Zizaco\Entrust\HasRole;
+use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class Users   extends Authenticatable /*implements UserInterface ,RemindableInterface */{
 //	use RemindableTrait,  HasRole;
 
+use LaratrustUserTrait;
 use SoftDeletes;
 
 
